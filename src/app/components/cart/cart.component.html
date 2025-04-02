@@ -94,63 +94,65 @@
 </header>
 <section class="cart bg-[#f9f9f9] py-12">
      <div class="px-4 sm:px-14 md:px-16 lg:px-20">
-        <div class="cart-body grid grid-cols-1 gap-y-4 bg-white p-3 sm:p-4 lg:p-8 rounded-xl">
-            @for(product of productsCart; track product.product.id; let index = $index) {
-                <div class="cart-item flex flex-col sm:flex-row justify-between gap-y-6 sm:gap-y-0 border border-solid border-[hsla(0, 0%, 54%, .1);] shadow-4xl p-4 sm:p-6 rounded-xl">
-                    <div class="media flex items-center gap-x-6 lg:gap-x-8">
-                        <figure class="product-image w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
-                            <a [routerLink]="['/product-details', product.product.id]">
-                                <img [src]="product.product.imgUrl" [alt]="product.product.name + ' image'" class="w-full rounded-md"/>
-                            </a>
-                        </figure>
-                        <div class="product-info space-y-1 lg:space-y-2">
-                            <h1 class="sm:text-lg md:text-xl lg:text-2xl font-bold text-[#1d1d1d]">{{product.product.name}}</h1>
-                            <div class="price">
-                                <p class="text-[15px] sm:text-base lg:text-lg text-mainColor">EGP {{product.product.price | number : '1.0-0'}}</p>
-                            </div>
-                            <div class="demand">
-                                <span class="px-2 py-1 sm:px-3 sm:py-1.5 text-[#20a144] text-xs sm:text-sm bg-[#f0fbf3] rounded-md">Upon Demand</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="actions flex items-center justify-end sm:justify-start gap-x-8">
-                        <div class="quantity flex items-center gap-x-4">
-                            <div class="minus cursor-pointer">
-                                <div class="icon bg-[#f9f9f8] rounded-md p-0.5">
-                                    @if(product.quantity != 1) {
-                                        <div (click)="minusProduct(index)">
-                                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" width="23px" fill="#5f6368"><path d="M200-440v-80h560v80H200Z"/>
-                                            </svg>
-                                        </div>
-                                    }
-                                    @else {
-                                        <div (click)="removeProduct(index)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="23px" fill="#5f6368"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
-                                            </svg>
-                                        </div>
-                                    }
+        @if(productsCart.length) {
+            <div class="cart-body grid grid-cols-1 gap-y-4 bg-white p-3 sm:p-4 lg:p-8 rounded-xl">
+                @for(product of productsCart; track product.product.id; let index = $index) {
+                    <div class="cart-item flex flex-col sm:flex-row justify-between gap-y-6 sm:gap-y-0 border border-solid border-[hsla(0, 0%, 54%, .1);] shadow-4xl p-4 sm:p-6 rounded-xl">
+                        <div class="media flex items-center gap-x-6 lg:gap-x-8">
+                            <figure class="product-image w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                                <a [routerLink]="['/product-details', product.product.id]">
+                                    <img [src]="product.product.imgUrl" [alt]="product.product.name + ' image'" class="w-full rounded-md"/>
+                                </a>
+                            </figure>
+                            <div class="product-info space-y-1 lg:space-y-2">
+                                <h1 class="sm:text-lg md:text-xl lg:text-2xl font-bold text-[#1d1d1d]">{{product.product.name}}</h1>
+                                <div class="price">
+                                    <p class="text-[15px] sm:text-base lg:text-lg text-mainColor">EGP {{product.product.price | number : '1.0-0'}}</p>
+                                </div>
+                                <div class="demand">
+                                    <span class="px-2 py-1 sm:px-3 sm:py-1.5 text-[#20a144] text-xs sm:text-sm bg-[#f0fbf3] rounded-md">Upon Demand</span>
                                 </div>
                             </div>
-                            <div class="quant">
-                                <p class="text-[15px] sm:text-lg font-semibold">{{product.quantity}}</p>
+                        </div>
+                        <div class="actions flex items-center justify-end sm:justify-start gap-x-8">
+                            <div class="quantity flex items-center gap-x-4">
+                                <div class="minus cursor-pointer">
+                                    <div class="icon bg-[#f9f9f8] rounded-md p-0.5">
+                                        @if(product.quantity != 1) {
+                                            <div (click)="minusProduct(index)">
+                                                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" width="23px" fill="#5f6368"><path d="M200-440v-80h560v80H200Z"/>
+                                                </svg>
+                                            </div>
+                                        }
+                                        @else {
+                                            <div (click)="removeProduct(index)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="23px" fill="#5f6368"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                                                </svg>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="quant">
+                                    <p class="text-[15px] sm:text-lg font-semibold">{{product.quantity}}</p>
+                                </div>
+                                <div class="plus cursor-pointer" (click)="plusProduct(index)">
+                                    <div class="icon bg-[#f9f9f8] rounded-md p-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="23px"  fill="#5f6368"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="plus cursor-pointer" (click)="plusProduct(index)">
-                                <div class="icon bg-[#f9f9f8] rounded-md p-0.5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="23px"  fill="#5f6368"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+                            <div class="remove cursor-pointer" (click)="removeProduct(index)">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="23px" fill="#5f6368"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                                     </svg>
                                 </div>
                             </div>
                         </div>
-                        <div class="remove cursor-pointer" (click)="removeProduct(index)">
-                            <div class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="23px" fill="#5f6368"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
-                                </svg>
-                            </div>
-                        </div>
                     </div>
-                </div>
-               }
-        </div>
+                   }
+            </div>
+        }
         @if(productsCart.length) {
             <div class="payment-process flex flex-col-reverse sm:flex-row justify-between  sm:items-center py-8 gap-y-4">
                 <div class="payment">
