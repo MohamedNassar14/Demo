@@ -20,6 +20,9 @@ export class ProductsComponent implements OnInit {
   cartNumber:number = 0;
 
   ngOnInit(): void {
+    this.swagger.cartNumbers.subscribe({
+      next:(data)=> this.cartNumber = data
+    })
     let {name} = this.activatedRoute.snapshot.params;
     this.getAllProducts(name);
   }
@@ -28,9 +31,6 @@ export class ProductsComponent implements OnInit {
     this.swagger.getProducts().subscribe((res)=> {
        this.allProducts = res.filter((product)=> product.catName == categoryName)
     });
-    this.swagger.cartNumbers.subscribe({
-      next:(data)=> this.cartNumber = data
-    })
   }
 
   openSide()

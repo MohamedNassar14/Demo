@@ -38,41 +38,40 @@ export class CartComponent implements OnInit {
   }
 
   getAllProductsCart() {
-    if(localStorage.getItem('productsCart') !== null)
-      {
+    if(localStorage.getItem('productsCart') !== null) {
         this.productsCart = JSON.parse(localStorage.getItem('productsCart')!);
       }
   }
-  plusProduct(index:number)
-  {
+  plusProduct(index:number) {
     this.productsCart[index].quantity++;
     localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
+    this.swagger.cartNumbers.next(this.productsCart.length);
     this.getTotalPrice();
   }
 
-  minusProduct(index:number)
-  {
+  minusProduct(index:number) {
     this.productsCart[index].quantity--;
     if(this.productsCart[index].quantity == 0)
     {
       this.productsCart.splice(index, 1);
       localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
+      this.swagger.cartNumbers.next(this.productsCart.length);
     }
     else
     {
       localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
+      this.swagger.cartNumbers.next(this.productsCart.length);
     }
     this.getTotalPrice();
   }
-  removeProduct(index:number)
-  {
+  removeProduct(index:number) {
     this.productsCart.splice(index, 1);
     localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
+    this.swagger.cartNumbers.next(this.productsCart.length);
     this.getTotalPrice();
   }
 
-  getTotalPrice()
-  {
+  getTotalPrice() {
     this.totalPrice = 0;
     for(let product of this.productsCart)
     {
