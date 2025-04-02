@@ -1,0 +1,226 @@
+[
+    {
+        "id": 1,
+        "name": "Recliner Chair",
+        "price": 10899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/09/01/12/19/office-chair-5535081_1280.png",
+        "catName": "chairs"
+    },
+    {
+        "id": 2,
+        "name": "Desk Chair",
+        "price": 11899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
+        "catName": "chairs"
+    },
+    {
+        "id": 3,
+        "name": "Leather Chair",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2019/07/29/04/46/minimal-4369856_1280.jpg",
+        "catName": "chairs"
+    },
+    {
+        "id": 4,
+        "name": "Modern Chair",
+        "price": 12279,
+        "imgUrl": "https://cdn.pixabay.com/photo/2023/12/16/14/45/ai-generated-8452611_1280.jpg",
+        "catName": "chairs"
+    },
+    {
+        "id": 5,
+        "name": "Rafero bed",
+        "price": 10899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2023/11/15/13/36/bed-8390092_1280.jpg",
+        "catName": "beds"
+    },
+    {
+        "id": 6,
+        "name": "Caspar bed",
+        "price": 11899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2021/02/21/12/13/bedroom-6036175_1280.jpg",
+        "catName": "beds"
+    },
+    {
+        "id": 7,
+        "name": "Leon bed",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2023/10/30/09/59/bed-8352408_1280.jpg",
+        "catName": "beds"
+    },
+    {
+        "id": 8,
+        "name": "Modern bed",
+        "price": 12279,
+        "imgUrl": "https://cdn.pixabay.com/photo/2024/07/28/15/20/ai-generated-8927816_1280.jpg",
+        "catName": "beds"
+    },
+    {
+        "id": 9,
+        "name": "Recliner table",
+        "price": 10899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2023/09/18/08/49/plant-8259955_1280.jpg",
+        "catName": "tables"
+    },
+    {
+        "id": 10,
+        "name": "Desk table",
+        "price": 11899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2023/09/18/08/49/plant-8259955_1280.jpg",
+        "catName": "tables"
+    },
+    {
+        "id": 11,
+        "name": "Leather table",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2019/12/26/18/37/living-room-4720962_1280.jpg",
+        "catName": "tables"
+    },
+    {
+        "id": 12,
+        "name": "Modern table",
+        "price": 12279,
+        "imgUrl": "https://cdn.pixabay.com/photo/2019/12/26/18/37/living-room-4720962_1280.jpg",
+        "catName": "tables"
+    },
+    {
+        "id": 13,
+        "name": "Recliner sofa",
+        "price": 10899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2012/11/21/10/48/red-couch-66819_1280.jpg",
+        "catName": "sofas"
+    },
+    {
+        "id": 14,
+        "name": "Desk sofa",
+        "price": 11899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2019/12/26/18/37/living-room-4720962_1280.jpg",
+        "catName": "sofas"
+    },
+    {
+        "id": 15,
+        "name": "Leather sofa",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2023/10/30/10/08/sofa-8352443_1280.jpg",
+        "catName": "sofas"
+    },
+    {
+        "id": 16,
+        "name": "Modern sofa",
+        "price": 12279,
+        "imgUrl": "https://cdn.pixabay.com/photo/2012/11/21/10/48/red-couch-66819_1280.jpg",
+        "catName": "sofas"
+    },
+    {
+        "id": 17,
+        "name": "Recliner",
+        "price": 10899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2024/07/28/15/20/ai-generated-8927809_1280.jpg",
+        "catName": "bed-rooms"
+    },
+    {
+        "id": 18,
+        "name": "Desk",
+        "price": 11899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2024/07/28/15/20/ai-generated-8927816_1280.jpg",
+        "catName": "bed-rooms"
+    },
+    {
+        "id": 19,
+        "name": "Leather",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2024/07/28/15/20/ai-generated-8927781_1280.jpg",
+        "catName": "bed-rooms"
+    },
+    {
+        "id": 20,
+        "name": "Modern",
+        "price": 12279,
+        "imgUrl": "https://cdn.pixabay.com/photo/2023/10/30/09/59/bed-8352408_1280.jpg",
+        "catName": "bed-rooms"
+    },
+    {
+        "id": 21,
+        "name": "Recliner",
+        "price": 10899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/12/18/11/03/living-room-5841845_1280.jpg",
+        "catName": "living-rooms"
+    },
+    {
+        "id": 22,
+        "name": "Desk",
+        "price": 11899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/12/18/11/03/living-room-5841845_1280.jpg",
+        "catName": "living-rooms"
+    },
+    {
+        "id": 23,
+        "name": "Leather",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/12/18/11/03/living-room-5841845_1280.jpg",
+        "catName": "living-rooms"
+    },
+    {
+        "id": 24,
+        "name": "Modern",
+        "price": 12279,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/12/18/11/03/living-room-5841845_1280.jpg",
+        "catName": "living-rooms"
+    },
+    {
+        "id": 25,
+        "name": "Recliner",
+        "price": 10899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2017/10/24/09/14/table-2883912_1280.jpg",
+        "catName": "dining-rooms"
+    },
+    {
+        "id": 26,
+        "name": "Desk",
+        "price": 11899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2017/10/24/09/14/table-2883912_1280.jpg",
+        "catName": "dining-rooms"
+    },
+    {
+        "id": 27,
+        "name": "Leather",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2017/10/24/09/14/table-2883912_1280.jpg",
+        "catName": "dining-rooms"
+    },
+    {
+        "id": 28,
+        "name": "Modern",
+        "price": 12279,
+        "imgUrl": "https://cdn.pixabay.com/photo/2017/10/24/09/14/table-2883912_1280.jpg",
+        "catName": "dining-rooms"
+    },
+    {
+        "id": 29,
+        "name": "Recliner",
+        "price": 10899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/03/14/16/56/silence-4931206_1280.jpg",
+        "catName": "kids-rooms"
+    },
+    {
+        "id": 30,
+        "name": "Desk",
+        "price": 11899,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/03/14/16/56/silence-4931206_1280.jpg",
+        "catName": "kids-rooms"
+    },
+    {
+        "id": 31,
+        "name": "Leather",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/03/14/16/56/silence-4931206_1280.jpg",
+        "catName": "kids-rooms"
+    },
+    {
+        "id": 32,
+        "name": "Modern",
+        "price": 12279,
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/03/14/16/56/silence-4931206_1280.jpg",
+        "catName": "kids-rooms"
+    }
+]

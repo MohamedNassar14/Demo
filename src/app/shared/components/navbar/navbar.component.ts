@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SwaggerService } from '../../services/swagger.service';
 
 
 @Component({
@@ -11,14 +12,16 @@ import { RouterLink } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() {}
+  constructor(private swagger:SwaggerService) {}
   
   isOpen:boolean = false;
   isScrolled:boolean = false;
-
+  cartNumber:number = 0;
 
   ngOnInit(): void {
-
+    this.swagger.cartNumbers.subscribe({
+      next:(data)=> this.cartNumber = data
+    })
   }
 
   @HostListener('window:scroll')  
@@ -41,3 +44,4 @@ export class NavbarComponent implements OnInit {
   }
 
 }
+

@@ -25,8 +25,8 @@ export class ProductsComponent implements OnInit {
   }
 
   getAllProducts(categoryName:string) {
-    this.swagger.getProducts(categoryName).subscribe((res)=> {
-      this.allProducts = res;
+    this.swagger.getProducts().subscribe((res)=> {
+       this.allProducts = res.filter((product)=> product.catName == categoryName)
     });
     this.swagger.cartNumbers.subscribe({
       next:(data)=> this.cartNumber = data

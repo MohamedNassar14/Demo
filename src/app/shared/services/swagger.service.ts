@@ -24,40 +24,40 @@ export class SwaggerService {
     return this.httpClient.get<Category[]>(`assets/api/collections.json`);
   }
 
-  getProducts(catName:string):Observable<Product[]> {
-    return this.httpClient.get<Product[]>(`http://localhost:3000/allProducts?catName=${catName}`);
+  getProducts():Observable<Product[]> {
+    return this.httpClient.get<Product[]>(`assets/api/allProducts.json`);
   }
 
   getSingleProduct():Observable<Product[]> {
     return this.httpClient.get<Product[]>(`http://localhost:3000/allProducts`);
   }
 
-  // getProductToAdd(event:any) {
-  //   if(localStorage.getItem('productsCart') !== null)
-  //     {
-  //       this.productsCart = JSON.parse(localStorage.getItem('productsCart')!);
-  //       //Check for if product exist already in productsCart 
-  //       let newProduct:any = this.productsCart.find((item:ProductDetails)=> item.product.id == event.product.id);
-  //       if(newProduct)
-  //       {
-  //         newProduct.quantity++;
-  //         localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
-  //         this.cartNumbers.next(this.productsCart.length);
-  //       }
-  //       else
-  //       {
-  //         this.productsCart.push(event);
-  //         localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
-  //         this.cartNumbers.next(this.productsCart.length);
-  //       }
-  //     }
-  //     else
-  //     {
-  //       this.productsCart.push(event);
-  //       localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
-  //       this.cartNumbers.next(this.productsCart.length);
-  //     }
-  // }
+  getProductToAdd(event:any) {
+    if(localStorage.getItem('productsCart') !== null)
+      {
+        this.productsCart = JSON.parse(localStorage.getItem('productsCart')!);
+        //Check for if product exist already in productsCart 
+        let newProduct:any = this.productsCart.find((item:ProductDetails)=> item.product.id == event.product.id);
+        if(newProduct)
+        {
+          newProduct.quantity++;
+          localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
+          this.cartNumbers.next(this.productsCart.length);
+        }
+        else
+        {
+          this.productsCart.push(event);
+          localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
+          this.cartNumbers.next(this.productsCart.length);
+        }
+      }
+      else
+      {
+        this.productsCart.push(event);
+        localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
+        this.cartNumbers.next(this.productsCart.length);
+      }
+  }
 
   getCartNumber()
   {
