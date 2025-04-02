@@ -156,13 +156,23 @@
                 </div>
                }
         </div>
-        <div class="price flex flex-col-reverse sm:flex-row justify-between  sm:items-center py-8 gap-y-4">
-            <div class="payment">
-                <button class="bg-mainColor text-lg sm:text-xl font-bold text-white w-full px-12 py-2 sm:px-20 sm:py-3 rounded-md">Checkout</button>
+        @if(productsCart.length) {
+            <div class="payment-process flex flex-col-reverse sm:flex-row justify-between  sm:items-center py-8 gap-y-4">
+                <div class="payment">
+                    <button class="bg-mainColor text-lg sm:text-xl font-bold text-white w-full px-12 py-2 sm:px-20 sm:py-3 rounded-md">Checkout</button>
+                </div>
+                <div class="total-price">
+                    <p class="text-[19px] sm:text-[22px] font-semibold"><span class="text-xl sm:text-2xl">Total : </span> EGP {{totalPrice | number : '1.0-0'}}</p>
+                </div>
             </div>
-            <div class="total-price">
-                <p class="text-[19px] sm:text-[22px] font-semibold"><span class="text-xl sm:text-2xl">Total : </span> EGP {{totalPrice | number : '1.0-0'}}</p>
+        }
+        @else {
+            <div class="go-back text-center space-y-3.5 sm:space-y-5 lg:space-y-7">
+                <p class="sm:text-lg md:text-2xl xl:text-2xl font-semibold">Your cart is empty</p>
+            <button class="bg-mainColor text-white uppercase sm:text-lg py-1.5 px-3.5 sm:py-3 sm:px-6 rounded-lg">
+                <a routerLink="/home">Continue Shopping</a>
+            </button>
             </div>
-        </div>
+        }
      </div>
 </section>
