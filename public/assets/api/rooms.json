@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "bed-rooms",
+        "imgUrl": "https://cdn.pixabay.com/photo/2024/07/28/15/20/ai-generated-8927781_1280.jpg"
+    },
+    {
+        "id": 2,
+        "name": "living-rooms",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/12/18/11/03/living-room-5841845_1280.jpg"
+    },
+    {
+        "id": 3,
+        "name": "dining-rooms",
+        "imgUrl": "https://cdn.pixabay.com/photo/2017/10/24/09/14/table-2883912_1280.jpg"
+    },
+    {
+        "id": 4,
+        "name": "kids-rooms",
+        "imgUrl": "https://cdn.pixabay.com/photo/2020/03/14/16/56/silence-4931206_1280.jpg"
+    }
+]

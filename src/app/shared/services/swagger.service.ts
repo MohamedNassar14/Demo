@@ -17,11 +17,11 @@ export class SwaggerService {
   cartNumbers$ = this.cartNumbers.asObservable();
 
   getRoomsCategories():Observable<Category[]> {
-    return this.httpClient.get<Category[]>(`http://localhost:3000/roomsCategories`);
+    return this.httpClient.get<Category[]>(`assets/api/rooms.json`);
   }
 
   getCollectionsCategories():Observable<Category[]> {
-    return this.httpClient.get<Category[]>(`http://localhost:3000/collectionsCategories`);
+    return this.httpClient.get<Category[]>(`assets/api/collections.json`);
   }
 
   getProducts(catName:string):Observable<Product[]> {
