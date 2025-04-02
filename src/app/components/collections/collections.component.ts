@@ -1,11 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
+import { SwaggerService } from '../../shared/services/swagger.service';
+import { Category } from '../../shared/models/category';
+import { CategoryComponent } from '../../shared/components/category/category.component';
 
 @Component({
   selector: 'app-collections',
-  imports: [],
+  imports: [NavbarComponent, CategoryComponent],
   templateUrl: './collections.component.html',
   styleUrl: './collections.component.css'
 })
-export class CollectionsComponent {
+export class CollectionsComponent implements OnInit {
 
+  constructor(private swagger:SwaggerService) {}
+
+  collectionsCategories:Category[] = [];
+
+  ngOnInit(): void {
+    this.getAllCollectionsCategories();
+  }
+
+  getAllCollectionsCategories() {
+    this.swagger.getCollectionsCategories().subscribe((res)=> {
+      this.collectionsCategories = res;
+    })
+  }
 }

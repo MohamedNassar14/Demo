@@ -1,1 +1,20 @@
-<p>collections works!</p>
+<app-navbar></app-navbar>
+<main class="space-y-6">
+    <section class="banner bg-no-repeat bg-cover bg-bottom relative min-h-[65vh]" style="background-image: url('assets/images/collections-banner.jpg')">
+        <div class="overlay flex justify-center items-center absolute inset-0 bg-black/40 text-white text-center">
+            <div class="brand text-white">
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase">collections</h1>
+            </div>
+        </div>
+    </section>
+    <section class="collections-categories  pb-14">
+        <div class="collection-body px-4 sm:px-14 md:px-16 lg:px-20"> 
+            <h3 class="text-xl md:text-2xl lg:text-3xl text-center font-bold py-6 sm:py-7 md:py-9 lg:py-12">Explore More</h3>
+            <div class="collections-content grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                @for(category of collectionsCategories; track category.id) { 
+                    <app-category [category]="category"></app-category>
+                }
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,1 +1,10 @@
-<p>category works!</p>
+<a [routerLink]="['/products', category.name]">
+    <div class="category">
+        <figure class="rounded-md">
+            <img [src]="category.imgUrl" loading="lazy" [alt]="category.name + ' image'" class="w-full"/>
+        </figure>
+        <div class="catgory-title text-center py-3">
+            <h2 class="text-sm sm:text-lg xl:text-2xl font-semibold capitalize">{{category.name}}</h2>
+        </div>
+    </div>
+</a>
