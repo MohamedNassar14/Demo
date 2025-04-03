@@ -41,6 +41,8 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+  }
 
 }
