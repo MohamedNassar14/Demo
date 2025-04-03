@@ -2,7 +2,7 @@
     <div class="product border border-solid border-[rgba(128, 128, 128, .16)] shadow-4xl p-2 sm:p-4">
         <figure class="product-image relative overflow-hidden">
             <img [src]="product.imgUrl" loading="lazy" [alt]="product.name + ' image'" class="w-full hover:scale-[1.2] transition-transform duration-300 ease-in-out"/>
-            <p class="stock absolute bottom-0 left-0 text-white bg-green-600 px-1.5 py-0.5 text-xs sm:text-base">
+            <p class="stock absolute bottom-0 left-0 text-white bg-green-600 px-1.5 py-0.5 text-[10px] sm:text-base">
                 In Stock
             </p>
         </figure>
@@ -11,7 +11,7 @@
                 <h2 class="text-sm sm:text-lg xl:text-2xl font-semibold capitalize">{{product.name}}</h2>
             </div>
             <div class="product-price">
-                <p class="text-xs sm:text-lg text-mainColor">EGP {{product.price | number : '1.0-0'}}</p>
+                <p class="text-sm sm:text-lg text-mainColor">EGP {{product.price | number : '1.0-0'}}</p>
             </div>
         </div>
     </div>
