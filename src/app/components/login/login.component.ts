@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.swagger.cartNumbers.subscribe({
       next:(data)=> this.cartNumber = data
     })

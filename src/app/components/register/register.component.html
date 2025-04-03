@@ -109,18 +109,18 @@
             </figure>
             <h2 class="text-xl sm:text-2xl text-mainColor text-center font-bold py-5">Create Account</h2>
             <div class="register-form">
-                <form class="space-y-4 sm:space-y-6">
+                <form class="space-y-4 sm:space-y-6" [formGroup]="registerForm">
                     <div class="first-name">
-                        <input type="text" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="First Name"/>
+                        <input type="text" formControlName="firstName" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="First Name"/>
                     </div>
                     <div class="last-name">
-                        <input type="text" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Last Name"/>
+                        <input type="text" formControlName="lastName" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Last Name"/>
                     </div>
                     <div class="email">
-                        <input type="email" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Email"/>
+                        <input type="email" formControlName="email" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Email"/>
                     </div>
                     <div class="password">
-                        <input type="password" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Password"/>
+                        <input type="password" formControlName="password" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Password"/>
                     </div>
                     <button  type="submit" class="w-full sm:text-lg px-4 py-2 rounded-full transition-colors duration-300 ease-in-out 
                     bg-mainColor text-white disabled:bg-mainColor disabled:text-gray-400 disabled:cursor-not-allowed 

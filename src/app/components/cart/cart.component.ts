@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
   cartNumber:number = 0;
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.getAllProductsCart();
     this.getTotalPrice();
     this.swagger.cartNumbers.subscribe({

@@ -17,6 +17,7 @@ export class CollectionsComponent implements OnInit {
   collectionsCategories:Category[] = [];
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.getAllCollectionsCategories();
   }
 

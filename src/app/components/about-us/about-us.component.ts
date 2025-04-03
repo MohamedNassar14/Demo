@@ -18,6 +18,7 @@ export class AboutUsComponent implements OnInit {
   cartNumber:number = 0;
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.setSEO();
     this.swagger.cartNumbers.subscribe({
       next:(data)=> this.cartNumber = data

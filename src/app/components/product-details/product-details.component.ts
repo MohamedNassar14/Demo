@@ -20,6 +20,7 @@ export class ProductDetailsComponent implements OnInit {
   cartNumber:number = 0;
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     let id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.swagger.getProducts().subscribe((res)=> {
       let details = res.find((ele)=> ele.id == id)

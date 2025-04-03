@@ -17,6 +17,7 @@ export class RoomsComponent implements OnInit {
   roomsCategories:Category[] = []
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.getAllRoomsCategories();
   }
 
