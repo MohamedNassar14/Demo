@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
     dots: false,
     margin: 10,
     navSpeed: 700,
+    autoplay: true, 
+    autoplayTimeout: 3000,  
+    autoplayHoverPause: true,
     navText: ['', ''],
     responsive: {
       0: {
