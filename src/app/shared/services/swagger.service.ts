@@ -27,9 +27,8 @@ export class SwaggerService {
   getProducts():Observable<Product[]> {
     return this.httpClient.get<Product[]>(`assets/api/allProducts.json`);
   }
-
-  getSingleProduct():Observable<Product[]> {
-    return this.httpClient.get<Product[]>(`http://localhost:3000/allProducts`);
+  getTrends():Observable<Product[]> {
+    return this.httpClient.get<Product[]>(`assets/api/trends.json`);
   }
 
   getProductToAdd(event:any) {

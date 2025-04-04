@@ -7,6 +7,23 @@
             </h2>
         </div>
     </section>
+    <section class="trends">
+        <div class="trends-body px-4 sm:px-14 md:px-16 lg:px-20">
+            <h2 class="text-lg md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">
+                New Collections
+            </h2>
+            <owl-carousel-o [options]="trends">
+                @for(item of allTrends; track item.id) {
+                    <ng-container>
+                        <ng-template carouselSlide>
+                          <app-product [product]="item" ></app-product>
+                        </ng-template>
+                      </ng-container>
+                }
+            
+              </owl-carousel-o>
+        </div>
+    </section>
     <section class="categories">
         <div class="categories-body px-4 sm:px-14 md:px-16 lg:px-20">
             <div class="categories-title">
