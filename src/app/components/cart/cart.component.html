@@ -116,9 +116,9 @@
                                 </a>
                             </figure>
                             <div class="product-info space-y-1 lg:space-y-2">
-                                <h1 class="sm:text-lg md:text-xl lg:text-2xl font-bold text-[#1d1d1d]">{{product.product.name}}</h1>
+                                <h1 class="sm:text-lg md:text-xl lg:text-[23px] font-bold text-[#1d1d1d]">{{product.product.name}}</h1>
                                 <div class="price">
-                                    <p class="text-[15px] sm:text-base lg:text-lg">EGP {{product.product.price | number : '1.0-0'}}</p>
+                                    <p class="text-[15px] sm:text-base lg:text-[17.5px]">EGP {{product.product.price | number : '1.0-0'}}</p>
                                 </div>
                                 <div class="demand">
                                     <span class="px-2 py-1 sm:px-3 sm:py-1.5 text-[#20a144] text-xs sm:text-sm bg-[#f0fbf3] rounded-md">Upon Demand</span>
@@ -129,22 +129,14 @@
                             <div class="quantity flex items-center gap-x-4">
                                 <div class="minus cursor-pointer">
                                     <div class="icon bg-[#f9f9f8] rounded-md p-0.5">
-                                        @if(product.quantity != 1) {
                                             <div (click)="minusProduct(index)">
                                                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" width="23px" fill="#5f6368"><path d="M200-440v-80h560v80H200Z"/>
                                                 </svg>
                                             </div>
-                                        }
-                                        @else {
-                                            <div (click)="removeProduct(index)">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="23px" fill="#5f6368"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
-                                                </svg>
-                                            </div>
-                                        }
                                     </div>
                                 </div>
                                 <div class="quant">
-                                    <p class="text-[15px] sm:text-lg font-semibold">{{product.quantity}}</p>
+                                    <p class="text-[15px] sm:text-[17px] font-semibold">{{product.quantity}}</p>
                                 </div>
                                 <div class="plus cursor-pointer" (click)="plusProduct(index)">
                                     <div class="icon bg-[#f9f9f8] rounded-md p-0.5">
