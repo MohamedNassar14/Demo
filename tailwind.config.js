@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'mainFont': ['Roboto', 'sans-serif']
+        mainFont: ['Roboto', 'sans-serif']
       },
       colors: {
         'mainColor': '#680a08',
