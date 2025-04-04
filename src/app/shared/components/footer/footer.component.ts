@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.isLoading = true;
-    }, 3000);
+    }, 2000);
   }
 
 }

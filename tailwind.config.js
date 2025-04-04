@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{html,ts,css}",
+    "./src/**/*.{html,ts}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
+        mainFont: ['Roboto', 'sans-serif']
       },
       colors: {
         'mainColor': '#680a08',
