@@ -127,7 +127,7 @@
             </figure>
             <div class="product-info col-span-2 space-y-3 lg:space-y-5">
                 <div class="title">
-                    <h1 class="text-xl sm:text-xl md:text-2xl xl:text-[26px] font-bold">{{productDetails?.name}}</h1>
+                    <h1 class="text-xl sm:text-xl md:text-[22px] xl:text-2xl font-bold">{{productDetails?.name}}</h1>
                 </div>
                 <div class="price">
                     <p class="text-[17px] sm:text-[17px] lg:text-xl">EGP 12,900</p>
@@ -150,16 +150,14 @@
                         Add To Cart
                     </button>
                 </div>
-                <details class="collapsible-tab text-sm sm:text-base lg:text-[17px] border-t border-b border-gray-300 py-3">
-                    <summary class="py-1 cursor-pointer">
-                        <span class="font-semibold">For customization request &amp; more details contact us</span>
-                    </summary>
-                    <div>
+                <div class="customize text-sm sm:text-base lg:text-[17px] border-t border-b border-gray-300 py-3">
+                        <span class="text-[15px] font-semibold">For customization request &amp; more details</span>
+                    <div class="pt-0.5">
                         <p><a routerLink="/contact-us" class="text-mainColor font-semibold">Click Here </a>&amp; Add details for your
                             customization
                         </p>
                     </div>
-                </details>
+                </div>
             </div>
         </div>
         <div class="description py-4 sm:py-6 md:py-8">
