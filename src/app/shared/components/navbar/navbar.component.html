@@ -1,7 +1,7 @@
-<header class="fixed top-0 z-40 w-full py-2 px-4 lg:px-10 lg:py-3.5" [ngClass]="{'bg-transparent text-white': !isScrolled, 'bg-secondColor text-mainColor': isScrolled}">
+<header class="fixed top-0 z-40 w-full py-2 sm:py-2.5 md:py-3 px-4 lg:px-8 lg:py-3.5" [ngClass]="{'bg-transparent text-white': !isScrolled, 'bg-secondColor text-mainColor': isScrolled}">
     <nav class="flex justify-between items-center">
-        <div class="bars pt-0.5 sm:pt-1 lg:hidden" (click)="openSide()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-[23px] sm:w-[27px] md:w-[30px]" fill="currentColor" role="presentation"><path d="M1.83 15.67c0-.28.23-.5.5-.5h15.34a.5.5 0 1 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M1.83 10.33c0-.27.23-.5.5-.5h15.34a.5.5 0 0 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M2.33 4.5a.5.5 0 0 0 0 1h15.34a.5.5 0 0 0 0-1z"></path>
+        <div class="bars pt-1 lg:hidden" (click)="openSide()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-[24px] sm:w-[27px] md:w-[30px]" fill="currentColor" role="presentation"><path d="M1.83 15.67c0-.28.23-.5.5-.5h15.34a.5.5 0 1 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M1.83 10.33c0-.27.23-.5.5-.5h15.34a.5.5 0 0 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M2.33 4.5a.5.5 0 0 0 0 1h15.34a.5.5 0 0 0 0-1z"></path>
             </svg>
         </div>
         <div class="nav-links hidden lg:block">
@@ -54,10 +54,10 @@
                     </svg>
                 </button>
             </div>
-            <div class="cart relative cursor-pointer p-[5px] lg:p-1 lg:pb-2" routerLink="/cart">
+            <div class="cart relative cursor-pointer p-[5px]  lg:p-1.5 lg:pb-2" routerLink="/cart">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[23px] sm:w-[24px] md:w-[26px] lg:w-[28px]" viewBox="0 0 30 30" role="presentation"><path d="M10.7267 6.46033c0-2.31454 1.8958-4.21033 4.2103-4.21033 2.3146 0 4.2103 1.89579 4.2103 4.21033v1.85499h-8.4206V6.46033ZM9.72669 9.31532v5.38808c0 .2761.22386.5.50001.5.2761 0 .5-.2239.5-.5V9.31532h8.4206v5.38808c0 .2761.2239.5.5.5.2762 0 .5-.2239.5-.5V9.31532h5.4457l-.9101 15.07278-.0003.0064c-.105 2.2034-1.943 3.9397-4.1521 3.9397H9.34352c-2.21707 0-4.10635-1.7443-4.21088-3.9397l-.00025-.0045L4.2791 9.31532h5.44759Zm0-1V6.46033C9.72669 3.5935 12.0702 1.25 14.937 1.25c2.8668 0 5.2103 2.3435 5.2103 5.21033v1.85499h5.9768c.1378 0 .2695.0569.364.15727.0945.10036.1434.23527.1351.37286l-.9419 15.59995c-.1323 2.7409-2.415 4.8888-5.1508 4.8888H9.34352c-2.72802 0-5.07748-2.1405-5.20966-4.8898L3.2508 8.84358c-.00777-.1373.04135-.27173.13579-.37168.09445-.09995.2259-.15658.36341-.15658h5.97669Z" fill-rule="evenodd"></path>
                 </svg>
-                <p class="absolute text-[10px] sm:text-xs 2xl:text-[13.5px] font-bold top-0 end-0 w-[14px] h-[14px] sm:w-[16px] sm:h-[16px] md:w-[16.5px] md:h-[16.5px] lg:w-[17px] lg:h-[17px] flex justify-center  rounded-full" [ngClass]="{'bg-white text-black': !isScrolled, 'bg-mainColor text-white': isScrolled}">
+                <p class="absolute text-[10px] sm:text-xs 2xl:text-[13.5px] font-bold top-0 end-0 w-[14px] h-[14px] sm:w-[15px] sm:h-[15px] md:w-[ sm:col-span-3 md:col-span-417px] md:h-[16.5px] lg:w-[17px] lg:h-[17px] flex justify-center sm:items-center  rounded-full" [ngClass]="{'bg-white text-black': !isScrolled, 'bg-mainColor text-white': isScrolled}">
                     {{cartNumber}}
                 </p>
             </div>
