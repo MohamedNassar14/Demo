@@ -1,15 +1,14 @@
 <a [routerLink]="['/product-details', product.id]">
     <div class="product border border-solid border-[rgba(128, 128, 128, .16)] shadow-4xl p-2 sm:p-4">
-        <figure class="product-image relative overflow-hidden">
+        <figure class="product-image overflow-hidden">
             <img [src]="product.imgUrl" loading="lazy" [alt]="product.name + ' image'" class="w-full hover:scale-[1.2] transition-transform duration-300 ease-in-out"/>
-
         </figure>
         <div class="product-content bg-[#f9fafb70] pt-3 space-y-0.5">
             <div class="product-title">
-                <h2 class="text-sm sm:text-lg lg:text-lg xl:text-[19px] font-semibold capitalize">{{product.name}}</h2>
+                <h2 class="text-sm sm:text-base lg:text-lg xl:text-[19px] font-semibold capitalize">{{product.name}}</h2>
             </div>
             <div class="product-price flex justify-between items-center">
-                <p class="text-[13px] pt-1 sm:text-sm lg:text-[15px] xl:text-base">EGP {{product.price | number : '1.0-0'}}</p>
+                <p class="text-[13px] sm:text-sm lg:text-[15px] xl:text-base pt-1">EGP {{product.price | number : '1.0-0'}}</p>
                 <p class="text-green-600 px-1 text-xs lg:text-xs xl:text-sm bg-[#f0fbf3]">In Stock</p>
             </div>
         </div>
