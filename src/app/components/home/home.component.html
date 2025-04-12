@@ -1,91 +1,114 @@
-<app-navbar></app-navbar>
 <main class="space-y-6">
-    <section class="home bg-no-repeat bg-cover bg-center relative min-h-screen" style="background-image: url('assets/images/home.webp')">
-        <div class="overlay overlay flex justify-center items-center absolute inset-0 bg-black/45 text-white text-center">
+    <section class="home bg-no-repeat bg-cover bg-center relative min-h-screen"
+        style="background-image: url('assets/images/home.webp')">
+        <div
+            class="overlay overlay flex justify-center items-center absolute inset-0 bg-black/45 text-white text-center">
             <h2 class="text-white text-sm md:text-lg xl:text-xl w-2/3 sm:w-1/2 lg:w-1/3">
-                We see the world with a vision that inspires us to design unique pieces that add elegance and sophistication to every corner of your home
+                We see the world with a vision that inspires us to design unique pieces that add elegance and
+                sophistication to every corner of your home
             </h2>
         </div>
     </section>
     <section class="trends">
-        <div class="trends-body px-4 sm:px-14 md:px-16 lg:px-20">
+        <div class="trends-body px-4">
             <h2 class="text-lg sm:text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">
                 New Collections
             </h2>
             <owl-carousel-o [options]="trends">
                 @for(item of allTrends; track item.id) {
-                    <ng-container>
-                        <ng-template carouselSlide>
-                          <app-product [product]="item" ></app-product>
-                        </ng-template>
-                      </ng-container>
+                <ng-container>
+                    <ng-template carouselSlide>
+                        <app-product [product]="item"></app-product>
+                    </ng-template>
+                </ng-container>
                 }
-            
-              </owl-carousel-o>
+
+            </owl-carousel-o>
         </div>
     </section>
     <section class="categories">
-        <div class="categories-body px-4 sm:px-14 md:px-16 lg:px-20">
-            <div class="categories-title">
-                <h2 class="text-lg sm:text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">
-                    check our categories
-                </h2>
-            </div>
-            <div class="categories-content grid grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 xl:gap-x-12">
-                <div class="rooms">
+        <div class="categories-body">
+            <div class="categories-content bg-[#f6f3eea6] grid grid-cols-4 sm:grid-cols-3 gap-x-4 px-4 sm:gap-x-6 md:gap-x-8 xl:gap-x-8  py-8">
+                <div class="shop flex items-center justify-center col-span-4 sm:col-span-1">
+                    <div class="flex flex-col max-lg:container lg:mb-0 lg:max-w-64 lg:gap-3">
+                        <p id="Efreshli Looks" class="mb-1 text-sm font-normal text-gray-700 lg:mb-0 lg:text-base">
+                            la terra Looks
+                        </p>
+                        <div class="mb-1 flex items-center justify-between lg:mb-0 ">
+                            <h2 class="text-xl md:text-2xl lg:text-4xl lg:font-normal text-black ">
+                                Shop the Look
+                            </h2>
+                        </div>
+                        <p  class="text-gray-900 text-sm md:text-base mb-3">
+                            Browse designer room settings and shop individual
+                            pieces to recreate these looks in your home.
+                        </p>
+                    </div>
+                </div>
+                <div class="rooms col-span-2 sm:col-span-1">
                     <figure class="rooms-image relative overflow-hidden group rounded-lg">
                         <a routerLink="/rooms">
-                            <img src="assets/images/rooms.webp" loading="lazy" alt="rooms-image" class="w-full">
-                            <div class="layer absolute left-0 top-full w-full h-full bg-black/40 flex justify-center items-center group-hover:top-0 transation-[top] duration-300">
-                                <h2 class="text-white text-sm sm:text-lg md:text-xl lg:text-4xl font-semibold sm:font-bold">
+                            <img src="assets/images/Ajq9xXOAWnZxcYWQVABuMP4eMRCFGRfE3bFZbGxV.webp" loading="lazy" alt="rooms-image" class="w-full">
+                            <div
+                                class="layer absolute left-0 top-full w-full h-full bg-black/40 flex justify-center items-center group-hover:top-0 transation-[top] duration-300">
+                                <h2
+                                    class="text-white text-sm sm:text-lg md:text-xl lg:text-4xl font-semibold sm:font-bold">
                                     Rooms
                                 </h2>
                             </div>
                         </a>
                     </figure>
-                    <div class="rooms-shop pt-4">
-                        <a routerLink="/rooms" class="flex items-center gap-x-1 sm:gap-x-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
-                                class="w-[18px] sm:w-[20px] lg:w-[24px] xl:w-[26px] hover:animate-move-right" fill="#5f6368">
-                                <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
-                            </svg>
-                            <span class="text-[13px] sm:text-[15px] md:text-base lg:text-lg xl:text-lg hover:text-mainColor">
-                                Shop Rooms
-                            </span>
+                    <div class="rooms-shop flex justify-center pt-4">
+                        <a routerLink="/rooms" class="underline">
+                            Shop Rooms
                         </a>
                     </div>
                 </div>
-                <div class="collections">
+                <div class="collections col-span-2 sm:col-span-1">
                     <div class="collections-image relative overflow-hidden group rounded-lg">
                         <a routerLink="/collections">
-                            <img src="assets/images/collections.webp" loading="lazy" alt="collections-image"
-                                class="w-full">
+                            <img src="assets/images/Ajq9xXOAWnZxcYWQVABuMP4eMRCFGRfE3bFZbGxV.webp" loading="lazy" alt="rooms-image" class="w-full">
                             <div
                                 class="layer absolute left-0 top-full w-full h-full bg-black/40 flex justify-center items-center group-hover:top-0 transation-[top] duration-300">
-                                <h2 class="text-white text-sm sm:text-lg md:text-xl lg:text-4xl font-semibold sm:font-bold">
+                                <h2
+                                    class="text-white text-sm sm:text-lg md:text-xl lg:text-4xl font-semibold sm:font-bold">
                                     Collections
                                 </h2>
                             </div>
                         </a>
                     </div>
-                    <div class="collections-shop pt-4">
-                        <a routerLink="/collections" class="flex items-center gap-x-1 sm:gap-x-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
-                                class="w-[18px] sm:w-[20px] lg:w-[24px] xl:w-[26px] hover:animate-move-right" fill="#5f6368">
-                                <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
-                            </svg>
-                            <span class="text-[13px] sm:text-[15px] md:text-base lg:text-lg xl:text-lg hover:text-mainColor">
-                                Shop Collections
-                            </span>
+                    <div class="collections-shop flex justify-center pt-4">
+                        <a routerLink="/collections" class="underline">
+                            Shop Collections
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="items">
+        <div class="items-body px-4">
+            <h2 class="text-lg sm:text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">
+               Our items
+            </h2>
+            <owl-carousel-o [options]="trends">
+                @for(item of allTrends; track item.id) {
+                <ng-container>
+                    <ng-template carouselSlide>
+                        <app-product [product]="item"></app-product>
+                    </ng-template>
+                </ng-container>
+                }
+
+            </owl-carousel-o>
+        </div>
+    </section>
     <section class="services flex justify-center pb-14">
         <div class="services-body px-4 sm:px-14 lg:px-0 w-full lg:w-3/4">
-            <h2 class="text-lg sm:text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">Our Services</h2>
+            <h2
+                class="text-lg sm:text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">
+                Our Services
+            </h2>
             <div class="services-content hidden sm:grid grid-cols-3 sm:gap-x-5 lg:gap-x-8 gap-y-6">
                 <div class="fast-shipping text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
                     <div class="icon flex justify-center pb-2">
@@ -97,7 +120,8 @@
                         </svg>
                     </div>
                     <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">Fast Shipping</h3>
-                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Free delivery for order over $100.00</p>
+                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Free delivery for order over $100.00
+                    </p>
                 </div>
                 <div class="secure-payment text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
                     <div class="icon flex justify-center pb-2">
@@ -109,7 +133,8 @@
                         </svg>
                     </div>
                     <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">Secure Payment</h3>
-                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Safe & more secure way to pay online.</p>
+                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Safe & more secure way to pay online.
+                    </p>
                 </div>
                 <div class="online-support text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
                     <div class="icon flex justify-center pb-2">
@@ -121,7 +146,8 @@
                         </svg>
                     </div>
                     <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">Online Support</h3>
-                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Feel Free to call us & get best support.</p>
+                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Feel Free to call us & get best
+                        support.</p>
                 </div>
             </div>
             <div class="carousel">
@@ -129,8 +155,8 @@
                     <ng-template carouselSlide>
                         <div class="fast-shipping text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
                             <div class="icon flex justify-center pb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="#680a08" class="w-7 sm:w-9 lg:w-11">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="#680a08" class="w-7 sm:w-9 lg:w-11">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
                                     </path>
@@ -139,12 +165,12 @@
                             <h3 class="text-sm font-semibold">Fast Shipping</h3>
                             <p class="text-[13px] text-gray-700">Free delivery for order over $100.00</p>
                         </div>
-                    </ng-template>  
+                    </ng-template>
                     <ng-template carouselSlide>
                         <div class="secure-payment text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
                             <div class="icon flex justify-center pb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="#680a08" class="w-7 sm:w-9 lg:w-11">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="#680a08" class="w-7 sm:w-9 lg:w-11">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z">
                                     </path>
@@ -153,12 +179,12 @@
                             <h3 class="text-sm font-semibold">Secure Payment</h3>
                             <p class="text-[13px] text-gray-700">Safe & more secure way to pay online.</p>
                         </div>
-                    </ng-template>  
+                    </ng-template>
                     <ng-template carouselSlide>
                         <div class="online-support text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
                             <div class="icon flex justify-center pb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="#680a08" class="w-7 sm:w-9 lg:w-11">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="#680a08" class="w-7 sm:w-9 lg:w-11">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0l6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z">
                                     </path>
@@ -167,7 +193,7 @@
                             <h3 class="text-sm font-semibold">Online Support</h3>
                             <p class="text-[13px] text-gray-700">Feel Free to call us & get best support.</p>
                         </div>
-                    </ng-template>  
+                    </ng-template>
                 </owl-carousel-o>
             </div>
         </div>

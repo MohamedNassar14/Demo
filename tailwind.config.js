@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mainFont: ['Lato', 'sans-serif']
+        mainFont: ['Tajawal', 'sans-serif']
       },
       colors: {
         'mainColor': '#680a08',

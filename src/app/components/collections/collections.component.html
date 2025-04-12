@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <main class="space-y-6">
     <section class="banner bg-no-repeat bg-cover bg-bottom relative min-h-[65vh]" style="background-image: url('assets/images/collections-banner.jpg')">
         <div class="overlay flex justify-center items-center absolute inset-0 bg-black/40 text-white text-center">
@@ -8,7 +7,7 @@
         </div>
     </section>
     <section class="collections-categories  pb-14">
-        <div class="collection-body px-4 sm:px-14 md:px-16 lg:px-20"> 
+        <div class="collection-body px-4 md:px-6"> 
             <h3 class="text-lg sm:text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">Explore More</h3>
             <div class="collections-content grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                 @for(category of collectionsCategories; track category.id) { 

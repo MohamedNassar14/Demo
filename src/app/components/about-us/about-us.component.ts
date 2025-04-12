@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SwaggerService } from '../../shared/services/swagger.service';
 import { Meta, Title } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about-us',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.css'
 })

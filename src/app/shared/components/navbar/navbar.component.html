@@ -1,35 +1,13 @@
-<header class="fixed top-0 z-40 w-full py-2 sm:py-2.5 md:py-3 px-4 lg:px-8 lg:py-3.5" [ngClass]="{'bg-transparent text-white': !isScrolled, 'bg-secondColor text-mainColor': isScrolled}">
-    <nav class="flex justify-between items-center">
-        <div class="bars pt-1 lg:hidden" (click)="openSide()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-[24px] sm:w-[27px] md:w-[30px]" fill="currentColor" role="presentation"><path d="M1.83 15.67c0-.28.23-.5.5-.5h15.34a.5.5 0 1 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M1.83 10.33c0-.27.23-.5.5-.5h15.34a.5.5 0 0 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M2.33 4.5a.5.5 0 0 0 0 1h15.34a.5.5 0 0 0 0-1z"></path>
+<header class="sticky inset-0 z-40 w-ful bg-secondColor font-medium px-4 pb-3 pt-3 md:py-4 md:px-6 lg:py-5">
+    <div class="flex items-center justify-between gap-x-4 lg:gap-x-0 pb-4 md:pb-0">
+        <div class="bars pt-1 md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-[22px]" fill="currentColor" role="presentation"><path d="M1.83 15.67c0-.28.23-.5.5-.5h15.34a.5.5 0 1 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M1.83 10.33c0-.27.23-.5.5-.5h15.34a.5.5 0 0 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M2.33 4.5a.5.5 0 0 0 0 1h15.34a.5.5 0 0 0 0-1z"></path>
             </svg>
         </div>
-        <div class="nav-links hidden lg:block">
-            <ul class="lg:text-[17px] xl:text-lg flex pt-1 gap-7">
-                <li>
-                    <a class="relative group" routerLink="/rooms">
-                        Rooms
-                        <span class="absolute left-0 top-full w-0 h-[1.75px] transition-[width] duration-300 group-hover:w-full" [ngClass]="{'bg-white': !isScrolled, 'bg-mainColor': isScrolled}" ></span>
-                    </a>
-                </li>
-                <li>
-                    <a class="relative group" routerLink="/collections">
-                        Collections
-                        <span class="absolute left-0 top-full w-0 h-[1.75px] transition-[width] duration-300 group-hover:w-full" [ngClass]="{'bg-white': !isScrolled, 'bg-mainColor': isScrolled}" ></span>
-                    </a>
-                </li>
-                <li>
-                    <a class="relative group" routerLink="/about-us">
-                        About Us
-                        <span class="absolute left-0 top-full w-0 h-[1.75px] transition-[width] duration-300 group-hover:w-full" [ngClass]="{'bg-white': !isScrolled, 'bg-mainColor': isScrolled}" ></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="logo pl-3 md:pl-8">
-            <h1>
+        <div class="logo">
+             <h1>
                 <a routerLink="/home">
-                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"  class="w-[120px] sm:w-[135px] md:w-[145px] lg:w-[160px] xl:w-[165px]" [ngClass]="{'fill-white': !isScrolled, 'fill-mainColor': isScrolled}" viewBox="0 0 732.36 180.38">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#680a08"  class="w-[115px] sm:w-[120px] md:w-[130px] lg:w-[140px] xl:w-[145px]" viewBox="0 0 732.36 180.38">
                         <polygon class="cls-1" points="226.26 118.7 226.26 56.67 216.88 56.67 216.88 127.44 268.03 127.44 264.3 118.7 226.26 118.7"/>
                         <path class="cls-1" d="M273.15,127.44h10.66l8.85-17.9h37.62l9.06,17.9h10.76l-38.79-74.5-38.16,74.5ZM296.81,101.33l14.49-29.31,14.81,29.31h-29.31Z"/>
                         <polygon class="cls-1" points="357.86 65.41 388.66 65.41 388.66 127.44 398.04 127.44 398.04 65.41 428.84 65.41 428.84 56.67 357.86 56.67 357.86 65.41"/>
@@ -40,62 +18,42 @@
                         <path class="cls-1" d="M140.3,93.48c6.62,18.55,12.48,31.63,17.56,42.39l-33.47,18.56-10.62-10.09c-.93-.89-1.18-2.27-.62-3.43,1.61-2.59,3.21-5.17,4.82-7.76-4.34,4.69-8.72,9.57-13.1,14.66-9.53,11.06-18.17,21.97-25.98,32.57l-32.8-19.33,3.16-14.05c.33-1.46,1.56-2.54,3.05-2.67,3.22-.27,6.44-.53,9.66-.8-4.54-.51-9.22-1.12-14.04-1.85-3.75-.57-7.4-1.18-10.94-1.83,0,.03-.03.03-.03.07-14.94-2.66-27.05-4.36-36.93-5.29l.47-45.11,15.17,2.63c1.86.32,3.53,1.33,4.67,2.83,1.31,1.72,2.61,3.44,3.92,5.18-3.02-5.9-6.01-12.05-8.95-18.46C9.37,68.8,4.38,56.35.17,44.51l39.76-21.96,4.98,12.24c.65,1.6.55,3.41-.27,4.93-1.99,3.4-3.97,6.79-5.96,10.19,6.14-7.37,12.31-14.86,18.49-22.47,7.48-9.21,14.79-18.36,21.94-27.45l39.39,23.19-9.58,11.81s-.07.1-.1.13c-3.33,3.79-6.69,7.55-10.05,11.34,2.04-1.71,6.28-4.49,8.99-6.23,1.57-1.01,3.43-1.39,5.27-1.09,8.63,1.41,34.75,5.62,44.95,6.59l-.43,45.11-3.23-.5c-6.29-1.4-16.5-3.69-22.79-5.12-1.27-.37-2.5-.73-3.76-1.1,2.88,1.33,6.3,3.29,9.01,4.98,1.62,1.01,2.86,2.56,3.51,4.36"/>
                     </svg>
                 </a>
-            </h1>
+             </h1>
         </div>
-        <div class="nav-actions flex items-center pt-1 sm:pt-0 gap-2 md:gap-4 lg:gap-6 xl:gap-8">
-            <div class="search-icon lg:hidden pt-0.5 md:pt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[21px] sm:w-[22px] md:w-[25px] cursor-pointer" viewBox="0 0 30 30" role="presentation"><path d="M2.25 11.9c0-5.32955 4.32045-9.65 9.65-9.65 5.3295 0 9.65 4.32045 9.65 9.65 0 5.3295-4.3205 9.65-9.65 9.65-5.32955 0-9.65-4.3205-9.65-9.65ZM11.9 1.25C6.01817 1.25 1.25 6.01817 1.25 11.9c0 5.8818 4.76817 10.65 10.65 10.65 5.8818 0 10.65-4.7682 10.65-10.65 0-5.88183-4.7682-10.65-10.65-10.65Zm11.4702 21.4131c-.1952-.1952-.5118-.1952-.7071 0-.1952.1953-.1952.5119 0 .7071l5.8 5.8c.1953.1953.5119.1953.7071 0 .1953-.1952.1953-.5118 0-.7071l-5.8-5.8Z"></path>
+        <div class="search w-full px-2 hidden md:block">
+                <div class="flex w-full flex-col overflow-hidden  text-black relative rounded-none shadow-none lg:m-auto lg:!max-w-[92.5%] [&amp;>div]:px-0 [&amp;_svg]:hidden">             
+                    <input type="text" class="py-2 lg:py-2.5 bg-white md:placeholder:text-sm lg:placeholder:text-base hover:aria-invalid:border-gray-500 aria-invalid:transition-none aria-invalid:ring-red-600 aria-invalid:ring-2 aria-invalid:ring-offset-2 hover:border-gray focus-visible:ring-wood-800 disabled:bg-gray-200 hover:disabled:border-gray-500 p-6 text-black transition file:border-0 file:bg-transparent file:font-medium autofill:bg-white focus-visible:border focus-visible:outline-none disabled:text-wood-300 motion-reduce:transition-none placeholder:text-wood-300 flex w-full rounded-3xl bg-transparent text-sm outline-none disabled:cursor-not-allowed disabled:opacity-50 !px-ipx-12 !rounded-ipx-DEFAULT lg:!rounded-ipx-3xl !text-ipx-sm focus-visible:border-red hover:focus-visible:border-red h-ipx-11 overflow-hidden border focus-visible:ring-0 focus-visible:ring-offset-0"
+                      placeholder="What are you looking for ?"/>
+                </div>
+        </div>
+        <div class="flex items-center gap-x-2 lg:gap-x-6">
+            <a  class="flex justify-center items-center gap-2   bg-transparent" routerLink="login">
+                <svg aria-hidden="true" fill="none" focusable="false" width="20" class="header__nav-icon icon icon-account" viewBox="0 0 24 24">
+                    <path d="M16.125 8.75c-.184 2.478-2.063 4.5-4.125 4.5s-3.944-2.021-4.125-4.5c-.187-2.578 1.64-4.5 4.125-4.5 2.484 0 4.313 1.969 4.125 4.5Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3.017 20.747C3.783 16.5 7.922 14.25 12 14.25s8.217 2.25 8.984 6.497" stroke="currentColor" stroke-width="1.4" stroke-miterlimit="10"></path>
+                  </svg>
+                  <span class="hidden lg:block">
+                    Login
+                  </span>
+               </a>
+                <a class="flex items-center justify-center gap-2   bg-transparent" routerLink="cart">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                    width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"
+                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart size-ipx-5">
+                    <circle cx="8" cy="21" r="1"></circle>
+                    <circle cx="19" cy="21" r="1"></circle>
+                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
                 </svg>
-            </div>
-            <div class="search border-b pb-0.5 hidden lg:flex gap-x-8" [ngClass]="{'border-white': !isScrolled, 'border-mainColor': isScrolled}">
-                <input type="text" placeholder="What are you looking for ?" class="placeholder:text-[17px] text-lg outline-none bg-transparent" [ngClass]="{'placeholder:text-white': !isScrolled, 'placeholder:text-mainColor': isScrolled}">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="lg:w-[22px] cursor-pointer" fill="currentColor" viewBox="0 0 30 30" role="presentation"><path d="M2.25 11.9c0-5.32955 4.32045-9.65 9.65-9.65 5.3295 0 9.65 4.32045 9.65 9.65 0 5.3295-4.3205 9.65-9.65 9.65-5.32955 0-9.65-4.3205-9.65-9.65ZM11.9 1.25C6.01817 1.25 1.25 6.01817 1.25 11.9c0 5.8818 4.76817 10.65 10.65 10.65 5.8818 0 10.65-4.7682 10.65-10.65 0-5.88183-4.7682-10.65-10.65-10.65Zm11.4702 21.4131c-.1952-.1952-.5118-.1952-.7071 0-.1952.1953-.1952.5119 0 .7071l5.8 5.8c.1953.1953.5119.1953.7071 0 .1953-.1952.1953-.5118 0-.7071l-5.8-5.8Z"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="cart relative cursor-pointer p-[5px]  lg:p-1.5 lg:pb-2" routerLink="/cart">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[23px] sm:w-[24px] md:w-[26px] lg:w-[28px]" viewBox="0 0 30 30" role="presentation"><path d="M10.7267 6.46033c0-2.31454 1.8958-4.21033 4.2103-4.21033 2.3146 0 4.2103 1.89579 4.2103 4.21033v1.85499h-8.4206V6.46033ZM9.72669 9.31532v5.38808c0 .2761.22386.5.50001.5.2761 0 .5-.2239.5-.5V9.31532h8.4206v5.38808c0 .2761.2239.5.5.5.2762 0 .5-.2239.5-.5V9.31532h5.4457l-.9101 15.07278-.0003.0064c-.105 2.2034-1.943 3.9397-4.1521 3.9397H9.34352c-2.21707 0-4.10635-1.7443-4.21088-3.9397l-.00025-.0045L4.2791 9.31532h5.44759Zm0-1V6.46033C9.72669 3.5935 12.0702 1.25 14.937 1.25c2.8668 0 5.2103 2.3435 5.2103 5.21033v1.85499h5.9768c.1378 0 .2695.0569.364.15727.0945.10036.1434.23527.1351.37286l-.9419 15.59995c-.1323 2.7409-2.415 4.8888-5.1508 4.8888H9.34352c-2.72802 0-5.07748-2.1405-5.20966-4.8898L3.2508 8.84358c-.00777-.1373.04135-.27173.13579-.37168.09445-.09995.2259-.15658.36341-.15658h5.97669Z" fill-rule="evenodd"></path>
-                </svg>
-                <p class="absolute text-[10px] sm:text-xs 2xl:text-[13.5px] font-bold top-0 end-0 w-[14px] h-[14px] sm:w-[15px] sm:h-[15px] md:w-[ sm:col-span-3 md:col-span-417px] md:h-[16.5px] lg:w-[17px] lg:h-[17px] flex justify-center sm:items-center  rounded-full" [ngClass]="{'bg-white text-black': !isScrolled, 'bg-mainColor text-white': isScrolled}">
-                    {{cartNumber}}
-                </p>
-            </div>
+               <span class="hidden lg:block">
+                 Cart
+               </span>
+            </a>
         </div>
-    </nav>
-
-    <aside class="fixed z-50 inset-0 bg-black/20 backdrop-blur-xl text-mainColor animate-fade-in" [ngClass]="{'block': isOpen, 'hidden': !isOpen}">
-       <div class="links fixed top-0 left-0 bg-secondColor h-screen w-2/3 sm:w-1/3 pl-4 pt-8 animate-fade-in">
-        <ul class="sm:text-lg flex flex-col gap-4">
-            <li>
-                <a class="relative group" routerLink="/rooms" (click)="closeSide()">
-                    Rooms
-                    <span class="absolute left-0 top-full w-0 h-[1.75px] bg-mainColor transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
-            </li>
-            <li>
-                <a class="relative group" routerLink="/collections" (click)="closeSide()">
-                    Collections
-                    <span class="absolute left-0 top-full w-0 h-[1.75px] bg-mainColor transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
-            </li>
-            <li>
-                <a class="relative group" routerLink="/about-us" (click)="closeSide()">
-                    About Us
-                    <span class="absolute left-0 top-full w-0 h-[1.75px] bg-mainColor transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
-            </li>
-            <li>
-                <a class="relative group" routerLink="/contact-us" (click)="closeSide()">
-                    Contact Us
-                    <span class="absolute left-0 top-full w-0 h-[1.75px] bg-mainColor transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
-            </li>
-        </ul>
-        <div class="close absolute top-3 right-3 cursor-pointer" (click)="closeSide()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-[17px] sm:w-[20px]"  fill="currentColor" stroke="currentColor" stroke-linecap="round" viewBox="0 0 30 30" role="presentation"><path d="M26.2 3.8 3.8 26.2"></path><path d="M3.8 3.8 26.2 26.2"></path>
-            </svg>
+    </div>
+    <div class="search w-full block md:hidden">
+        <div class="flex w-full flex-col overflow-hidden text-black relative rounded-none shadow-none">             
+            <input type="text" class="py-1.5 bg-white placeholder:text-sm md:placeholder:text-sm hover:aria-invalid:border-gray-500 aria-invalid:transition-none aria-invalid:ring-red-600 aria-invalid:ring-2 aria-invalid:ring-offset-2 hover:border-gray focus-visible:ring-wood-800 disabled:bg-gray-200 hover:disabled:border-gray-500 p-6 text-black transition file:border-0 file:bg-transparent file:font-medium autofill:bg-white focus-visible:border focus-visible:outline-none disabled:text-wood-300 motion-reduce:transition-none placeholder:text-wood-300 flex w-full rounded-3xl bg-transparent text-sm outline-none disabled:cursor-not-allowed disabled:opacity-50 !px-ipx-12 !rounded-ipx-DEFAULT lg:!rounded-ipx-3xl !text-ipx-sm focus-visible:border-red hover:focus-visible:border-red h-ipx-11 overflow-hidden border focus-visible:ring-0 focus-visible:ring-offset-0"
+              placeholder="What are you looking for ?"/>
         </div>
-       </div>
-    </aside>
+    </div>
 </header>

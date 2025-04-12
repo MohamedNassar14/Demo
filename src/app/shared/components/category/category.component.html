@@ -1,10 +1,10 @@
 <a [routerLink]="['/products', category.name]">
-    <div class="category">
-        <figure class="rounded-md">
-            <img [src]="category.imgUrl" loading="lazy" [alt]="category.name + ' image'" class="w-full"/>
+    <div class="category rounded-xl">
+        <figure class="rounded-xl">
+            <img [src]="category.imgUrl" loading="lazy" [alt]="category.name + ' image'" class="w-full rounded-xl"/>
         </figure>
         <div class="catgory-title text-center py-3">
-            <h2 class="text-sm sm:text-base md:text-[17px] lg:text-lg xl:text-lg font-semibold capitalize">{{category.name | cutTitle }}</h2>
+            <h2 class="text-base sm:text-lg lg:text-xl font-semibold capitalize">{{category.name | cutTitle }}</h2>
         </div>
     </div>
 </a>

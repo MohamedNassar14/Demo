@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { SwaggerService } from '../../shared/services/swagger.service';
 import { Product } from '../../shared/models/product';
@@ -8,7 +7,7 @@ import { ProductComponent } from "../../shared/components/product/product.compon
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, NavbarComponent, CarouselModule, ProductComponent],
+  imports: [RouterLink, CarouselModule, ProductComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -52,7 +51,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
-    margin: 10,
+    margin: 20,
     navSpeed: 700,
     autoplay: true, 
     autoplayTimeout: 3000,  
@@ -63,13 +62,16 @@ export class HomeComponent implements OnInit {
         items: 2
       },
       400: {
-        items: 2
+        items: 3
       },
       740: {
         items: 3
       },
       940: {
         items: 4
+      },
+      1200: {
+        items: 5
       }
     },
     nav: true

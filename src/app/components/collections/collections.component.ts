@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { SwaggerService } from '../../shared/services/swagger.service';
 import { Category } from '../../shared/models/category';
 import { CategoryComponent } from '../../shared/components/category/category.component';
 
 @Component({
   selector: 'app-collections',
-  imports: [NavbarComponent, CategoryComponent],
+  imports: [CategoryComponent],
   templateUrl: './collections.component.html',
   styleUrl: './collections.component.css'
 })

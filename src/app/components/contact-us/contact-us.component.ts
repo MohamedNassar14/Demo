@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { SwaggerService } from '../../shared/services/swagger.service';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css'
 })

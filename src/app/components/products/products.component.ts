@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../shared/models/product';
 import { SwaggerService } from '../../shared/services/swagger.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../../shared/components/product/product.component';
 
 @Component({
   selector: 'app-products',
-  imports: [RouterLink, CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
