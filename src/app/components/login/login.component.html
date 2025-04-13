@@ -1,124 +1,73 @@
-<header class="text-mainColor bg-secondColor sticky top-0 z-40 w-full py-2.5 px-4 lg:px-8 lg:py-3.5">
-    <nav class="flex justify-between items-center">
-        <div class="bars pt-1 lg:hidden" (click)="openSide()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-[24px] sm:w-[27px] md:w-[30px]" fill="currentColor" role="presentation"><path d="M1.83 15.67c0-.28.23-.5.5-.5h15.34a.5.5 0 1 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M1.83 10.33c0-.27.23-.5.5-.5h15.34a.5.5 0 0 1 0 1H2.33a.5.5 0 0 1-.5-.5z"></path><path d="M2.33 4.5a.5.5 0 0 0 0 1h15.34a.5.5 0 0 0 0-1z"></path>
-            </svg>
-        </div>
-        <div class="nav-links hidden lg:block">
-            <ul class="lg:text-[17px] xl:text-lg flex pt-1 gap-7">
-                <li>
-                    <a class="relative group" routerLink="/rooms">
-                        Rooms
-                        <span class="absolute left-0 top-full w-0 h-[1.75px] transition-[width] duration-300 group-hover:w-full group-hover:bg-mainColor"></span>
-                    </a>
-                </li>
-                <li>
-                    <a class="relative group" routerLink="/collections">
-                        Collections
-                        <span class="absolute left-0 top-full w-0 h-[1.75px] transition-[width] duration-300 group-hover:w-full group-hover:bg-mainColor"></span>
-                    </a>
-                </li>
-                <li>
-                    <a class="relative group" routerLink="/about-us">
-                        About Us
-                        <span class="absolute left-0 top-full w-0 h-[1.75px] transition-[width] duration-300 group-hover:w-full group-hover:bg-mainColor"></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="logo">
-            <h1>
-                <a routerLink="/home">
-                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#680a08"  class="w-[120px] sm:w-[135px] md:w-[145px] lg:w-[160px] xl:w-[165px]" viewBox="0 0 732.36 180.38">
-                        <polygon class="cls-1" points="226.26 118.7 226.26 56.67 216.88 56.67 216.88 127.44 268.03 127.44 264.3 118.7 226.26 118.7"/>
-                        <path class="cls-1" d="M273.15,127.44h10.66l8.85-17.9h37.62l9.06,17.9h10.76l-38.79-74.5-38.16,74.5ZM296.81,101.33l14.49-29.31,14.81,29.31h-29.31Z"/>
-                        <polygon class="cls-1" points="357.86 65.41 388.66 65.41 388.66 127.44 398.04 127.44 398.04 65.41 428.84 65.41 428.84 56.67 357.86 56.67 357.86 65.41"/>
-                        <polygon class="cls-1" points="444.29 118.7 444.29 93.01 489.59 93.01 493.32 84.8 444.29 84.8 444.29 65.41 497.26 65.41 500.99 56.67 434.91 56.67 434.91 127.43 501.1 127.43 497.37 118.7 444.29 118.7"/>
-                        <path class="cls-1" d="M572.4,61.2c-1.42-1.38-3.09-2.49-5.01-3.3-1.92-.82-3.98-1.23-6.18-1.23h-52.22v70.77h9.38v-62.03h41.37c2.48,0,4.34.8,5.58,2.4,1.24,1.6,1.86,3.25,1.86,4.96,0,1.07-.27,2.18-.8,3.36-.53,1.17-1.08,1.94-1.65,2.29l-27.17,18.54,25.47,30.48h12.04l-24.51-28.78,20.78-14.07c1.28-.85,2.54-2.31,3.78-4.37,1.24-2.06,1.86-4.8,1.86-8.21,0-2.06-.41-4.03-1.23-5.91-.82-1.88-1.94-3.52-3.36-4.9"/>
-                        <path class="cls-1" d="M648.28,61.2c-1.42-1.38-3.09-2.49-5.01-3.3-1.92-.82-3.98-1.23-6.18-1.23h-52.22v70.77h9.38v-62.03h41.37c2.48,0,4.34.8,5.58,2.4,1.24,1.6,1.86,3.25,1.86,4.96,0,1.07-.27,2.18-.8,3.36-.53,1.17-1.09,1.94-1.65,2.29l-27.18,18.54,25.47,30.48h12.04l-24.51-28.78,20.78-14.07c1.28-.85,2.54-2.31,3.78-4.37,1.24-2.06,1.86-4.8,1.86-8.21,0-2.06-.41-4.03-1.23-5.91-.82-1.88-1.94-3.52-3.36-4.9"/>
-                        <path class="cls-1" d="M693.57,52.94l-38.16,74.5h10.66l8.85-17.9h37.62l9.06,17.9h10.76l-38.79-74.5ZM679.08,101.33l14.49-29.31,14.81,29.31h-29.31Z"/>
-                        <path class="cls-1" d="M140.3,93.48c6.62,18.55,12.48,31.63,17.56,42.39l-33.47,18.56-10.62-10.09c-.93-.89-1.18-2.27-.62-3.43,1.61-2.59,3.21-5.17,4.82-7.76-4.34,4.69-8.72,9.57-13.1,14.66-9.53,11.06-18.17,21.97-25.98,32.57l-32.8-19.33,3.16-14.05c.33-1.46,1.56-2.54,3.05-2.67,3.22-.27,6.44-.53,9.66-.8-4.54-.51-9.22-1.12-14.04-1.85-3.75-.57-7.4-1.18-10.94-1.83,0,.03-.03.03-.03.07-14.94-2.66-27.05-4.36-36.93-5.29l.47-45.11,15.17,2.63c1.86.32,3.53,1.33,4.67,2.83,1.31,1.72,2.61,3.44,3.92,5.18-3.02-5.9-6.01-12.05-8.95-18.46C9.37,68.8,4.38,56.35.17,44.51l39.76-21.96,4.98,12.24c.65,1.6.55,3.41-.27,4.93-1.99,3.4-3.97,6.79-5.96,10.19,6.14-7.37,12.31-14.86,18.49-22.47,7.48-9.21,14.79-18.36,21.94-27.45l39.39,23.19-9.58,11.81s-.07.1-.1.13c-3.33,3.79-6.69,7.55-10.05,11.34,2.04-1.71,6.28-4.49,8.99-6.23,1.57-1.01,3.43-1.39,5.27-1.09,8.63,1.41,34.75,5.62,44.95,6.59l-.43,45.11-3.23-.5c-6.29-1.4-16.5-3.69-22.79-5.12-1.27-.37-2.5-.73-3.76-1.1,2.88,1.33,6.3,3.29,9.01,4.98,1.62,1.01,2.86,2.56,3.51,4.36"/>
-                    </svg>
-                </a>
-            </h1>
-        </div>
-        <div class="nav-actions flex items-center pt-1 sm:pt-0 gap-2 md:gap-4 lg:gap-6 xl:gap-8">
-            <div class="search-icon lg:hidden pt-0.5 md:pt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[21px] sm:w-[22px] md:w-[25px] cursor-pointer" viewBox="0 0 30 30" role="presentation"><path d="M2.25 11.9c0-5.32955 4.32045-9.65 9.65-9.65 5.3295 0 9.65 4.32045 9.65 9.65 0 5.3295-4.3205 9.65-9.65 9.65-5.32955 0-9.65-4.3205-9.65-9.65ZM11.9 1.25C6.01817 1.25 1.25 6.01817 1.25 11.9c0 5.8818 4.76817 10.65 10.65 10.65 5.8818 0 10.65-4.7682 10.65-10.65 0-5.88183-4.7682-10.65-10.65-10.65Zm11.4702 21.4131c-.1952-.1952-.5118-.1952-.7071 0-.1952.1953-.1952.5119 0 .7071l5.8 5.8c.1953.1953.5119.1953.7071 0 .1953-.1952.1953-.5118 0-.7071l-5.8-5.8Z"></path>
-                </svg>
-            </div>
-            <div class="search border-b border-[#680a08] pb-0.5 hidden lg:flex gap-x-8">
-                <input type="text" placeholder="What are you looking for ?" class="placeholder:text-[17px] placeholder:text-mainColor text-lg outline-none bg-transparent">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="lg:w-[22px] cursor-pointer" fill="currentColor" viewBox="0 0 30 30" role="presentation"><path d="M2.25 11.9c0-5.32955 4.32045-9.65 9.65-9.65 5.3295 0 9.65 4.32045 9.65 9.65 0 5.3295-4.3205 9.65-9.65 9.65-5.32955 0-9.65-4.3205-9.65-9.65ZM11.9 1.25C6.01817 1.25 1.25 6.01817 1.25 11.9c0 5.8818 4.76817 10.65 10.65 10.65 5.8818 0 10.65-4.7682 10.65-10.65 0-5.88183-4.7682-10.65-10.65-10.65Zm11.4702 21.4131c-.1952-.1952-.5118-.1952-.7071 0-.1952.1953-.1952.5119 0 .7071l5.8 5.8c.1953.1953.5119.1953.7071 0 .1953-.1952.1953-.5118 0-.7071l-5.8-5.8Z"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="cart relative cursor-pointer p-[5px]  lg:p-1.5 lg:pb-2" routerLink="/cart">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#680a08" class="w-[23px] sm:w-[24px] md:w-[26px] lg:w-[28px]" viewBox="0 0 30 30" role="presentation"><path d="M10.7267 6.46033c0-2.31454 1.8958-4.21033 4.2103-4.21033 2.3146 0 4.2103 1.89579 4.2103 4.21033v1.85499h-8.4206V6.46033ZM9.72669 9.31532v5.38808c0 .2761.22386.5.50001.5.2761 0 .5-.2239.5-.5V9.31532h8.4206v5.38808c0 .2761.2239.5.5.5.2762 0 .5-.2239.5-.5V9.31532h5.4457l-.9101 15.07278-.0003.0064c-.105 2.2034-1.943 3.9397-4.1521 3.9397H9.34352c-2.21707 0-4.10635-1.7443-4.21088-3.9397l-.00025-.0045L4.2791 9.31532h5.44759Zm0-1V6.46033C9.72669 3.5935 12.0702 1.25 14.937 1.25c2.8668 0 5.2103 2.3435 5.2103 5.21033v1.85499h5.9768c.1378 0 .2695.0569.364.15727.0945.10036.1434.23527.1351.37286l-.9419 15.59995c-.1323 2.7409-2.415 4.8888-5.1508 4.8888H9.34352c-2.72802 0-5.07748-2.1405-5.20966-4.8898L3.2508 8.84358c-.00777-.1373.04135-.27173.13579-.37168.09445-.09995.2259-.15658.36341-.15658h5.97669Z" fill-rule="evenodd"></path>
-                </svg>
-                <p class="absolute bg-mainColor text-white text-[10px] sm:text-xs 2xl:text-[13.5px] font-bold top-0 end-0 w-[14px] h-[14px] sm:w-[15px] sm:h-[15px] md:w-[ sm:col-span-3 md:col-span-417px] md:h-[16.5px] lg:w-[17px] lg:h-[17px] flex justify-center sm:items-center  rounded-full">
-                    {{cartNumber}}
-                </p>
-            </div>
-        </div>
-    </nav>
-    <aside class="fixed z-50 inset-0 bg-black/20 backdrop-blur-xl text-mainColor animate-fade-in" [ngClass]="{'block': isOpen, 'hidden': !isOpen}">
-       <div class="links fixed top-0 left-0 bg-secondColor h-screen w-2/3 sm:w-1/3 pl-4 pt-8 animate-fade-in">
-        <ul class="sm:text-lg flex flex-col gap-4">
-            <li>
-                <a class="relative group" routerLink="/rooms" (click)="closeSide()">
-                    Rooms
-                    <span class="absolute left-0 top-full w-0 h-[1.75px] bg-mainColor transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
-            </li>
-            <li>
-                <a class="relative group" routerLink="/collections" (click)="closeSide()">
-                    Collections
-                    <span class="absolute left-0 top-full w-0 h-[1.75px] bg-mainColor transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
-            </li>
-            <li>
-                <a class="relative group" routerLink="/about-us" (click)="closeSide()">
-                    About Us
-                    <span class="absolute left-0 top-full w-0 h-[1.75px] bg-mainColor transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
-            </li>
-            <li>
-                <a class="relative group" routerLink="/contact-us" (click)="closeSide()">
-                    Contact Us
-                    <span class="absolute left-0 top-full w-0 h-[1.75px] bg-mainColor transition-[width] duration-300 group-hover:w-full"></span>
-                </a>
-            </li>
-        </ul>
-        <div class="close absolute top-3 right-3 cursor-pointer" (click)="closeSide()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-[17px] sm:w-[20px]"  fill="currentColor" stroke="currentColor" stroke-linecap="round" viewBox="0 0 30 30" role="presentation"><path d="M26.2 3.8 3.8 26.2"></path><path d="M3.8 3.8 26.2 26.2"></path>
-            </svg>
-        </div>
-       </div>
-    </aside>
-</header>
-
 <section class="login flex justify-center items-center px-4 py-8">
-    <div class="login-content bg-white w-full sm:w-2/3 lg:w-1/2 p-4 sm:p-10 rounded-3xl shadow-xl">
-        <figure class="logo">
-            <img src="" alt=""/>
+    <div class="login-content bg-white w-full sm:w-4/5 md:w-2/3 lg:w-1/2 py-8 sm:py-0 px-4 sm:p-6 md:p-10 border border-solid border-[rgba(128, 128, 128, .16)] rounded-3xl shadow-4xl">
+        <figure class="logo flex justify-center">
+            <svg id="Layer_2" data-name="Layer 2" class="w-[32px] sm:w-[34px] md:w-[36px] lg:w-[38px] xl:w-[40px]" fill="#680a08" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 227.29 259.5">
+                <g id="Layer_1-2" data-name="Layer 1">
+                    <path class="cls-1"
+                        d="M201.83,134.48c9.53,26.69,17.95,45.5,25.26,60.98l-48.15,26.7-15.28-14.52c-1.34-1.27-1.7-3.27-.89-4.93,2.31-3.72,4.62-7.44,6.93-11.16-6.25,6.75-12.54,13.78-18.85,21.09-13.71,15.91-26.14,31.61-37.38,46.86l-47.19-27.8,4.54-20.21c.47-2.1,2.24-3.65,4.38-3.84,4.63-.38,9.27-.77,13.9-1.15-6.53-.73-13.27-1.61-20.19-2.66-5.39-.82-10.64-1.7-15.75-2.63,0,.05-.05.05-.05.1-21.49-3.83-38.91-6.27-53.12-7.61l.67-64.9,21.82,3.78c2.68.46,5.07,1.91,6.72,4.08,1.88,2.47,3.76,4.95,5.63,7.46-4.35-8.48-8.65-17.33-12.87-26.56C13.47,98.98,6.31,81.06.24,64.04l57.19-31.59,7.17,17.6c.94,2.3.8,4.9-.38,7.09-2.86,4.89-5.71,9.78-8.57,14.66,8.84-10.6,17.71-21.37,26.6-32.32,10.76-13.25,21.28-26.42,31.56-39.49l56.67,33.36-13.78,16.99s-.1.14-.14.19c-4.79,5.46-9.62,10.86-14.45,16.32,2.93-2.46,9.04-6.47,12.93-8.96,2.26-1.45,4.94-2,7.59-1.57,12.42,2.03,49.99,8.08,64.67,9.47l-.62,64.9-4.64-.72c-9.05-2.01-23.74-5.31-32.78-7.37-1.82-.53-3.59-1.05-5.41-1.58,4.14,1.91,9.06,4.73,12.96,7.17,2.33,1.46,4.12,3.68,5.04,6.27" />
+                </g>
+            </svg>
         </figure>
-        <h2 class="text-xl sm:text-2xl text-mainColor text-center font-bold py-5">Log in</h2>
+        <h2 class="text-xl md:text-2xl xl:text-3xl text-mainColor text-center font-bold py-5">Login</h2>
         <div class="login-form">
-            <form class="space-y-4 sm:space-y-6">
+            <form class="space-y-4 sm:space-y-5" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
                 <div class="email">
-                    <input type="email" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Email"/>
+                    <input type="email" formControlName="email"
+                        class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none"
+                        placeholder="Email" [ngClass]="{
+                            'border-[#e60000]': loginForm.get('email')?.errors && loginForm.get('email')?.touched
+                          }" />
+                    @if(loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+                    <div class="text-[#e60000] mt-2">
+                        @if(loginForm.get('email')?.errors?.['required']) {
+                        <p>Email is required</p>
+                        }
+                        @if(loginForm.get('email')?.errors?.['email']) {
+                        <p>Please enter a valid email address</p>
+                        }
+                    </div>
+                    }
                 </div>
-                <div class="password">
-                    <input type="password" class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Password"/>
+                <div class="password relative">
+                    <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                    class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" placeholder="Password"
+                        [ngClass]="{
+                            'border-[#e60000]': loginForm.get('password')?.errors && loginForm.get('password')?.touched,
+                          }"
+                           />
+                    <button type="button"
+                        class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 focus:outline-none"
+                        (click)="togglePasswordVisibility()">
+                         @if(!showPassword) {
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a9.956 9.956 0 012.102-3.592M6.11 6.11A9.956 9.956 0 0112 5c4.478 0 8.268 2.943 9.542 7a9.956 9.956 0 01-1.528 2.472M15 12a3 3 0 00-4.243-2.829M3 3l18 18" />
+                        </svg>
+                         }
+                         @if(showPassword) {
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                         }
+                    </button>
+                    @if(loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+                    <div class="text-red-500 mt-1">
+                        @if(loginForm.get('password')?.errors?.['required']) {
+                        <p>Password is required</p>
+                        }
+                    </div>
+                    }
                 </div>
-                <button  type="submit"  class="w-full sm:text-lg px-4 py-2 rounded-full transition-colors duration-300 ease-in-out 
-                bg-mainColor text-white disabled:bg-mainColor disabled:text-gray-400 disabled:cursor-not-allowed 
-                focus:outline-none" >
+                <button type="submit" class="w-full sm:text-lg px-4 py-2 rounded-full bg-mainColor text-white focus:outline-none" >
                 Log in
                 </button>
-                <p class="text-textColor sm:text-lg">
+                <p class="text-textColor xl:text-lg">
                     Don't have an account?
                     <a routerLink="/register" class="text-mainColor">Register</a>
                 </p>

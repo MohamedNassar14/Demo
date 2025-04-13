@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { SwaggerService } from '../../shared/services/swagger.service';
+import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,27 +12,43 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private swagger:SwaggerService) {}
+  constructor(private authService:AuthService, private router:Router) {}
 
+  showPassword:boolean = false;
+  errorMsg:string = '';
   isOpen:boolean = false;
+  isLoading:boolean = false;
   cartNumber:number = 0;
   registerForm:FormGroup = new FormGroup({
-    firstName: new FormControl('', [Validators.required]),
-    lastName: new FormControl('', [Validators.required]),
+    firstname: new FormControl('', [Validators.required]),
+    lastname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   })
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    this.swagger.cartNumbers.subscribe({
-      next:(data)=> this.cartNumber = data
-    })
   }
 
 
   submitRegisterForm() {
-
+    this.isLoading = true;
+    this.registerForm.markAllAsTouched();
+    if (this.registerForm.invalid) {
+      return;
+    }
+    console.log(this.registerForm.value);
+    this.authService.signUp(this.registerForm.value).subscribe({
+      next:(res)=> {
+        this.isLoading = false;
+         if(res.message === 'created successfully , please check your email for activation') {
+             this.router.navigate(['/login'])
+          }
+          else {
+             this.errorMsg = res.message;
+            }
+      }
+    })
   }
   openSide() {
     this.isOpen = true;
@@ -40,5 +56,8 @@ export class RegisterComponent implements OnInit {
 
   closeSide() {
     this.isOpen = false;
+  }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

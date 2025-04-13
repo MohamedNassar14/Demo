@@ -17,7 +17,7 @@ module.exports = {
     },
     animation: {
       'fade-in': 'fadeIn 0.3s linear forwards',
-      'move-right': 'move-right 0.6s ease-in-out infinite',  
+      'move-right': 'move-right 0.6s ease-in-out infinite', 
     },
     keyframes: {
       fadeIn: {

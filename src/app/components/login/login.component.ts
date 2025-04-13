@@ -1,27 +1,29 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SwaggerService } from '../../shared/services/swagger.service';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private swagger:SwaggerService) {}
+  constructor(private authService:AuthService) {}
 
+  showPassword:boolean = false;
   isOpen:boolean = false;
   cartNumber:number = 0;
-
+  loginForm:FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  })
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    this.swagger.cartNumbers.subscribe({
-      next:(data)=> this.cartNumber = data
-    })
   }
 
   
@@ -34,5 +36,21 @@ export class LoginComponent implements OnInit {
   {
     this.isOpen = false;
   }
-
+  submitLoginForm() {
+    this.loginForm.markAllAsTouched();
+    if (this.loginForm.invalid) {
+      return;
+    }
+    console.log(this.loginForm.value);
+    this.authService.signIn(this.loginForm.value).subscribe((res)=> {
+      console.log(res);
+      if(res.message == '')
+      {
+        //Navigate
+      }
+    })
+  }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 }
