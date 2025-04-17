@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { SpinnerComponent } from "../../shared/components/spinner/spinner.component";
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule, SpinnerComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService:AuthService) {}
 
+
+  spinner:boolean = false;
   showPassword:boolean = false;
   isOpen:boolean = false;
   cartNumber:number = 0;
@@ -23,6 +26,7 @@ export class LoginComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.spinner = true;
     window.scrollTo(0, 0);
   }
 

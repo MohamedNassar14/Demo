@@ -1,10 +1,15 @@
-<section class="products">
-    <div class="products-body px-4 md:px-6">
-        <h2 class="text-xl sm:text-2xl lg:text-3xl text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">Explore More</h2>
-        <div class="rooms-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            @for(product of allProducts; track product.id) {
-              <app-product [product]="product"></app-product>
-            }
+@if(!spinner) {
+    <app-spinner></app-spinner>
+}
+@if(spinner) {
+    <section class="products pt-6 pb-14">
+        <div class="products-body px-4 md:px-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">Explore More</h2>
+            <div class="rooms-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                @for(product of allProducts; track product.id) {
+                  <app-product [product]="product"></app-product>
+                }
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+}

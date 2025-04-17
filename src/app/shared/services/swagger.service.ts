@@ -4,17 +4,21 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Category } from '../models/category';
 import { Product } from '../models/product';
 import { ProductDetails } from '../models/product-details';
+import { provideToastr, ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SwaggerService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, private toast:ToastrService) { }
 
+  
   productsCart:ProductDetails[] = [];
   cartNumbers:BehaviorSubject<any> = new BehaviorSubject<any>(this.getCartNumber());
   cartNumbers$ = this.cartNumbers.asObservable();
+  userSearch:BehaviorSubject<any> = new BehaviorSubject<any>('');
+  userSearch$ = this.userSearch.asObservable();
 
   getRoomsCategories():Observable<Category[]> {
     return this.httpClient.get<Category[]>(`assets/api/rooms.json`);
@@ -42,12 +46,21 @@ export class SwaggerService {
           newProduct.quantity++;
           localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
           this.cartNumbers.next(this.productsCart.length);
+          this.toast.success(`<div class="flex items-center gap-2 text-green-500">
+     ✔️ <span>Product increment by 1</span>
+   </div>`, '',{
+            toastClass: 'toast-success', enableHtml: true});
+
         }
         else
         {
           this.productsCart.push(event);
           localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
           this.cartNumbers.next(this.productsCart.length);
+          this.toast.success(`<div class="flex items-center gap-2 text-green-500">
+     ✔️ <span>Product added to cart </span>
+   </div>`, '',{
+            toastClass: 'toast-success', enableHtml: true});
         }
       }
       else
@@ -55,6 +68,10 @@ export class SwaggerService {
         this.productsCart.push(event);
         localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
         this.cartNumbers.next(this.productsCart.length);
+        this.toast.success(`<div class="flex items-center gap-2 text-green-500">
+     ✔️ <span>Product added to cart </span>
+   </div>`, '',{
+          toastClass: 'toast-success', enableHtml: true});
       }
   }
 

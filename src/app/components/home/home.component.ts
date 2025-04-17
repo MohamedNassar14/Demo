@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { SwaggerService } from '../../shared/services/swagger.service';
 import { Product } from '../../shared/models/product';
-import { ProductComponent } from "../../shared/components/product/product.component";
+import { ProductComponent } from '../../shared/components/product/product.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +16,25 @@ export class HomeComponent implements OnInit {
   constructor(private swagger:SwaggerService) {}
 
   allTrends:Product[] = [];
+
+  slider: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: false,
+    autoplay: true, 
+    navSpeed: 700,
+    autoplayTimeout: 2000,  
+    autoplayHoverPause: true,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+    },
+    nav: true
+  }
 
   customOptions: OwlOptions = {
     loop: true,
@@ -31,7 +50,7 @@ export class HomeComponent implements OnInit {
     navText: ['', ''],
     responsive: {
       0: {
-        items: 2
+        items: 1
       },
       400: {
         items: 2

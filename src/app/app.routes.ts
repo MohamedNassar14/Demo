@@ -11,5 +11,6 @@ export const routes: Routes = [
     {path:'register', loadComponent: ()=> import(`./components/register/register.component`).then((c)=> c.RegisterComponent)},
     {path:'login', loadComponent: ()=> import(`./components/login/login.component`).then((c)=> c.LoginComponent)},
     {path:'about-us', loadComponent: ()=> import(`./components/about-us/about-us.component`).then((c)=> c.AboutUsComponent)},
-    {path:'contact-us', loadComponent: ()=> import(`./components/contact-us/contact-us.component`).then((c)=> c.ContactUsComponent)}
+    {path:'contact-us', loadComponent: ()=> import(`./components/contact-us/contact-us.component`).then((c)=> c.ContactUsComponent)},
+    {path:'search', loadComponent: ()=> import(`./components/search/search.component`).then((c)=> c.SearchComponent)}
 ];

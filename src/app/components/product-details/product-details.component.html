@@ -1,69 +1,117 @@
-<section class="details py-10">
-    <div class="details-boy px-4 md:px-6">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-y-8 md:gap-x-4 lg:gap-x-10">
-            <figure class="product-image flex flex-col-reverse sm:flex-row gap-5 col-span-3">
-                <div class="sub-images flex flex-row sm:flex-col flex-wrap justify-center sm:justify-start gap-y-2 gap-x-2 sm:gap-y-3">
-                    <div class="image w-16 h-16 lg:w-28 lg:h-28 xl:w-32 xl:h-32 border border-gray-300 p-1">
-                        <img src="assets/images/home.webp" loading="lazy" class="w-full h-full" />
+@if(!spinner) {
+    <app-spinner></app-spinner>
+}
+@if(spinner) {
+    <section class="details py-10">
+        <div class="details-boy px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-y-8 md:gap-x-4 lg:gap-x-10">
+    
+                  <!-- الحل الامثل-->
+                <figure class="product-image flex flex-col-reverse sm:flex-row gap-5 col-span-3">
+                    <div
+                        class="sub-images flex flex-row sm:flex-col flex-wrap justify-center sm:justify-start gap-y-2 gap-x-2 sm:gap-y-3">
+    
+                        <div class="image w-16 h-16 lg:w-28 lg:h-28 xl:w-32 xl:h-32 border p-1" [ngClass]="{
+                          'border-2 border-gray-800': selectedImage === productDetails?.imgUrl,
+                          'border-gray-300': selectedImage !== productDetails?.imgUrl
+                        }" (click)="selectedImage = productDetails?.imgUrl">
+                            <img [src]="productDetails?.imgUrl" loading="lazy" class="w-full h-full cursor-pointer" />
+                        </div>
+    
+                        <div class="image w-16 h-16 lg:w-28 lg:h-28 xl:w-32 xl:h-32 border p-1" [ngClass]="{
+                          'border-2 border-gray-800': selectedImage === img,
+                          'border-gray-300': selectedImage !== img
+                        }" *ngFor="let img of productDetails?.otherImages" (click)="selectedImage = img">
+                            <img [src]="img" loading="lazy" class="w-full h-full cursor-pointer" />
+                        </div>
                     </div>
-                    <div class="image w-16 h-16 lg:w-28 lg:h-28 xl:w-32 xl:h-32 border border-gray-300 p-1">
-                        <img src="assets/images/home.webp" loading="lazy"  class="w-full h-full" />
+    
+                    <div class="base-image relative overflow-hidden w-full cursor-pointer border"
+                    (mousemove)="onMouseMove($event)"
+                    (mouseleave)="onMouseLeave()"
+                    (click)="openFullScreen()"
+                     #zoomContainer
+                        (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()" >
+                        <img [src]="selectedImage" [alt]="productDetails?.name + ' image'"
+                            class="w-full h-full object-cover transition-transform duration-200" [ngStyle]="{
+        transform: zoomActive ? 'scale(2)' : 'scale(1)',
+        transformOrigin: zoomOrigin}"/>
+                    <div class="tap-zoom">
+                        <p class="absolute bottom-16 right-5 py-1 px-2 rounded-lg text-xs bg-gray-300">tap to zoom</p>
                     </div>
-                    <div class="image w-16 h-16 lg:w-28 lg:h-28 xl:w-32 xl:h-32 border border-gray-300 p-1">
-                        <img src="assets/images/home.webp" loading="lazy"  class="w-full h-full" />
+                    <div class="click-zoom">
+                        <p class="absolute bottom-6 right-1 py-1 px-2 rounded-lg text-xs bg-gray-300">Click to full screen</p>
                     </div>
-                    <div class="image w-16 h-16 lg:w-28 lg:h-28 xl:w-32 xl:h-32 border border-gray-300 p-1">
-                        <img src="assets/images/home.webp" loading="lazy"  class="w-full h-full" />
                     </div>
-                </div>
-                <div class="base-image">
-                    <img [src]="productDetails?.imgUrl" [alt]="productDetails + ' image'" loading="lazy"  class="w-full" />
-                </div>
-            </figure>
-            <div class="product-info col-span-2 space-y-2 sm:space-y-3">
-                <div class="title">
-                    <h1 class="text-xl sm:text-xl lg:text-2xl font-bold">{{productDetails?.name}}</h1>
-                </div>
-                <div class="price">
-                    <p class="text-xl md:text-xl lg:text-2xl">EGP 12,900</p>
-                </div>
-                <div class="stock pt-1">
-                    <span class="text-white text-sm lg:text-base px-2.5 py-1.5 lg:px-3 bg-[#20a144b3] rounded-lg">In Stock</span>
-                </div>
-                <div class="add py-3">
-                    <button class="w-full bg-mainColor text-white text-lg lg:text-xl py-1.5 md:py-1 xl:py-1.5 rounded-full" (click)="addToCart(productDetails)">
-                        Add To Cart
-                    </button>
-                </div>
-                <div class="customize text-base sm:text-lg border-t border-b border-gray-300 py-3">
-                        <span class="font-semibold">For customization request &amp; more details</span>
-                    <div class="pt-0.5">
-                        <p><a routerLink="/contact-us" class="text-mainColor font-semibold">Click Here </a>&amp; Add details for your
-                            customization
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="description py-4 sm:py-6 md:py-8">
-            <h2 class="text-xl sm:text-2xl lg:text-3xl text-center font-bold py-4 sm:py-6">Description</h2>
-            <hr/>
-            <div class="dimensions pb-4 pt-6 sm:pb-6 sm:pt-8 space-y-3">
-                <p class="text-lg sm:text-xl lg:text-2xl font-semibold">Dimensions :</p>
-                <ul class="content text-base sm:text-lg xl:text-xl text-gray-700 pl-7 sm:pl-10 list-disc space-y-1">
-                    <li>Length: 300 cm</li>
-                    <li>Width: 300 cm</li>
-                    <li>Height: 75 cm</li>
-                </ul>
-            </div>
-            <div class="materials py-2 space-y-3">
-                <p class="text-lg sm:text-xl lg:text-2xl font-semibold">Materials :</p>
-                <ul class="content text-base sm:text-lg lg:text-xl text-gray-700 pl-7 sm:pl-10 list-disc space-y-1">
-                    <li>Beech Wood</li> 
-                    <li>Turkish walnut shell</li> 
-                    <li>Frosted gold stainless steel</li>
-                </ul>
-            </div>
-        </div>
+    
+    
+                    <div
+    *ngIf="isFullScreen"
+    class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+    >
+    <img
+      [src]="selectedImage"
+      class="max-w-full max-h-full object-contain"
+      (click)="closeFullScreen()"
+    />
+    <button
+      (click)="closeFullScreen()"
+      class="absolute top-4 right-4 text-white text-3xl"
+    >
+      &times;
+    </button>
     </div>
-</section>
+    
+                </figure>
+                <div class="product-info col-span-2 space-y-2 sm:space-y-3">
+                    <div class="title">
+                        <h1 class="text-xl sm:text-xl lg:text-2xl font-bold">{{productDetails?.name}}</h1>
+                    </div>
+                    <div class="price">
+                        <p class="text-xl md:text-xl lg:text-2xl">EGP 12,900</p>
+                    </div>
+                    <div class="stock pt-1">
+                        <span class="text-white text-sm lg:text-base px-2.5 py-1.5 lg:px-3 bg-[#20a144b3] rounded-lg">In
+                            Stock</span>
+                    </div>
+                    <div class="add py-3">
+                        <button
+                            class="w-full bg-mainColor text-white text-lg lg:text-xl py-1.5 md:py-1 xl:py-1.5 rounded-full"
+                            (click)="addToCart(productDetails)">
+                            Add To Cart
+                        </button>
+                    </div>
+                    <div class="customize text-base sm:text-lg border-t border-b border-gray-300 py-3">
+                        <span class="font-semibold">For customization request &amp; more details</span>
+                        <div class="pt-0.5">
+                            <p><a routerLink="/contact-us" class="text-mainColor font-semibold">Click Here </a>&amp; Add
+                                details for your
+                                customization
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="description py-4 sm:py-6 md:py-8">
+                <h2 class="text-xl sm:text-2xl lg:text-3xl text-center font-bold py-4 sm:py-6">Description</h2>
+                <hr />
+                <div class="dimensions pb-4 pt-6 sm:pb-6 sm:pt-8 space-y-3">
+                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold">Dimensions :</p>
+                    <ul class="content text-base sm:text-lg xl:text-xl text-gray-700 pl-7 sm:pl-10 list-disc space-y-1">
+                        <li>Length: 300 cm</li>
+                        <li>Width: 300 cm</li>
+                        <li>Height: 75 cm</li>
+                    </ul>
+                </div>
+                <div class="materials py-2 space-y-3">
+                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold">Materials :</p>
+                    <ul class="content text-base sm:text-lg lg:text-xl text-gray-700 pl-7 sm:pl-10 list-disc space-y-1">
+                        <li>Beech Wood</li>
+                        <li>Turkish walnut shell</li>
+                        <li>Frosted gold stainless steel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+}

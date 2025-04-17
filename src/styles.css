@@ -1,5 +1,78 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
+
+:root {
+    --bg-toast-success: #22c55e; /* Tailwind green-500 */
+    --bg-toast-error: #ef4444;   /* Tailwind red-500 */
+  }
+  
+
+@layer utilities {
+    .toast-success {
+      @apply w-[300px] h-[60px] my-[15px] relative bg-white pt-[15px] pl-[8px] rounded-lg text-[#8a8888] shadow-[0_0px_8px_-1px_rgba(0,0,0,0.1),_0_0px_6px_-2px_rgba(0,0,0,0.1)];
+      transform: translateX(-100%);
+      animation: moveLeft 0.3s linear forwards;
+    }
+  
+    .toast-success::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 5px;
+      background-color: var(--bg-toast-success);
+      border-bottom-left-radius: 8px;
+      animation: disappear 3s linear forwards;
+    }
+  
+    .toast-error {
+      @apply w-[300px] h-[60px] my-[15px] relative bg-white pt-[15px] pl-[8px] rounded-lg text-[#8a8888] shadow-[0_0px_8px_-1px_rgba(0,0,0,0.1),_0_0px_6px_-2px_rgba(0,0,0,0.1)];
+      transform: translateX(-100%);
+      animation: moveLeftError 0.3s linear forwards;
+    }
+  
+    .toast-error::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 5px;
+      background-color: var(--bg-toast-error);
+      border-bottom-left-radius: 8px;
+      animation: disappearError 3s linear forwards;
+    }
+  
+    @keyframes moveLeft {
+      100% {
+        transform: translateX(0);
+      }
+    }
+  
+    @keyframes moveLeftError {
+      100% {
+        transform: translateX(0);
+      }
+    }
+  
+    @keyframes disappear {
+      100% {
+        width: 0;
+      }
+    }
+  
+    @keyframes disappearError {
+      100% {
+        width: 0;
+      }
+    }
+  }
+  
+  
+
+   

@@ -1,4 +1,4 @@
-<a [routerLink]="['/product-details', product.id]">
+<!-- <a [routerLink]="['/product-details', product.id]">
     <div class="product border border-solid border-[rgba(128, 128, 128, .16)] pb-5 shadow-4xl rounded-2xl">
         <figure class="product-image overflow-hidden rounded-t-2xl">
             <img [src]="product.imgUrl" loading="lazy" [alt]="product.name + ' image'" class="w-full hover:scale-[1.2] transition-transform duration-300 ease-in-out"/>
@@ -14,3 +14,38 @@
         </div>
     </div>
 </a>
+ -->
+
+ <a [routerLink]="['/product-details', product.id]">
+    <div class="product border border-solid border-[rgba(128, 128, 128, .16)] pb-5 shadow-4xl rounded-2xl group relative overflow-hidden">
+      <figure class="product-image overflow-hidden rounded-t-2xl relative">
+        <!-- Default image -->
+        <img
+          [src]="product.imgUrl"
+          loading="lazy"
+          [alt]="product.name + ' image'"
+          class="w-full transition-opacity duration-300 ease-in-out group-hover:opacity-0"
+        />
+        <!-- Hover image -->
+        <img
+          [src]="product.imgHover"
+          loading="lazy"
+          [alt]="product.name + ' hover image'"
+          class="w-full absolute top-0 left-0 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100"
+        />
+      </figure>
+  
+      <div class="product-content bg-[#f9fafb70] pt-3 px-3 md:px-4 md:space-y-0.5">
+        <div class="product-title">
+          <h2 class="text-base sm:text-lg lg:text-xl font-semibold capitalize">
+            {{ product.name }}
+          </h2>
+        </div>
+        <div class="product-price flex justify-between items-center">
+          <p class="text-base sm:text-xl">EGP {{ product.price | number: '1.0-0' }}</p>
+          <p class="text-green-600 px-1 xl:px-2 text-xs md:text-sm xl:text-sm bg-[#f0fbf3]">In Stock</p>
+        </div>
+      </div>
+    </div>
+  </a>
+  

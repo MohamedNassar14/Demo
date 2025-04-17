@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { SpinnerComponent } from "../../shared/components/spinner/spinner.component";
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule, SpinnerComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -14,6 +15,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService:AuthService, private router:Router) {}
 
+  spinner:boolean = false;
   showPassword:boolean = false;
   errorMsg:string = '';
   isOpen:boolean = false;
@@ -27,6 +29,7 @@ export class RegisterComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.spinner = true;
     window.scrollTo(0, 0);
   }
 

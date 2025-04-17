@@ -4,6 +4,13 @@
         "name": "Recliner Chair",
         "price": 10899,
         "imgUrl": "https://cdn.pixabay.com/photo/2020/09/01/12/19/office-chair-5535081_1280.png",
+        "imgHover": "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
+        "otherImages": [
+            "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
+            "https://cdn.pixabay.com/photo/2019/07/29/04/46/minimal-4369856_1280.jpg",
+            "https://cdn.pixabay.com/photo/2021/02/21/12/13/bedroom-6036175_1280.jpg",
+            "https://cdn.pixabay.com/photo/2023/09/18/08/49/plant-8259955_1280.jpg"
+        ],
         "catName": "chairs"
     },
     {
@@ -11,6 +18,7 @@
         "name": "Desk Chair",
         "price": 11899,
         "imgUrl": "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
+        "imgHover": "https://cdn.pixabay.com/photo/2020/09/01/12/19/office-chair-5535081_1280.png",
         "catName": "chairs"
     },
     {
@@ -18,6 +26,7 @@
         "name": "Leather Chair",
         "price": 15598,
         "imgUrl": "https://cdn.pixabay.com/photo/2019/07/29/04/46/minimal-4369856_1280.jpg",
+        "imgHover": "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
         "catName": "chairs"
     },
     {
@@ -25,6 +34,7 @@
         "name": "Modern Chair",
         "price": 12279,
         "imgUrl": "https://cdn.pixabay.com/photo/2023/12/16/14/45/ai-generated-8452611_1280.jpg",
+        "imgHover": "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
         "catName": "chairs"
     },
     {
@@ -32,6 +42,7 @@
         "name": "Rafero bed",
         "price": 10899,
         "imgUrl": "https://cdn.pixabay.com/photo/2023/11/15/13/36/bed-8390092_1280.jpg",
+        "imgHover": "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
         "catName": "beds"
     },
     {
@@ -39,6 +50,7 @@
         "name": "Caspar bed",
         "price": 11899,
         "imgUrl": "https://cdn.pixabay.com/photo/2021/02/21/12/13/bedroom-6036175_1280.jpg",
+        "imgHover": "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
         "catName": "beds"
     },
     {

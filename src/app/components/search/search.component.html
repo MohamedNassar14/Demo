@@ -1,0 +1,14 @@
+<section class="py-8">
+    @if(term) {
+        <div class="term flex justify-center py-12">
+            <p class="text-lg">Search Results <span class="font-semibold text-mainColor">"{{term}}"</span></p>
+        </div>
+    }
+    <div class="products px-10">
+        <div class="body grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            @for(product of products | search: term; track product.id) {
+                <app-product [product]="product"></app-product>
+            }
+        </div>
+    </div>
+</section>
