@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
-    margin: 10,
+    margin: 35,
     navSpeed: 700,
     autoplay: true, 
     autoplayTimeout: 3000,  
@@ -59,6 +59,9 @@ export class HomeComponent implements OnInit {
         items: 3
       },
       940: {
+        items: 3
+      },
+      1200: {
         items: 4
       }
     },
