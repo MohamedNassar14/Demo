@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
   constructor(private swagger:SwaggerService, private activatedRoute:ActivatedRoute, private cdRef: ChangeDetectorRef) {}
 
   activeCategoryId: number = 0; // Initial category ID (can be null or 0)
-
+  cat:string|null = '';
   spinner:boolean = false;
   isOpen:boolean = false;
   allProducts:Product[] = [];
@@ -28,11 +28,13 @@ export class ProductsComponent implements OnInit {
     this.swagger.cartNumbers.subscribe({
       next:(data)=> this.cartNumber = data
     })
-    let {name} = this.activatedRoute.snapshot.params;
-    this.getAllProducts(name);
+     this.activatedRoute.paramMap.subscribe((res)=> {
+      this.cat = res.get('name');
+      this.getAllProducts(this.cat);
+     });
   }
 
-  getAllProducts(categoryName:string) {
+  getAllProducts(categoryName:string|null) {
     this.spinner = false;
     this.swagger.getProducts().subscribe((res)=> {
       this.spinner = true;

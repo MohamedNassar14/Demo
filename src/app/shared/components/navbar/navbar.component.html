@@ -1,6 +1,6 @@
 <header
-    class="sticky inset-0 z-40 w-ful bg-[#f4f4f4] text-mainColor font-medium px-4 pb-3 pt-3 md:py-4 md:px-6 lg:pt-4">
-    <div class="flex items-center justify-between gap-x-4 lg:gap-x-0 pb-4 md:pb-0">
+    class="sticky inset-0 z-40 w-ful bg-[#f4f4f4] text-mainColor font-medium px-4 pt-3 pb-4 md:py-4 lg:px-6 lg:py-5 xl:px-8 xl:py-5">
+    <div class="flex items-center justify-between gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-14 pb-4 md:pb-0">
         <div class="bars pt-1 md:hidden" (click)="openSide()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-[22px]" fill="currentColor"
                 role="presentation">
@@ -13,7 +13,7 @@
             <h1>
                 <a routerLink="/home">
                     <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#680a08"
-                        class="w-[115px] sm:w-[120px] md:w-[130px] lg:w-[140px] xl:w-[145px]"
+                        class="w-[115px] sm:w-[120px] md:w-[120px] lg:w-[140px] xl:w-[145px]"
                         viewBox="0 0 732.36 180.38">
                         <polygon class="cls-1"
                             points="226.26 118.7 226.26 56.67 216.88 56.67 216.88 127.44 268.03 127.44 264.3 118.7 226.26 118.7" />
@@ -35,26 +35,98 @@
                 </a>
             </h1>
         </div>
-        <div class="search relative w-full px-2 hidden md:block">
-            <div
-                class="flex w-full flex-col overflow-hidden  text-black relative rounded-none shadow-none lg:m-auto lg:!max-w-[92.5%] [&amp;>div]:px-0 [&amp;_svg]:hidden">
-                <input type="text" (input)="searchForItem($event)"
-                    class="py-2 lg:py-2.5 bg-white md:placeholder:text-sm lg:placeholder:text-base hover:aria-invalid:border-gray-500 aria-invalid:transition-none aria-invalid:ring-red-600 aria-invalid:ring-2 aria-invalid:ring-offset-2 hover:border-gray focus-visible:ring-wood-800 disabled:bg-gray-200 hover:disabled:border-gray-500 px-12 text-black transition file:border-0 file:bg-transparent file:font-medium autofill:bg-white focus-visible:border focus-visible:outline-none disabled:text-wood-300 motion-reduce:transition-none placeholder:text-wood-300 flex w-full rounded-3xl bg-transparent outline-none disabled:cursor-not-allowed disabled:opacity-50 !px-ipx-12 !rounded-ipx-DEFAULT lg:!rounded-ipx-3xl !text-ipx-sm focus-visible:border-red hover:focus-visible:border-red h-ipx-11 overflow-hidden border focus-visible:ring-0 focus-visible:ring-offset-0"
-                    placeholder="What are you looking for ?" />
-                <button routerLink="/search"
-                    class="absolute top-1/2 left-0 -translate-y-1/2 px-3 py-3.5 rounded-tl-full rounded-bl-full bg-gr transition group hover:bg-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-search !block hover:fill='#fff'">
+        <div class="links hidden md:block shadow-lg md:pl-6 lg:pl-8 xl:pl-6">
+            <div class="">
+                <div class="flex justify-between">
+                    <div class="flex space-x-3">
+    
+                        <!-- Rooms -->
+                        <div class="relative" (mouseenter)="activeCategoryId = 1" (mouseleave)="activeCategoryId = 0">
+                            <button class="flex items-center md:text-base lg:text-lg text-mainColor hover:text-black transition-colors">
+                                Rooms
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+    
+                            <div class="absolute left-0 z-20 w-48 bg-white shadow-xl rounded-b-md py-2 transition-all duration-200 origin-top"
+                                [class.opacity-0]="activeCategoryId !== 1" [class.invisible]="activeCategoryId !== 1"
+                                [class.scale-y-95]="activeCategoryId !== 1" [class.opacity-100]="activeCategoryId === 1"
+                                [class.visible]="activeCategoryId === 1" [class.scale-y-100]="activeCategoryId === 1">
+                                <div class="py-1">
+                                    @for(room of rooms; track room.id) {
+                                    <a [routerLink]="['/products', room.name]" (click)="activeCategoryId = 0"
+                                        class="flex items-center px-4 py-2 text-lg text-gray-700 hover:bg-blue-50 hover:text-mainColor transition-colors">
+                                        {{ room.name | cutTitle }}
+                                    </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Collections -->
+                        <div class="relative" (mouseenter)="activeCategoryId = 2" (mouseleave)="activeCategoryId = 0">
+                            <button class="flex items-center md:text-base lg:text-lg text-mainColor hover:text-black transition-colors">
+                                Collections
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+    
+                            <div class="absolute left-0 z-20 w-48 bg-white shadow-xl rounded-b-md py-2 transition-all duration-200 origin-top"
+                                [class.opacity-0]="activeCategoryId !== 2" [class.invisible]="activeCategoryId !== 2"
+                                [class.scale-y-95]="activeCategoryId !== 2" [class.opacity-100]="activeCategoryId === 2"
+                                [class.visible]="activeCategoryId === 2" [class.scale-y-100]="activeCategoryId === 2">
+                                <div class="py-1">
+                                    @for(coll of collections; track coll.id) {
+                                    <a [routerLink]="['/products', coll.name]" (click)="activeCategoryId = 0"
+                                        class="flex items-center px-4 py-2 text-lg text-gray-700 hover:bg-blue-50 hover:text-mainColor transition-colors">
+                                        {{ coll.name | cutTitle }}
+                                    </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search relative w-full hidden md:block">
+            <div class="flex w-full flex-col text-black relative">
+                <input type="text" [(ngModel)]="searchQuery" (input)="searchForItems($event)"
+                    class="w-full md:py-1 lg:py-1.5 xl:py-1.5 px-12 rounded-3xl border border-gray-300 focus:outline-none focus:border-gray-400"
+                    placeholder="What are you looking for?" />
+        
+                <!-- Search Icon Button -->
+                <button (click)="goToSearch()" routerLink="/search"
+                    class="absolute top-1/2 left-0 -translate-y-1/2 px-3 py-2.5 rounded-tl-full rounded-bl-full bg-gr transition hover:bg-gray-200 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="md:w-[18px] lg:w-[18px] xl:w-[20px]" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.3-4.3"></path>
                     </svg>
                 </button>
+        
+                <!-- Dropdown Suggestions -->
+                @if(isDropdownOpen) {
+                <div
+                    class="absolute top-full left-0 w-full bg-white border border-gray-200 rounded-b-md shadow-md z-50 max-h-60 overflow-auto">
+                    <ng-container *ngFor="let item of searchResults">
+                        <a [routerLink]="['/product-details', item.id]" (click)="selectItem(item)"
+                            class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700 cursor-pointer">
+                            {{ item.name }}
+                        </a>
+                    </ng-container>
+                </div>
+                }
             </div>
         </div>
-        <div class="flex items-center gap-x-3 md:gap-x-3 lg:gap-x-6">
-            <a class="flex justify-center items-center gap-2   bg-transparent" routerLink="login">
-                <svg aria-hidden="true" fill="none" focusable="false" class="w-[21px] sm:w-[22px] lg:w-[25px]"
+        <div class="flex items-center gap-x-3 lg:gap-x-2 xl:gap-x-6">
+            <a class="text-lg flex justify-center items-center gap-2   bg-transparent" routerLink="login">
+                <svg aria-hidden="true" fill="none" focusable="false" class="w-[21px] sm:w-[22px] xl:w-[25px]"
                     viewBox="0 0 24 24">
                     <path
                         d="M16.125 8.75c-.184 2.478-2.063 4.5-4.125 4.5s-3.944-2.021-4.125-4.5c-.187-2.578 1.64-4.5 4.125-4.5 2.484 0 4.313 1.969 4.125 4.5Z"
@@ -66,7 +138,7 @@
                     Login
                 </span>
             </a>
-            <a class="flex items-center justify-center gap-2   bg-transparent" routerLink="cart">
+            <a class="text-lg flex items-center justify-center gap-2   bg-transparent" routerLink="cart">
                 <div class="icon relative p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-[19px] sm:w-[20px] lg:w-[23px]" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
@@ -86,99 +158,41 @@
             </a>
         </div>
     </div>
-  
-
-    <div class="hidden sm:block pt-2 shadow-lg">
-        <div class="px-4">
-          <div class="flex justify-between">
-            <div class="flex space-x-6">
-              <!-- First Static Category -->
-              <div class="relative group"
-                   (mouseenter)="setActiveCategory(1)"
-                   (mouseleave)="startHideTimeout()">
-                
-                <button class="flex items-center text-lg text-mainColor hover:text-black transition-colors">
-                 Rooms
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
-                
-                <div class="absolute left-0 z-20 w-56 bg-white shadow-xl rounded-b-md py-2 border-t-2 border-mainColor transition-all duration-200 origin-top"
-                     [class.opacity-0]="activeCategoryId !== 1"
-                     [class.invisible]="activeCategoryId !== 1"
-                     [class.scale-y-95]="activeCategoryId !== 1"
-                     [class.opacity-100]="activeCategoryId === 1"
-                     [class.visible]="activeCategoryId === 1"
-                     [class.scale-y-100]="activeCategoryId === 1"
-                     (mouseenter)="cancelHideTimeout()"
-                     (mouseleave)="startHideTimeout()">
-                  <div class="py-1">
-                   @for(room of rooms; track room.id) {
-                    <a [routerLink]="['/products', room.name]" class="flex items-center px-4 py-2 text-lg text-gray-700 hover:bg-blue-50 hover:text-mainColor transition-colors">
-                        {{room.name | cutTitle}}
-                      </a>
-  
-                   }
-                  </div>
-                </div>
-              </div>
-      
-              <!-- Second Static Category -->
-              <div class="relative group"
-                   (mouseenter)="setActiveCategory(2)"
-                   (mouseleave)="startHideTimeout()">
-                
-                <button class="flex items-center text-mainColor text-lg hover:text-black transition-colors">
-                  Collections
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
-                
-                <div class="absolute left-0 z-20 w-56 bg-white shadow-xl rounded-b-md py-2 border-t-2 border-mainColor transition-all duration-200 origin-top"
-                     [class.opacity-0]="activeCategoryId !== 2"
-                     [class.invisible]="activeCategoryId !== 2"
-                     [class.scale-y-95]="activeCategoryId !== 2"
-                     [class.opacity-100]="activeCategoryId === 2"
-                     [class.visible]="activeCategoryId === 2"
-                     [class.scale-y-100]="activeCategoryId === 2"
-                     (mouseenter)="cancelHideTimeout()"
-                     (mouseleave)="startHideTimeout()">
-                  <div class="py-1">
-                    @for(coll of collections; track coll.id) {
-                        <a [routerLink]="['/products', coll.name]" class="flex items-center px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-mainColor transition-colors">
-                            {{coll.name  | cutTitle}}
-                        </a>
-                    }
-                  </div>
-                </div>
-              </div>
+    <div class="search relative w-full block md:hidden">
+        <div class="flex w-full flex-col text-black relative">
+            <input type="text" [(ngModel)]="searchQuery" (input)="searchForItems($event)"
+                class="w-full text-sm py-1 px-12 rounded-3xl border border-gray-300 focus:outline-none"
+                placeholder="What are you looking for?" />
+    
+            <!-- Search Icon Button -->
+            <button (click)="goToSearch()" routerLink="/search"
+            class="absolute top-1/2 left-0 -translate-y-1/2 px-3 py-2 rounded-tl-full rounded-bl-full bg-gr transition hover:bg-gray-200 ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-search !block hover:fill='#fff'">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+            </svg>
+        </button>
+    
+            <!-- Dropdown Suggestions -->
+            @if(isDropdownOpen) {
+            <div
+                class="absolute top-full left-0 w-full bg-white border border-gray-200 rounded-b-md shadow-md z-50 max-h-60 overflow-auto">
+                <ng-container *ngFor="let item of searchResults">
+                    <a [routerLink]="['/product-details', item.id]" (click)="selectItem(item)"
+                        class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700 cursor-pointer">
+                        {{ item.name }}
+                    </a>
+                </ng-container>
             </div>
-          </div>
-        </div>
-      </div>
-
-      
-
-
-    <div class="search w-full block md:hidden">
-        <div
-            class="flex w-full flex-col overflow-hidden  text-black relative rounded-none shadow-none lg:m-auto lg:!max-w-[92.5%] [&amp;>div]:px-0 [&amp;_svg]:hidden">
-            <input type="text" (input)="searchForItem($event)"
-                class="pl-12 py-1.5 bg-white placeholder:text-sm md:placeholder:text-sm hover:aria-invalid:border-gray-500 aria-invalid:transition-none aria-invalid:ring-red-600 aria-invalid:ring-2 aria-invalid:ring-offset-2 hover:border-gray focus-visible:ring-wood-800 disabled:bg-gray-200 hover:disabled:border-gray-500 p-6 text-black transition file:border-0 file:bg-transparent file:font-medium autofill:bg-white focus-visible:border focus-visible:outline-none disabled:text-wood-300 motion-reduce:transition-none placeholder:text-wood-300 flex w-full rounded-3xl bg-transparent text-sm outline-none disabled:cursor-not-allowed disabled:opacity-50 !px-ipx-12 !rounded-ipx-DEFAULT lg:!rounded-ipx-3xl !text-ipx-sm focus-visible:border-red hover:focus-visible:border-red h-ipx-11 overflow-hidden border focus-visible:ring-0 focus-visible:ring-offset-0"
-                placeholder="What are you looking for ?" />
-            <button routerLink="/search"
-                class="absolute top-1/2 left-0 -translate-y-1/2 px-3 py-3.5 rounded-tl-full rounded-bl-full bg-gray-300 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-search !block">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.3-4.3"></path>
-                </svg>
-            </button>
+            }
         </div>
     </div>
+
+    <!-- Category Wrapper -->
+
+
     <aside class="fixed top-0 bottom-0 w-full h-full z-50 duration-300 transition-all ease-in-out bg-white"
         [ngClass]="{'right-0': isOpen, 'right-full': !isOpen}">
         <div class="header flex justify-between items-center p-6">
@@ -206,7 +220,7 @@
                 </a>
             </div>
             <div class="close" (click)="closeSide()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 24 24" fill="none"
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-x size-ipx-6 leading-ipx-5">
                     <path d="M18 6 6 18"></path>
@@ -217,73 +231,81 @@
         <div class="shop bg-gray-100 py-1 px-4" (click)="closeSide()">
             <h3 class="text-lg leading-8 font-semibold" routerLink="/home">Shop</h3>
         </div>
-        
-        
+
+
 
 
         <div class="pt-4 shadow-lg pb-4">
             <div class="px-4">
-              <div class="flex justify-between">
-                <div class="flex flex-col gap-y-4">
-                  <!-- Loop through categories -->
-                  <div class="">
-                    <!-- Category button, toggles dropdown on click -->
-                    <button (click)="toggleSubcategories(1)" class="flex items-center text-lg text-mainColor hover:text-black transition-colors">
-                      Rooms
-                      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                      </svg>
-                    </button>
-          
-                    <!-- Subcategories dropdown (only visible if the category is active) -->
-                    <div *ngIf="activeCategoryId === 1" 
-                         class=" left-0 z-20 w-56 bg-white shadow-xl rounded-b-md py-2 border-t-2 border-mainColor transition-all duration-300 origin-top scale-y-100 opacity-100">
-                      <div class="py-1">
-                        <!-- Loop through subcategories of the category -->
-                       @for(room of rooms; track room.id) {
-                        <a [routerLink]="['/products', room.name]" (click)="closeSide()" class="flex items-center px-4 py-2 text-lg text-mainColor hover:bg-blue-50 hover:text-mainColor transition-colors">
-                            {{ room.name }}
-                          </a>
-                       }
-                      </div>
+                <div class="flex justify-between">
+                    <div class="flex flex-col gap-y-4">
+                        <!-- Loop through categories -->
+                        <div class="">
+                            <!-- Category button, toggles dropdown on click -->
+                            <button (click)="toggleSubcategories(1)"
+                                class="flex items-center text-lg text-mainColor hover:text-black transition-colors">
+                                Rooms
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            <!-- Subcategories dropdown (only visible if the category is active) -->
+                            <div *ngIf="activeCategoryId === 1"
+                                class=" left-0 z-20 w-56 bg-white shadow-xl rounded-b-md py-2 transition-all duration-300 origin-top scale-y-100 opacity-100">
+                                <div class="py-1">
+                                    <!-- Loop through subcategories of the category -->
+                                    @for(room of rooms; track room.id) {
+                                    <a [routerLink]="['/products', room.name]" (click)="closeSide()"
+                                        class="flex items-center px-4 py-2  text-mainColor hover:bg-blue-50 hover:text-mainColor transition-colors">
+                                        {{ room.name }}
+                                    </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="">
+                            <!-- Category button, toggles dropdown on click -->
+                            <button (click)="toggleSubcategories(2)"
+                                class="flex items-center text-lg text-mainColor hover:text-black transition-colors">
+                                Collections
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            <!-- Subcategories dropdown (only visible if the category is active) -->
+                            <div *ngIf="activeCategoryId === 2"
+                                class=" left-0 z-20 w-56 bg-white shadow-xl rounded-b-md py-2 transition-all duration-300 origin-top scale-y-100 opacity-100">
+                                <div class="py-1">
+                                    <!-- Loop through subcategories of the category -->
+                                    @for(coll of collections; track coll.id) {
+                                    <a [routerLink]="['/products', coll.name]" (click)="closeSide()"
+                                        class="flex items-center px-4 py-2 text-mainColor hover:bg-blue-50 hover:text-mainColor transition-colors">
+                                        {{ coll.name }}
+                                    </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="">
-                    <!-- Category button, toggles dropdown on click -->
-                    <button (click)="toggleSubcategories(2)" class="flex items-center text-lg text-mainColor hover:text-black transition-colors">
-                      Collections
-                      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                      </svg>
-                    </button>
-          
-                    <!-- Subcategories dropdown (only visible if the category is active) -->
-                    <div *ngIf="activeCategoryId === 2" 
-                         class=" left-0 z-20 w-56 bg-white shadow-xl rounded-b-md py-2 border-t-2 border-mainColor transition-all duration-300 origin-top scale-y-100 opacity-100">
-                      <div class="py-1">
-                        <!-- Loop through subcategories of the category -->
-                       @for(coll of collections; track coll.id) {
-                        <a [routerLink]="['/products', coll.name]" (click)="closeSide()" class="flex items-center px-4 py-2 text-lg text-mainColor hover:bg-blue-50 hover:text-mainColor transition-colors">
-                            {{ coll.name }}
-                          </a>
-                       }
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-          
+        </div>
+
 
 
 
 
         <div class="information px-4 space-y-1">
             <h1 class="text-lg leading-9 py-1 mt-2 font-semibold">Information</h1>
-            <a class="account flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/register" (click)="closeSide()">
+            <a class="account flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/register"
+                (click)="closeSide()">
                 <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-user-round-plus">
                         <path d="M2 21a8 8 0 0 1 13.292-6"></path>
@@ -296,9 +318,10 @@
                     <p>Signup</p>
                 </div>
             </a>
-            <a class="about flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/about-us" (click)="closeSide()">
+            <a class="about flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/about-us"
+                (click)="closeSide()">
                 <div class="icon">
-                    <svg width="21" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    <svg width="20" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>about</title>
                         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -315,9 +338,10 @@
                     <p (click)="closeSide()">About Us</p>
                 </div>
             </a>
-            <a class="contact flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/contact-us" (click)="closeSide()">
+            <a class="contact flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/contact-us"
+                (click)="closeSide()">
                 <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="21" viewBox="0 0 23 21" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 23 21" fill="none">
                         <path
                             d="M7.75133 5.48179H20.6323L13.5959 11.0073C13.4468 11.1243 13.2694 11.1814 13.1085 11.197C12.9465 11.1811 12.7685 11.124 12.6178 11.0073L7.58931 7.05717C7.53604 7.01433 7.4759 6.98165 7.40973 6.96133C7.64643 6.62742 7.78153 6.22348 7.77439 5.78824C7.77302 5.68856 7.76423 5.58586 7.75133 5.48179ZM4.47563 1.92819C4.49183 1.93094 4.51846 1.9411 4.57641 1.96801C4.69091 2.02238 4.87297 2.16243 5.05119 2.35767C5.41009 2.7487 5.76872 3.34101 5.9549 3.73204C5.96066 3.74357 5.9667 3.7562 5.9722 3.76911C6.50053 4.67556 6.72844 5.36893 6.73531 5.80389C6.74272 6.24078 6.62547 6.42888 6.25503 6.6417L5.29943 7.19254C4.67691 7.5509 4.38281 8.19318 4.30977 8.79236C4.23645 9.39181 4.34437 9.97424 4.611 10.4347L6.96982 14.5002C7.237 14.9604 7.69311 15.3454 8.25082 15.5818C8.80909 15.8188 9.51508 15.8858 10.1376 15.5283L11.0932 14.9785C11.4634 14.7663 11.6872 14.7619 12.0631 14.9854C12.4401 15.2095 12.9297 15.7507 13.4559 16.6577C13.4633 16.6712 13.4704 16.6824 13.4789 16.6953C13.7255 17.0509 14.0614 17.6542 14.2234 18.1595C14.3038 18.4105 14.3354 18.6373 14.3252 18.7628C14.314 18.8888 14.3112 18.8759 14.278 18.8957L13.5509 19.3125C11.7242 20.1048 10.05 19.926 8.55371 19.15C7.05467 18.3707 5.75169 16.9634 4.84332 15.3111C4.8403 15.3078 4.83892 15.3037 4.83645 15.3015L2.8467 11.8723C2.84341 11.869 2.84203 11.866 2.83929 11.8616C1.85485 10.2524 1.28121 8.4255 1.35315 6.74467C1.4251 5.06632 2.10611 3.53625 3.71032 2.35904L4.43773 1.94357C4.45448 1.93396 4.45997 1.92654 4.47563 1.92819ZM4.48304 0.906407C4.29055 0.903386 4.09421 0.943752 3.91764 1.04618L3.14849 1.48856C3.13119 1.49844 3.11526 1.5086 3.09961 1.51849C1.24908 2.87282 0.396997 4.75822 0.313793 6.70156C0.23059 8.64408 0.879194 10.6489 1.95068 12.4017L3.93384 15.8191L3.92917 15.8089C4.91911 17.6078 6.33769 19.1684 8.07124 20.0674C9.80561 20.9678 11.8717 21.1765 13.9762 20.2588C13.9935 20.2514 14.0111 20.2432 14.0268 20.2336L14.797 19.7912C15.1532 19.5885 15.3322 19.1942 15.3613 18.8498C15.3912 18.5066 15.3212 18.1724 15.2149 17.8432C15.0068 17.1921 14.6438 16.5597 14.3439 16.1258C13.7774 15.1513 13.2304 14.4749 12.5983 14.0968C11.9612 13.717 11.1965 13.7225 10.5726 14.0812L9.61696 14.632C9.33467 14.7946 9.0046 14.7756 8.65723 14.6287C8.31151 14.4818 7.99133 14.188 7.87243 13.982L5.51361 9.91685C5.39444 9.7098 5.29696 9.28747 5.34309 8.91511C5.38757 8.54385 5.53833 8.25305 5.82089 8.09021L6.74931 7.55639C6.77348 7.68078 6.84377 7.79364 6.94565 7.86943L11.9744 11.8204C12.3014 12.0774 12.6889 12.2205 13.0791 12.243C13.0989 12.2441 13.1192 12.2441 13.1392 12.243C13.5297 12.2205 13.9153 12.0771 14.2426 11.8204L21.1685 6.37945V15.3682C21.1685 15.505 21.0126 15.6851 20.7067 15.6851H15.9119C15.6233 15.6834 15.3896 15.9163 15.3896 16.2033C15.3896 16.4897 15.6236 16.7225 15.9119 16.7209H20.7067C21.4904 16.7209 22.2107 16.1544 22.2107 15.3682V5.79868C22.2107 5.01195 21.4904 4.44572 20.7067 4.44572H7.46602C7.31938 4.07913 7.12579 3.69057 6.88194 3.26824C6.65375 2.79318 6.28359 2.16517 5.82034 1.66018C5.58638 1.40426 5.33403 1.17744 5.01851 1.0308V1.03217C4.86171 0.958032 4.67526 0.910526 4.48304 0.906407Z"
                             fill="currentColor"></path>
@@ -330,3 +354,5 @@
         </div>
     </aside>
 </header>
+
+

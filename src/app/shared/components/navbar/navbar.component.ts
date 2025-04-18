@@ -7,12 +7,13 @@ import { Category } from '../../models/category';
 import { ElementRef, ViewChild } from '@angular/core';
 import { SearchPipe } from '../../search.pipe';
 import { CutTitlePipe } from '../../pipes/cut-title.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, CommonModule, CutTitlePipe],
+  imports: [RouterLink, CommonModule, CutTitlePipe, FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private swagger:SwaggerService, private cdRef: ChangeDetectorRef) {}
 
-  activeCategoryId: number = 0; // Initial category ID (can be null or 0)
+  activeCategoryId = 0; // Initial category ID (can be null or 0)
   cartNumber:number = 0;
   isOpen:boolean = false;
   rooms:Category[] = [];
@@ -46,9 +47,9 @@ export class NavbarComponent implements OnInit {
     this.isOpen = false;
   }
 
-  searchForItem(term:any) {
-    this.swagger.userSearch.next(term.target.value);
-  }
+  // searchForItem(term:any) {
+  //   this.swagger.userSearch.next(term.target.value);
+  // }
 
   activeDropdown: string | null = null;
 
@@ -127,7 +128,7 @@ export class NavbarComponent implements OnInit {
     this.cancelHideTimeout();
     this.hideTimeout = setTimeout(() => {
       this.activeCategoryId = 0;
-    }, 200); // 200ms delay before hiding
+    }, 600); // 200ms delay before hiding
   }
 
   cancelHideTimeout(): void {
@@ -158,5 +159,75 @@ export class NavbarComponent implements OnInit {
       this.activeCategoryId = index; // Open the dropdown for the clicked category
     }
   }
+
+
+//   searchResults: string[] = [];
+
+// searchForItems(event: Event): void {
+//   const value = (event.target as HTMLInputElement).value.toLowerCase();
+
+//   // لو فاضي، نخفي القائمة
+//   if (!value) {
+//     this.searchResults = [];
+//     return;
+//   }
+
+//   // هنا تحط اللوجيك بتاع الفلترة
+//   const allItems = ['Sofa', 'Table', 'Chair', 'Desk', 'Lamp']; // ده مثال، هتجيبه من API أو من array عندك
+//   this.searchResults = allItems.filter(item => item.toLowerCase().includes(value));
+// }
+
+allItems: Product[] = [];
+searchQuery: string = '';
+searchResults: Product[] = [];
+isDropdownOpen: boolean = false;
+
+searchForItems(event: Event): void {
+  const value = (event.target as HTMLInputElement).value.toLowerCase();
+
+  if (!value) {
+    this.searchResults = [];
+    this.isDropdownOpen = false;
+    return;
+  }
+
+  // Call the API
+  this.swagger.getProducts().subscribe((res) => {
+    this.allItems = res;
+
+    // Filter after data is received
+    this.searchResults = this.allItems.filter(item =>
+      item.name.toLowerCase().includes(value)
+    );
+
+    this.isDropdownOpen = this.searchResults.length > 0;
+  });
+
+  this.swagger.userSearch.next(value);
+}
+
+// When user selects an item
+selectItem(item: Product): void {
+  this.searchQuery = item.name;
+  this.isDropdownOpen = false;
+}
+
+// Close dropdown if clicked outside
+@HostListener('document:click', ['$event'])
+onClickOutside(event: MouseEvent) {
+  const clickedInside = (event.target as HTMLElement).closest('.search');
+  if (!clickedInside) {
+    this.isDropdownOpen = false;
+  }
+}
+
+
+goToSearch(): void {
+  if (this.searchQuery.trim()) {
+    this.isDropdownOpen = false; // اقفل الـ dropdown
+  }
+}
+
+
 }
 
