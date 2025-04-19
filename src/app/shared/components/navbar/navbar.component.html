@@ -97,7 +97,7 @@
         <div class="search relative w-full hidden md:block">
             <div class="flex w-full flex-col text-black relative">
                 <input type="text" [(ngModel)]="searchQuery" (input)="searchForItems($event)"
-                    class="w-full md:py-1 lg:py-1.5 xl:py-1.5 px-12 rounded-3xl border border-gray-300 focus:outline-none focus:border-gray-400"
+                    class="w-full md:py-1 lg:py-1.5 pt-1 sm:pt-0 xl:py-1.5 px-12 rounded-3xl border border-gray-300 focus:outline-none focus:border-gray-400"
                     placeholder="What are you looking for?" />
         
                 <!-- Search Icon Button -->
@@ -149,7 +149,7 @@
                         </path>
                     </svg>
                     <p
-                        class="text-xs sm:text-sm flex justify-center items-center absolute top-0 right-0 w-[14px] h-[14px] sm:w-[16px] sm:h-[16px] rounded-full bg-mainColor text-white">
+                        class="text-xs sm:text-sm flex justify-center items-center absolute top-0 right-0 w-[14px] h-[14px] sm:w-[16px] sm:h-[16px] rounded-full bg-mainColor text-white pt-1 sm:pt-0">
                         {{cartNumber}}</p>
                 </div>
                 <span class="hidden lg:block">
@@ -161,7 +161,7 @@
     <div class="search relative w-full block md:hidden">
         <div class="flex w-full flex-col text-black relative">
             <input type="text" [(ngModel)]="searchQuery" (input)="searchForItems($event)"
-                class="w-full py-1 px-12 rounded-3xl border border-gray-300 focus:outline-none"
+                class="w-full pt-1 sm:pt-0 py-1 px-12 rounded-3xl border border-gray-300 focus:outline-none"
                 placeholder="What are you looking for?" />
     
             <!-- Search Icon Button -->
@@ -235,20 +235,22 @@
 
 
 
-        <div class="pt-4 shadow-lg pb-4">
+        <div class="pt-6 shadow-lg pb-4">
             <div class="px-4">
-                <div class="flex justify-between">
+                <div class="flex">
                     <div class="flex flex-col gap-y-4">
                         <!-- Loop through categories -->
                         <div class="">
                             <!-- Category button, toggles dropdown on click -->
                             <button (click)="toggleSubcategories(1)"
-                                class="flex items-center text-lg text-mainColor hover:text-black transition-colors">
-                                Rooms
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
+                                class="flex items-center text-mainColor hover:text-black transition-colors">
+                                <p>Rooms</p>
+                                <div class="icon ml-64">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
                             </button>
 
                             <!-- Subcategories dropdown (only visible if the category is active) -->
@@ -269,12 +271,14 @@
                         <div class="">
                             <!-- Category button, toggles dropdown on click -->
                             <button (click)="toggleSubcategories(2)"
-                                class="flex items-center text-lg text-mainColor hover:text-black transition-colors">
-                                Collections
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
+                                class="flex items-center text-mainColor hover:text-black transition-colors">
+                                <p>Collections</p>
+                                <div class="icon ml-56">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
                             </button>
 
                             <!-- Subcategories dropdown (only visible if the category is active) -->
@@ -300,9 +304,9 @@
 
 
 
-        <div class="information px-4 space-y-1">
-            <h1 class="text-lg leading-9 py-1 mt-2 font-semibold">Information</h1>
-            <a class="account flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/register"
+        <div class="information  space-y-1">
+            <h1 class="text-lg leading-9 py-1 mt-2 px-4 font-semibold bg-gray-100">Information</h1>
+            <a class="account flex items-center gap-x-4 px-4 py-4 border-b border-gray-300" routerLink="/register"
                 (click)="closeSide()">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"
@@ -318,7 +322,7 @@
                     <p>Signup</p>
                 </div>
             </a>
-            <a class="about flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/about-us"
+            <a class="about flex items-center gap-x-4 px-4 py-4 border-b border-gray-300" routerLink="/about-us"
                 (click)="closeSide()">
                 <div class="icon">
                     <svg width="20" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -338,7 +342,7 @@
                     <p (click)="closeSide()">About Us</p>
                 </div>
             </a>
-            <a class="contact flex items-center gap-x-4 py-4 border-b border-gray-300" routerLink="/contact-us"
+            <a class="contact flex items-center gap-x-4 px-4 py-4 border-b border-gray-300" routerLink="/contact-us"
                 (click)="closeSide()">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 23 21" fill="none">
