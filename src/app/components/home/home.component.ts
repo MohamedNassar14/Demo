@@ -103,6 +103,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.getAllTrends();
+    this.startAutoSlide();
   }
 
   getAllTrends() {
@@ -151,6 +152,36 @@ ngAfterViewInit(): void {
 }
 
 
+images: string[] = [
+  'assets/images/slide1.webp',
+  'assets/images/slide2.webp',
+  'assets/images/slide3.jpg'
+];
 
+currentIndex = 0;
+autoSlideInterval: any;
+
+
+next() {
+  this.currentIndex = (this.currentIndex + 1) % this.images.length;
+}
+
+prev() {
+  this.currentIndex =
+    (this.currentIndex - 1 + this.images.length) % this.images.length;
+}
+
+goTo(index: number) {
+  this.currentIndex = index;
+}
+startAutoSlide() {
+  this.autoSlideInterval = setInterval(() => {
+    this.next();
+  }, 3000); // يتغير كل 3 ثواني
+}
+
+ngOnDestroy(): void {
+  clearInterval(this.autoSlideInterval);
+}
 
 }
