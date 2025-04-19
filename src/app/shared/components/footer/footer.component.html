@@ -1,8 +1,8 @@
 @if(isLoading) {
-    <footer class="bg-secondColor text-mainColor py-12">
+    <footer class="bg-[#dadada9d] text-mainColor py-12">
         <div class="footer-body px-4 sm:px-6">
             <div class="footer-links grid grid-cols-2 md:grid-cols-3">
-                <div class="brand space-y-3 pb-8">
+                <div class="brand space-y-1.5 sm:space-y-3 pb-8">
                     <h1 class="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold">
                         <a routerLink="/home">LA TERRA</a>
                     </h1>
@@ -11,16 +11,136 @@
                         <li class="text-base sm:text-lg md:text-lg lg:text-xl"><a routerLink="/contact-us">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="categories space-y-3">
+                <div class="categories space-y-1.5 sm:space-y-3">
                     <h2 class="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold">Categories</h2>
-                    <ul class="space-y-1 md:space-y-2">
-                        <li class="text-base sm:text-lg  md:text-lg lg:text-xl"><a routerLink="/rooms">Rooms</a>
-                        </li>
-                        <li class="text-base sm:text-lg  md:text-lg lg:text-xl"><a routerLink="/collections">Collections</a>
-                        </li>
-                    </ul>
+                    <div class=" space-y-1 md:space-y-2">
+                        <div class="links hidden md:block shadow-lg">
+                            <div class="">
+                                <div class="flex justify-between">
+                                    <div class="space-y-1 md:space-y-2">
+                    
+                                        <!-- Rooms -->
+                                        <div class="relative" (mouseenter)="activeCategoryId = 1" (mouseleave)="activeCategoryId = 0">
+                                            <button class="flex items-center md:text-base lg:text-lg text-mainColor hover:text-black transition-colors">
+                                                Rooms
+                                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                    
+                                            <div class="absolute left-0 z-20 w-48 bg-white shadow-xl rounded-b-md py-2 transition-all duration-200 origin-top"
+                                                [class.opacity-0]="activeCategoryId !== 1" [class.invisible]="activeCategoryId !== 1"
+                                                [class.scale-y-95]="activeCategoryId !== 1" [class.opacity-100]="activeCategoryId === 1"
+                                                [class.visible]="activeCategoryId === 1" [class.scale-y-100]="activeCategoryId === 1">
+                                                <div class="py-1">
+                                                    @for(room of rooms; track room.id) {
+                                                    <a [routerLink]="['/products', room.name]" (click)="activeCategoryId = 0"
+                                                        class="flex items-center px-4 py-2 text-lg text-gray-700 hover:bg-blue-50 hover:text-mainColor transition-colors">
+                                                        {{ room.name | cutTitle }}
+                                                    </a>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                        <!-- Collections -->
+                                        <div class="relative" (mouseenter)="activeCategoryId = 2" (mouseleave)="activeCategoryId = 0">
+                                            <button class="flex items-center md:text-base lg:text-lg text-mainColor hover:text-black transition-colors">
+                                                Collections
+                                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                    
+                                            <div class="absolute left-0 z-20 w-48 bg-white shadow-xl rounded-b-md py-2 transition-all duration-200 origin-top"
+                                                [class.opacity-0]="activeCategoryId !== 2" [class.invisible]="activeCategoryId !== 2"
+                                                [class.scale-y-95]="activeCategoryId !== 2" [class.opacity-100]="activeCategoryId === 2"
+                                                [class.visible]="activeCategoryId === 2" [class.scale-y-100]="activeCategoryId === 2">
+                                                <div class="py-1">
+                                                    @for(coll of collections; track coll.id) {
+                                                    <a [routerLink]="['/products', coll.name]" (click)="activeCategoryId = 0"
+                                                        class="flex items-center px-4 py-2 text-lg text-gray-700 hover:bg-blue-50 hover:text-mainColor transition-colors">
+                                                        {{ coll.name | cutTitle }}
+                                                    </a>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="shadow-lg">
+                        <div class="">
+                            <div class="flex justify-between">
+                                <div class="flex flex-col">
+                                    <!-- Loop through categories -->
+                                    <div class="">
+                                        <!-- Category button, toggles dropdown on click -->
+                                        <button (click)="toggleSubcategories(1)"
+                                            class="flex items-center text-base sm:text-lg md:text-lg lg:text-xl text-mainColor hover:text-black transition-colors">
+                                            Rooms
+                                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
+            
+                                        <!-- Subcategories dropdown (only visible if the category is active) -->
+                                        <div *ngIf="activeCategoryId === 1"
+                                            class=" left-0 z-20 w-36 shadow-xl rounded-b-md  transition-all duration-300 origin-top scale-y-100 opacity-100">
+                                            <div class="">
+                                                <!-- Loop through subcategories of the category -->
+                                                @for(room of rooms; track room.id) {
+                                                <a [routerLink]="['/products', room.name]" (click)="closeSide()"
+                                                    class="flex items-center px-4 py-1 text-mainColor hover:bg-blue-50 hover:text-mainColor transition-colors">
+                                                    {{ room.name }}
+                                                </a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="">
+                                        <!-- Category button, toggles dropdown on click -->
+                                        <button (click)="toggleSubcategories(2)"
+                                            class="flex items-center text-base sm:text-lg md:text-lg lg:text-xl text-mainColor hover:text-black transition-colors">
+                                            Collections
+                                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
+            
+                                        <!-- Subcategories dropdown (only visible if the category is active) -->
+                                        <div *ngIf="activeCategoryId === 2"
+                                            class=" left-0 z-20 w-36 shadow-xl rounded-b-md transition-all duration-300 origin-top scale-y-100 opacity-100">
+                                            <div class="">
+                                                <!-- Loop through subcategories of the category -->
+                                                @for(coll of collections; track coll.id) {
+                                                <a [routerLink]="['/products', coll.name]" (click)="closeSide()"
+                                                    class="flex items-center px-4 py-1 text-mainColor hover:bg-blue-50 hover:text-mainColor transition-colors">
+                                                    {{ coll.name }}
+                                                </a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
-                <div class="contact col-span-2 md:col-span-1 space-y-3">
+                <div class="contact col-span-2 md:col-span-1 space-y-2 sm:space-y-3">
                     <h2 class="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold">Contact</h2>
                     <ul class="space-y-2">
                         <li class="text-base sm:text-lg md:text-lg lg:text-xl">

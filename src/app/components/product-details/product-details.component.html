@@ -3,37 +3,37 @@
 }
 @if(spinner) {
 <section class="details py-10">
-  <div class="details-boy px-4 md:px-10 lg:px-14 xl:px-24">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-x-8 lg:gap-x-20">
+  <div class="details-boy px-4 sm:px-8 md:px-10 lg:px-14 xl:px-24">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-x-6 lg:gap-x-12">
 
       <!-- الحل الامثل-->
-      <figure class="product-image col-span-5 space-y-4">
+      <figure class="product-image col-span-7 lg:col-span-6 space-y-4">
         <div class="base-image relative overflow-hidden w-full cursor-pointer" (mousemove)="onMouseMove($event)"
           (mouseleave)="onMouseLeave()" (click)="openFullScreen()" #zoomContainer (mousemove)="onMouseMove($event)"
           (mouseleave)="onMouseLeave()">
           <img [src]="selectedImage" [alt]="productDetails?.name + ' image'"
-            class="w-full h-full object-cover transition-transform duration-200" [ngStyle]="{
+            class="w-full h-full object-cover transition-transform duration-200 sm:px-8 md:px-0" [ngStyle]="{
         transform: zoomActive ? 'scale(2)' : 'scale(1)',
         transformOrigin: zoomOrigin}" />
           <div class="tap-zoom">
-            <p class="absolute bottom-16 right-5 py-1 px-2 rounded-lg text-xs bg-gray-300">tap to zoom</p>
+            <p class="absolute md:bottom-16 md:right-5 py-1 px-2 rounded-lg text-xs bg-gray-300">tap to zoom</p>
           </div>
           <div class="click-zoom">
-            <p class="absolute bottom-6 right-1 py-1 px-2 rounded-lg text-xs bg-gray-300">Click to full
+            <p class="absolute bottom-5 right-5 sm:bottom-6 sm:right-10 md:bottom-6 md:right-1 py-1 px-2 rounded-lg text-xs bg-gray-300">Click to full
               screen</p>
           </div>
         </div>
 
-        <div class="sub-images flex flex-row flex-wrap justify-center gap-y-2 gap-x-2 sm:gap-y-3">
+        <div class="sub-images flex flex-row flex-wrap justify-center gap-x-3.5 sm:gap-x-6 gap-y-2 sm:gap-y-3">
 
-          <div class="image w-16 h-16 lg:w-28 lg:h-28 xl:w-16 xl:h-16 border p-1" [ngClass]="{
+          <div class="image w-14 h-14 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 border p-1" [ngClass]="{
                           'border-2 border-gray-800': selectedImage === productDetails?.imgUrl,
                           'border-gray-300': selectedImage !== productDetails?.imgUrl
                         }" (click)="selectedImage = productDetails?.imgUrl">
             <img [src]="productDetails?.imgUrl" loading="lazy" class="w-full h-full cursor-pointer" />
           </div>
 
-          <div class="image w-16 h-16 lg:w-28 lg:h-28 xl:w-16 xl:h-16 border p-1" [ngClass]="{
+          <div class="image w-14 h-14 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 border p-1" [ngClass]="{
                           'border-2 border-gray-800': selectedImage === img,
                           'border-gray-300': selectedImage !== img
                         }" *ngFor="let img of productDetails?.otherImages" (click)="selectedImage = img">
