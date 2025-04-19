@@ -45,8 +45,9 @@
                         <textarea placeholder="Your Message" class="w-full h-36 px-3 py-2 rounded-lg  border border-gray-300 placeholder:text-gray-400 placeholder:text-sm sm:placeholder:text-base focus:border-textColor focus:outline-none"></textarea>
 
                     </div>
-                    <button class="w-full sm:text-xl px-4 py-2 rounded-full bg-mainColor text-white">
-                        Send
+                    <button class="w-full relative overflow-hidden sm:text-xl px-4 py-2 rounded-full bg-mainColor text-white group">
+                        <span class="relative z-10 transition-colors duration-500 group-hover:text-black">Send</span>
+                        <span class="absolute left-0 top-0 h-full w-0 bg-[#f4f4f4] transition-all duration-500 group-hover:w-full"></span>
                     </button>
                 </div>
               </div>
