@@ -2,10 +2,10 @@
     <app-spinner></app-spinner>
 }
 @if(spinner) {
+    @if(errorMsg) {
+        <p class="text-red-500">{{errorMsg}}ddddddddddddd</p>
+    }
     <section class="register flex justify-center items-center px-4 py-8">
-        @if(errorMsg) {
-            <p class="text-red-500">{{errorMsg}}</p>
-        }
         <div
             class="register-content bg-white w-full sm:w-4/5 md:w-2/3 lg:w-1/2 py-8 sm:py-0 px-4 sm:p-6 md:p-10 border border-solid border-[rgba(128, 128, 128, .16)] rounded-3xl shadow-4xl">
             <figure class="logo flex justify-center">
@@ -67,15 +67,15 @@
 
 
 
-                    <div class="mobile">
-                        <input type="number" formControlName="mobile"
+                    <div class="phone">
+                        <input type="number" formControlName="phone"
                             class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none"
-                            placeholder="Mobile Number" [ngClass]="{
-                                'border-[#e60000]': registerForm.get('mobile')?.errors && registerForm.get('mobile')?.touched
+                            placeholder="Phone Number" [ngClass]="{
+                                'border-[#e60000]': registerForm.get('phone')?.errors && registerForm.get('phone')?.touched
                               }" />
-                        @if(registerForm.get('mobile')?.errors && registerForm.get('mobile')?.touched) {
+                        @if(registerForm.get('phone')?.errors && registerForm.get('phone')?.touched) {
                         <div class="text-[#e60000] mt-2">
-                            @if(registerForm.get('mobile')?.errors?.['required']) {
+                            @if(registerForm.get('phone')?.errors?.['required']) {
                             <p>Mobile Number is required</p>
                             }
                         </div>
@@ -135,9 +135,8 @@
                         </div>
                         }
                     </div>
-                    <button type="submit" class="w-full relative overflow-hidden sm:text-lg px-4 py-2 rounded-full bg-mainColor text-white focus:outline-none group">
-                        <span class="relative z-10 transition-colors duration-500 group-hover:text-black">Register</span>
-                        <span class="absolute left-0 top-0 h-full w-0 bg-[#f4f4f4] transition-all duration-500 group-hover:w-full"></span>
+                    <button type="submit" class="btn w-full relative overflow-hidden sm:text-lg px-4 py-2 hover:text-black bg-mainColor text-white focus:outline-none group">
+                        Register
                     </button>
                     <p class="text-textColor xl:text-lg">
                         Already have an account?

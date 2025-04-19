@@ -3,19 +3,17 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductDetails } from '../../shared/models/product-details';
 import { SwaggerService } from '../../shared/services/swagger.service';
-import { SpinnerComponent } from "../../shared/components/spinner/spinner.component";
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule, RouterLink, SpinnerComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit {
   constructor(private swagger:SwaggerService, private toast:ToastrService) {}
 
-  spinner:boolean = false;
   isOpen:boolean = false;
   productsCart:ProductDetails[] = [];
   totalPrice = 0;
@@ -42,9 +40,7 @@ export class CartComponent implements OnInit {
   }
 
   getAllProductsCart() {
-    this.spinner = false;
     if(localStorage.getItem('productsCart') !== null) {
-      this.spinner = true;
         this.productsCart = JSON.parse(localStorage.getItem('productsCart')!);
       }
   }
@@ -54,9 +50,9 @@ export class CartComponent implements OnInit {
     this.swagger.cartNumbers.next(this.productsCart.length);
     this.getTotalPrice();
     this.toast.success(`<div class="flex items-center gap-2 text-green-500">
-     ✔️ <span>Product increment by 1</span>
-   </div>`, '',{
-      toastClass: 'toast-success', enableHtml: true});
+      ✔️ <span>Product added to cart </span>
+    </div>`, '',{
+             toastClass: 'toast-success', enableHtml: true});
   }
 
   minusProduct(index:number) {
@@ -76,7 +72,7 @@ export class CartComponent implements OnInit {
       localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
       this.swagger.cartNumbers.next(this.productsCart.length);
       this.toast.success(`<div class="flex items-center gap-2 text-green-500">
-        ✔️ <span>Product decrement by 1</span>
+        ✔️ <span>Product added to cart </span>
       </div>`, '',{
                toastClass: 'toast-success', enableHtml: true});
     }

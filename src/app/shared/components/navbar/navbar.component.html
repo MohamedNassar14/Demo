@@ -134,9 +134,16 @@
                     <path d="M3.017 20.747C3.783 16.5 7.922 14.25 12 14.25s8.217 2.25 8.984 6.497" stroke="currentColor"
                         stroke-width="1.4" stroke-miterlimit="10"></path>
                 </svg>
-                <span class="hidden lg:block hover:text-black transition-colors">
-                    Login
-                </span>
+                @if(!isLogin) {
+                    <span class="hidden lg:block hover:text-black transition-colors">
+                        Login
+                    </span>
+                }
+                @if(isLogin) {
+                    <span class="hidden lg:block hover:text-black transition-colors" (click)="logOut()">
+                        LogOut
+                    </span>
+                }
             </a>
             <a class="text-lg flex items-center justify-center gap-2   bg-transparent" routerLink="cart">
                 <div class="icon relative p-1.5">

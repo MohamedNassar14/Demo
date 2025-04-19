@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { SpinnerComponent } from "../../shared/components/spinner/spinner.component";
@@ -13,10 +13,11 @@ import { SpinnerComponent } from "../../shared/components/spinner/spinner.compon
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService:AuthService) {}
+  constructor(private authService:AuthService, private router:Router) {}
 
 
   spinner:boolean = false;
+  errorMsg:string = '';
   showPassword:boolean = false;
   isOpen:boolean = false;
   cartNumber:number = 0;
@@ -47,10 +48,13 @@ export class LoginComponent implements OnInit {
     }
     console.log(this.loginForm.value);
     this.authService.signIn(this.loginForm.value).subscribe((res)=> {
-      console.log(res);
-      if(res.message == '')
+      if(res.user) {
+        localStorage.setItem('token', res.jwt);
+        this.authService.saveUserData();
+        this.router.navigate(['/home']);
+      }
       {
-        //Navigate
+        this.errorMsg = res.message;
       }
     })
   }

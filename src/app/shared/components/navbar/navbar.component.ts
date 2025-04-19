@@ -8,6 +8,7 @@ import { ElementRef, ViewChild } from '@angular/core';
 import { SearchPipe } from '../../search.pipe';
 import { CutTitlePipe } from '../../pipes/cut-title.pipe';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 
 
@@ -19,13 +20,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private swagger:SwaggerService, private cdRef: ChangeDetectorRef) {}
+  constructor(private swagger:SwaggerService, private cdRef: ChangeDetectorRef, private authService:AuthService) {}
 
   activeCategoryId = 0; // Initial category ID (can be null or 0)
   cartNumber:number = 0;
   isOpen:boolean = false;
   rooms:Category[] = [];
   collections:Category[] = [];
+  isLogin:boolean = false;
 
 
   ngOnInit(): void {
@@ -37,6 +39,17 @@ export class NavbarComponent implements OnInit {
     })
     this.swagger.getCollectionsCategories().subscribe((res)=> {
       this.collections = res
+    })
+    this.authService.userToken.subscribe({
+      next:()=> {
+        if(this.authService.userToken.getValue() != null){
+          this.isLogin = true;
+        }
+        else {
+          this.isLogin = false;
+        }
+      }
+
     })
   }
   openSide() {
@@ -228,6 +241,10 @@ goToSearch(): void {
   }
 }
 
+
+logOut(){
+  this.authService.signOut()
+}
 
 }
 

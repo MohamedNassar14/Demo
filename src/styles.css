@@ -5,6 +5,10 @@
 @tailwind utilities; 
 
 
+@import 'primeng/resources/themes/lara-light-blue/theme.css';
+@import 'primeng/resources/primeng.min.css';
+@import 'primeicons/primeicons.css';
+
 :root {
     --bg-toast-success: #22c55e; /* Tailwind green-500 */
     --bg-toast-error: #ef4444;   /* Tailwind red-500 */
@@ -72,6 +76,50 @@
       }
     }
   }
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* styles.css أو global styles */
+.show {
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+/* Add this to your custom CSS file */
+/* تأكد من إضافة هذا الكود في ملف الـ CSS الخاص بك */
+.btn {
+  position: relative;
+  color: white;
+  z-index: 10; /* رفع النص فوق الخلفية */
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4; /* أو أي لون آخر تريده */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.9s ease;
+  z-index: -1; /* التأكد من أن الخلفية تكون تحت النص */
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+  
   
   
 

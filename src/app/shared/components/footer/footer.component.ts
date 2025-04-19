@@ -27,7 +27,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.isLoading = true;
-    }, 2000);
+    }, 1000);
     this.swagger.getRoomsCategories().subscribe((res)=> {
       this.rooms = res
     })

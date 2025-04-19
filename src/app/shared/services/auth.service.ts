@@ -1,14 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import {jwtDecode} from 'jwt-decode'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, private router:Router) {
+    if(localStorage.getItem('token') != null)
+      {
+        this.saveUserData();
+      }
+   }
+  userToken:BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
+
+  saveUserData() {
+    let encodedToken = JSON.stringify(localStorage.getItem('token'));
+    let decodedToken:object =   jwtDecode(encodedToken);
+    this.userToken.next(decodedToken)
+  }
 
   signUp(userDataAccount:object):Observable<any> {
     return this.httpClient.post(`https://rz037f87hh.execute-api.us-east-1.amazonaws.com/dev/api/signUp`, userDataAccount);
@@ -18,4 +32,12 @@ export class AuthService {
     return this.httpClient.post(`https://rz037f87hh.execute-api.us-east-1.amazonaws.com/dev/api/signIn`, userDataLogin);
   }
 
+  signOut() {
+    localStorage.removeItem('token');
+    this.userToken.next(null);
+    this.router.navigate(['/home'])
+  }
+
 }
+
+

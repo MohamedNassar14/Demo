@@ -3,6 +3,9 @@
 }
 @if(spinner) {
     <section class="login flex justify-center items-center px-4 py-8">
+        @if(errorMsg) {
+            <p class="text-red-500">{{errorMsg}}</p>
+        }
         <div class="login-content bg-white w-full sm:w-4/5 md:w-2/3 lg:w-1/2 py-8 sm:py-0 px-4 sm:p-6 md:p-10 border border-solid border-[rgba(128, 128, 128, .16)] rounded-3xl shadow-4xl">
             <figure class="logo flex justify-center">
                 <svg id="Layer_2" data-name="Layer 2" class="w-[32px] sm:w-[34px] md:w-[36px] lg:w-[38px] xl:w-[40px]" fill="#680a08" xmlns="http://www.w3.org/2000/svg"
@@ -68,9 +71,8 @@
                         </div>
                         }
                     </div>
-                    <button type="submit" class="w-full relative overflow-hidden sm:text-lg px-4 py-2 rounded-full bg-mainColor text-white focus:outline-none group" >
-                        <span class="relative z-10 transition-colors duration-500 group-hover:text-black">Log in</span>
-                        <span class="absolute left-0 top-0 h-full w-0 bg-[#f4f4f4] transition-all duration-500 group-hover:w-full"></span>
+                    <button type="submit" class="btn w-full relative overflow-hidden sm:text-lg px-4 py-2 bg-mainColor hover:text-black text-white focus:outline-none group" >
+                        Log in
                     </button>
                     <p class="text-textColor xl:text-lg">
                         Don't have an account?

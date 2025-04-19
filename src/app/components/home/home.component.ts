@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { SwaggerService } from '../../shared/services/swagger.service';
 import { Product } from '../../shared/models/product';
 import { ProductComponent } from '../../shared/components/product/product.component';
+import { CommonModule } from '@angular/common';
+import { SliderComponent } from "../../shared/components/slider/slider.component";
+import { CategoriesComponent } from "../../shared/components/categories/categories.component";
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, CarouselModule, ProductComponent],
+  imports: [CarouselModule, CommonModule, ProductComponent, SliderComponent, CategoriesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private swagger:SwaggerService) {}
+  constructor(private swagger:SwaggerService, private el: ElementRef) {}
 
   allTrends:Product[] = [];
 
@@ -24,8 +26,8 @@ export class HomeComponent implements OnInit {
     pullDrag: false,
     dots: false,
     autoplay: true, 
-    navSpeed: 700,
-    autoplayTimeout: 2000,  
+    navSpeed: 600,
+    autoplayTimeout: 3000,  
     autoplayHoverPause: true,
     navText: ['', ''],
     responsive: {
@@ -42,8 +44,8 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
-    margin: 35,
-    navSpeed: 700,
+    margin: 45,
+    navSpeed: 600,
     autoplay: true, 
     autoplayTimeout: 3000,  
     autoplayHoverPause: true,
@@ -62,7 +64,7 @@ export class HomeComponent implements OnInit {
         items: 3
       },
       1200: {
-        items: 4
+        items: 3
       }
     },
     nav: true
@@ -74,7 +76,7 @@ export class HomeComponent implements OnInit {
     pullDrag: false,
     dots: false,
     margin: 20,
-    navSpeed: 700,
+    navSpeed: 600,
     autoplay: true, 
     autoplayTimeout: 3000,  
     autoplayHoverPause: true,
@@ -108,4 +110,47 @@ export class HomeComponent implements OnInit {
       this.allTrends = res
     })
   }
+
+  @ViewChildren('productCard', { read: ElementRef }) productCards!: QueryList<ElementRef>;
+
+
+  
+
+// داخل component.ts
+@HostListener('window:scroll', [])
+onWindowScroll() {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  elements.forEach((el: any) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= window.innerHeight - 100) {
+      el.classList.add('opacity-100', 'translate-y-0');
+      el.classList.remove('opacity-0', 'translate-y-5');
+    }
+  });
+}
+
+
+
+
+@ViewChildren('serviceBox', { read: ElementRef }) serviceBoxes!: QueryList<ElementRef>;
+
+ngAfterViewInit(): void {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3,
+    rootMargin: '0px 0px -20% 0px' // يخلي الكشف يحصل لما يوصل لنص السكشن تقريبا
+  });
+
+  this.serviceBoxes.forEach(box => observer.observe(box.nativeElement));
+}
+
+
+
+
 }

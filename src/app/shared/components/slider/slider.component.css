@@ -1,0 +1,38 @@
+/* تغيير خلفية الأسهم ولون النص */
+::ng-deep .p-carousel .p-carousel-prev,
+::ng-deep .p-carousel .p-carousel-next {
+  background-color: #0d6efd; /* خلفية الزر */
+  color: #fff; /* لون النص */
+  border: none; /* إزالة الحدود */
+  border-radius: 50%; /* جعل الأزرار دائرية */
+  width: 40px; /* عرض الزر */
+  height: 40px; /* ارتفاع الزر */
+  font-size: 1.5rem; /* حجم النص داخل الزر */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease; /* تأثير التحول */
+}
+
+/* تغيير اللون عند التمرير */
+::ng-deep .p-carousel .p-carousel-prev:hover,
+::ng-deep .p-carousel .p-carousel-next:hover {
+  background-color: #084298 !important; /* لون الخلفية عند التمرير */
+}
+
+/* تغيير مكان الأزرار (مثال على جعل الأزرار في الزوايا) */
+::ng-deep .p-carousel .p-carousel-prev {
+  left: 10px !important; /* المسافة من الجهة اليسرى */
+  top: 50% !important; /* في المنتصف عموديًا */
+  transform: translateY(-50%) !important; /* محاذاة دقيقة */
+  position: absolute !important; /* تحديد موقع الأزرار */
+}
+
+::ng-deep .p-carousel .p-carousel-next {
+  right: 10px !important; /* المسافة من الجهة اليمنى */
+  top: 50% !important; /* في المنتصف عموديًا */
+  transform: translateY(-50%) !important; /* محاذاة دقيقة */
+  position: absolute !important; /* تحديد موقع الأزرار */
+  background-color:red; 
+  color:green;
+}

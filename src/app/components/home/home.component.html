@@ -1,16 +1,6 @@
 <main class="space-y-6">
     <section class="slider">
-        <owl-carousel-o [options]="slider">
-            <ng-template carouselSlide>
-                <img src="assets/images/home.webp" class="w-full h-full" />
-            </ng-template>
-            <ng-template carouselSlide>
-                <img src="assets/images/furniture-998265_1920.jpg" class="w-full h-full" />
-            </ng-template>
-            <ng-template carouselSlide>
-                <img src="assets/images/furniture-998265_1920.jpg" class="w-full h-full" />
-            </ng-template>
-        </owl-carousel-o>
+        <app-slider></app-slider>
     </section>
     <section class="trends">
         <div class="trends-body px-4 lg:px-6 xl:px-8">
@@ -30,69 +20,8 @@
             </owl-carousel-o>
         </div>
     </section>
-    <section class="categories">
-        <div class="categories-body">
-            <div
-                class="categories-content bg-[#f6f3eea6] grid grid-cols-4 sm:grid-cols-3 gap-x-4 px-4 sm:gap-x-6 md:gap-x-8 xl:gap-x-8 py-8 lg:px-6 xl:px-8">
-                <div class="shop flex items-center justify-center col-span-4 sm:col-span-1">
-                    <div class="flex flex-col max-lg:container lg:mb-0 lg:max-w-64 lg:gap-3">
-                        <p id="Efreshli Looks" class="mb-1 font-normal text-gray-700 lg:mb-0 lg:text-lg">
-                            la terra Looks
-                        </p>
-                        <div class="mb-1 flex items-center justify-between lg:mb-0 ">
-                            <h2 class="text-xl md:text-2xl lg:text-4xl font-medium ">
-                                Shop the Look
-                            </h2>
-                        </div>
-                        <p class="text-gray-900 text-sm lg:text-lg mb-6">
-                            Browse designer room settings and shop individual
-                            pieces to recreate these looks in your home.
-                        </p>
-                    </div>
-                </div>
-                <div class="rooms col-span-2 sm:col-span-1">
-                    <figure class="rooms-image relative overflow-hidden group rounded-lg">
-                        <a routerLink="/rooms">
-                            <img src="assets/images/Ajq9xXOAWnZxcYWQVABuMP4eMRCFGRfE3bFZbGxV.webp" loading="lazy"
-                                alt="rooms-image" class="w-full">
-                            <div
-                                class="layer absolute left-0 top-full w-full h-full bg-black/40 flex justify-center items-center group-hover:top-0 transation-[top] duration-300">
-                                <h2
-                                    class="text-white text-sm sm:text-lg md:text-xl lg:text-4xl font-semibold sm:font-bold">
-                                    Rooms
-                                </h2>
-                            </div>
-                        </a>
-                    </figure>
-                    <div class="rooms-shop flex justify-center pt-4 lg:text-lg">
-                        <a routerLink="/rooms" class="underline">
-                            Shop Rooms
-                        </a>
-                    </div>
-                </div>
-                <div class="collections col-span-2 sm:col-span-1">
-                    <div class="collections-image relative overflow-hidden group rounded-lg">
-                        <a routerLink="/collections">
-                            <img src="assets/images/Ajq9xXOAWnZxcYWQVABuMP4eMRCFGRfE3bFZbGxV.webp" loading="lazy"
-                                alt="rooms-image" class="w-full">
-                            <div
-                                class="layer absolute left-0 top-full w-full h-full bg-black/40 flex justify-center items-center group-hover:top-0 transation-[top] duration-300">
-                                <h2
-                                    class="text-white text-sm sm:text-lg md:text-xl lg:text-4xl font-semibold sm:font-bold">
-                                    Collections
-                                </h2>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="collections-shop flex justify-center pt-4 lg:text-lg">
-                        <a routerLink="/collections" class="underline">
-                            Shop Collections
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<app-categories></app-categories>
+      
     <section class="items">
         <div class="items-body px-4 lg:px-6 xl:px-8">
             <h2
@@ -117,176 +46,109 @@
                 class="text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">
                 Our Services
             </h2>
-            <div class="services-content hidden xl:grid grid-cols-4 sm:gap-x-5 lg:gap-x-8 gap-y-6">
-                <div class="customize text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
-                    <div class="icon flex justify-center pb-2">
-                        <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
-                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                            xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="33" height="33"
-                            viewBox="0 0 400 400.00001" id="svg2" version="1.1" inkscape:version="0.91 r13725"
-                            sodipodi:docname="customize.svg">
-                            <defs id="defs4" />
-
-
-                            <g inkscape:label="Capa 1" inkscape:groupmode="layer" id="layer1"
-                                transform="translate(0,-652.36216)">
-                                <path
-                                    style="color:red;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#680a08;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#680a08;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-                                    d="M 289.17578 0.73828125 L 54.380859 235.5332 L 1.0996094 399.26172 L 165.19336 344.16992 L 187.53711 321.82617 C 177.68256 319.88348 158.75128 315.90115 158.21875 315.78906 L 157.85938 316.14844 L 84.302734 240.9668 L 289.17578 36.09375 L 363.54492 110.46289 L 316.17773 157.83008 L 320.19531 189.16797 L 398.90039 110.46289 L 289.17578 0.73828125 z M 281.83203 163.19336 C 270.77592 163.19336 269.37826 163.27942 267.94727 164.04688 C 265.14245 165.55111 264.85252 166.72771 263.74609 181.03125 C 263.19412 188.16694 262.55189 194.23765 262.32031 194.52148 C 262.08872 194.8053 260.18213 195.51959 258.08203 196.10742 C 252.04822 197.79633 246.3826 200.07368 240.19727 203.29883 C 237.04805 204.9409 234.21892 206.28516 233.91016 206.28516 C 233.60139 206.28516 229.29567 202.82446 224.34375 198.59375 C 213.22439 189.09388 212.91077 188.85375 211.04883 188.45898 C 208.38004 187.89314 206.15654 189.48233 197.63281 198.05664 C 189.26418 206.47494 187.92021 208.38988 188.49023 211.08203 C 188.87351 212.89217 189.17315 213.28457 198.61133 224.30664 C 202.84304 229.24851 206.30469 233.55227 206.30469 233.87109 C 206.30469 234.18993 204.96238 237.02656 203.32031 240.17578 C 200.09516 246.36111 197.81585 252.02674 196.12695 258.06055 C 195.53912 260.16065 194.8268 262.0692 194.54297 262.30078 C 194.25916 262.53237 188.18842 263.17264 181.05273 263.72461 C 166.74918 264.83104 165.57065 265.1229 164.06641 267.92773 C 163.29898 269.35871 163.21289 270.75638 163.21289 281.8125 C 163.21289 292.86861 163.29896 294.26628 164.06641 295.69727 C 165.56685 298.495 166.76575 298.79318 180.82031 299.87305 C 187.82859 300.41151 193.87887 300.94643 194.26562 301.06055 C 194.70017 301.18876 195.39204 302.81688 196.07617 305.32422 C 197.74204 311.4296 200.00473 317.0885 203.32031 323.44727 C 204.96238 326.59647 206.30469 329.43479 206.30469 329.75391 C 206.30469 330.07307 202.99913 334.19519 198.95898 338.91406 C 187.30414 352.52676 187.35285 352.44496 189.12109 356.09766 C 190.51939 358.98616 205.97014 374.16562 208.27539 374.91602 C 211.2097 375.87112 212.58085 375.0396 223.54688 365.6582 L 233.74219 356.9375 L 239.36914 359.89453 C 246.13777 363.45243 252.99071 366.22091 258.37109 367.57031 C 261.04072 368.24001 262.41868 368.81502 262.57227 369.32422 C 262.69797 369.74082 263.23863 375.81602 263.77539 382.82422 C 264.85185 396.87932 265.15026 398.07803 267.94727 399.57812 C 269.37826 400.34552 270.77592 400.43164 281.83203 400.43164 C 292.88815 400.43164 294.2858 400.34562 295.7168 399.57812 C 298.51381 398.07813 298.81221 396.87932 299.88867 382.82422 C 300.42542 375.81602 300.96578 369.751 301.08789 369.3457 C 301.23507 368.857 302.90699 368.18019 306.05078 367.33789 C 311.91978 365.76539 317.11849 363.65014 323.87891 360.08594 C 326.74416 358.57534 329.36525 357.33984 329.70312 357.33984 C 330.04101 357.33984 334.36838 360.8024 339.32031 365.0332 C 344.27224 369.2638 349.0111 373.2573 349.85156 373.9082 C 352.02278 375.5888 354.76932 375.58298 357.20898 373.89258 C 360.31805 371.73818 373.96964 357.62151 374.75 355.75391 C 376.07812 352.57521 375.58997 351.71735 366.11328 340.59961 C 361.29867 334.95134 357.35938 330.04628 357.35938 329.69922 C 357.35938 329.35217 358.59485 326.72464 360.10547 323.85938 C 363.66968 317.09895 365.78488 311.90025 367.35742 306.03125 C 368.19976 302.88746 368.8766 301.2136 369.36523 301.06641 C 369.77059 300.9443 375.83548 300.40589 382.84375 299.86914 C 396.89881 298.79268 398.09761 298.49428 399.59766 295.69727 C 400.3651 294.26628 400.45117 292.86861 400.45117 281.8125 C 400.45117 270.75638 400.36511 269.35871 399.59766 267.92773 C 398.09245 265.12109 396.91881 264.83106 382.61328 263.73242 C 374.00527 263.07134 369.43312 262.53903 369.0293 262.15039 C 368.69455 261.82822 368.01615 259.98367 367.52148 258.05273 C 366.17059 252.77943 363.67502 246.56088 360.3457 240.17578 C 358.70363 237.02656 357.35938 234.17822 357.35938 233.8457 C 357.35938 233.51317 361.19356 228.76372 365.87891 223.29102 C 375.0543 212.57378 375.89132 211.18414 374.9375 208.25391 C 374.1919 205.96332 359.00615 190.49851 356.14062 189.11133 C 352.69841 187.44499 352.05532 187.79341 340.60938 197.5293 C 334.94838 202.34453 330.06446 206.28516 329.75586 206.28516 C 329.44726 206.28516 326.60862 204.93527 323.44727 203.28516 C 317.25857 200.0549 310.0369 197.18463 304.65234 195.81445 C 302.5931 195.29045 301.21006 194.68372 301.08203 194.25 C 300.96708 193.86067 300.433 187.80905 299.89453 180.80078 C 298.81466 166.74621 298.51454 165.54731 295.7168 164.04688 C 294.28581 163.27944 292.88815 163.19336 281.83203 163.19336 z M 283.01172 230.00586 C 294.06405 230.23279 305.04385 233.9998 314.22266 241.34375 C 330.35089 254.24794 337.1023 275.01034 331.84961 295.55273 C 330.51119 300.78705 326.03202 309.55604 322.34766 314.15234 C 313.97649 324.59547 302.09068 331.30346 288.55078 333.22852 C 285.58646 333.64994 278.41448 333.79363 276.73633 333.46484 C 276.35405 333.38996 274.47776 333.07435 272.56641 332.76367 C 266.07989 331.70922 258.77774 328.75201 252.87305 324.78711 C 236.71443 313.93697 227.72241 294.03948 230.41602 275.09375 C 232.18593 262.64488 238.62336 250.60114 247.66602 242.81836 C 257.86666 234.03893 270.48575 229.74867 283.01172 230.00586 z M 70.892578 265.64258 L 133.67969 328.42969 L 73.666016 348.71094 L 51.214844 326.26172 L 70.892578 265.64258 z "
-                                    transform="translate(0,652.36216)" id="edit">
-                                    <title id="title4217">edit</title>
-                                </path>
-                            </g>
-                        </svg>
-                    </div>
-                    <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">Custom Made Furniture </h3>
-                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">We offer fully customized furniture
-                        tailored
-                        to your exact needs—choose the size, color, fabric, wood type, and even the smallest design
-                        details to create a piece that fits your space and style perfectly.
-                    </p>
-                </div>
-                <div class="assessment text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
-                    <div class="icon flex justify-center pb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="#680a08" class="w-7 sm:w-8 lg:w-9">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">On-Site Measurement & Assessment
-
-                    </h3>
-                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">
-                        We provide a professional site visit to take accurate measurements and assess your space, making
-                        sure every piece we create fits flawlessly.
-                    </p>
-                </div>
-                <div class="online-support text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
-                    <div class="icon flex justify-center pb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="#680a08" class="w-7 sm:w-8 lg:w-9">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0l6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">After-Sales Support
-
-                    </h3>
-                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Our service doesn’t stop at delivery—we
-                        offer maintenance, technical support, and warranty coverage to make sure your furniture stays in
-                        perfect condition.
-                        support.</p>
-                </div>
-                <div class="delivery text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
-                    <div class="icon flex justify-center">
-                        <svg class="w-[43px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 6H3V17.25H3.375H4.5H4.52658C4.70854 18.5221 5.80257 19.5 7.125 19.5C8.44743 19.5 9.54146 18.5221 9.72342 17.25H15.0266C15.2085 18.5221 16.3026 19.5 17.625 19.5C18.9474 19.5 20.0415 18.5221 20.2234 17.25H21.75V12.4393L18.3107 9H16.5V6ZM16.5 10.5V14.5026C16.841 14.3406 17.2224 14.25 17.625 14.25C18.6721 14.25 19.5761 14.8631 19.9974 15.75H20.25V13.0607L17.6893 10.5H16.5ZM15 15.75V9V7.5H4.5V15.75H4.75261C5.17391 14.8631 6.07785 14.25 7.125 14.25C8.17215 14.25 9.07609 14.8631 9.49739 15.75H15ZM17.625 18C17.0037 18 16.5 17.4963 16.5 16.875C16.5 16.2537 17.0037 15.75 17.625 15.75C18.2463 15.75 18.75 16.2537 18.75 16.875C18.75 17.4963 18.2463 18 17.625 18ZM8.25 16.875C8.25 17.4963 7.74632 18 7.125 18C6.50368 18 6 17.4963 6 16.875C6 16.2537 6.50368 15.75 7.125 15.75C7.74632 15.75 8.25 16.2537 8.25 16.875Z" fill="#680a08"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">Delivery & Shipping (Local &
-                        International)
-                    </h3>
-                    <p class="text-sm md:text-base lg:text-[17px] text-gray-700">We handle safe and secure delivery of
-                        your furniture within Egypt and internationally, including professional packaging and on-site
-                        assembly when needed.
-
-                        support.</p>
-                </div>
-            </div>
-            <div class="carousel">
-                <owl-carousel-o [options]="customOptions" class="block xl:hidden">
+            <div #serviceBox class="service-box px-4 sm:px-16 md:px-24 opacity-0 translate-y-5 transition-all duration-700">
+                <owl-carousel-o [options]="customOptions">
                     <ng-template carouselSlide>
-                        <div class="customizetext-center text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
+                        <div class="customize text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl ">
                             <div class="icon flex justify-center pb-2">
                                 <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
-                                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                                xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="33" height="33"
-                                viewBox="0 0 400 400.00001" id="svg2" version="1.1" inkscape:version="0.91 r13725"
-                                sodipodi:docname="customize.svg">
-                                <defs id="defs4" />
-    
-    
-                                <g inkscape:label="Capa 1" inkscape:groupmode="layer" id="layer1"
-                                    transform="translate(0,-652.36216)">
-                                    <path
-                                        style="color:red;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#680a08;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#680a08;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-                                        d="M 289.17578 0.73828125 L 54.380859 235.5332 L 1.0996094 399.26172 L 165.19336 344.16992 L 187.53711 321.82617 C 177.68256 319.88348 158.75128 315.90115 158.21875 315.78906 L 157.85938 316.14844 L 84.302734 240.9668 L 289.17578 36.09375 L 363.54492 110.46289 L 316.17773 157.83008 L 320.19531 189.16797 L 398.90039 110.46289 L 289.17578 0.73828125 z M 281.83203 163.19336 C 270.77592 163.19336 269.37826 163.27942 267.94727 164.04688 C 265.14245 165.55111 264.85252 166.72771 263.74609 181.03125 C 263.19412 188.16694 262.55189 194.23765 262.32031 194.52148 C 262.08872 194.8053 260.18213 195.51959 258.08203 196.10742 C 252.04822 197.79633 246.3826 200.07368 240.19727 203.29883 C 237.04805 204.9409 234.21892 206.28516 233.91016 206.28516 C 233.60139 206.28516 229.29567 202.82446 224.34375 198.59375 C 213.22439 189.09388 212.91077 188.85375 211.04883 188.45898 C 208.38004 187.89314 206.15654 189.48233 197.63281 198.05664 C 189.26418 206.47494 187.92021 208.38988 188.49023 211.08203 C 188.87351 212.89217 189.17315 213.28457 198.61133 224.30664 C 202.84304 229.24851 206.30469 233.55227 206.30469 233.87109 C 206.30469 234.18993 204.96238 237.02656 203.32031 240.17578 C 200.09516 246.36111 197.81585 252.02674 196.12695 258.06055 C 195.53912 260.16065 194.8268 262.0692 194.54297 262.30078 C 194.25916 262.53237 188.18842 263.17264 181.05273 263.72461 C 166.74918 264.83104 165.57065 265.1229 164.06641 267.92773 C 163.29898 269.35871 163.21289 270.75638 163.21289 281.8125 C 163.21289 292.86861 163.29896 294.26628 164.06641 295.69727 C 165.56685 298.495 166.76575 298.79318 180.82031 299.87305 C 187.82859 300.41151 193.87887 300.94643 194.26562 301.06055 C 194.70017 301.18876 195.39204 302.81688 196.07617 305.32422 C 197.74204 311.4296 200.00473 317.0885 203.32031 323.44727 C 204.96238 326.59647 206.30469 329.43479 206.30469 329.75391 C 206.30469 330.07307 202.99913 334.19519 198.95898 338.91406 C 187.30414 352.52676 187.35285 352.44496 189.12109 356.09766 C 190.51939 358.98616 205.97014 374.16562 208.27539 374.91602 C 211.2097 375.87112 212.58085 375.0396 223.54688 365.6582 L 233.74219 356.9375 L 239.36914 359.89453 C 246.13777 363.45243 252.99071 366.22091 258.37109 367.57031 C 261.04072 368.24001 262.41868 368.81502 262.57227 369.32422 C 262.69797 369.74082 263.23863 375.81602 263.77539 382.82422 C 264.85185 396.87932 265.15026 398.07803 267.94727 399.57812 C 269.37826 400.34552 270.77592 400.43164 281.83203 400.43164 C 292.88815 400.43164 294.2858 400.34562 295.7168 399.57812 C 298.51381 398.07813 298.81221 396.87932 299.88867 382.82422 C 300.42542 375.81602 300.96578 369.751 301.08789 369.3457 C 301.23507 368.857 302.90699 368.18019 306.05078 367.33789 C 311.91978 365.76539 317.11849 363.65014 323.87891 360.08594 C 326.74416 358.57534 329.36525 357.33984 329.70312 357.33984 C 330.04101 357.33984 334.36838 360.8024 339.32031 365.0332 C 344.27224 369.2638 349.0111 373.2573 349.85156 373.9082 C 352.02278 375.5888 354.76932 375.58298 357.20898 373.89258 C 360.31805 371.73818 373.96964 357.62151 374.75 355.75391 C 376.07812 352.57521 375.58997 351.71735 366.11328 340.59961 C 361.29867 334.95134 357.35938 330.04628 357.35938 329.69922 C 357.35938 329.35217 358.59485 326.72464 360.10547 323.85938 C 363.66968 317.09895 365.78488 311.90025 367.35742 306.03125 C 368.19976 302.88746 368.8766 301.2136 369.36523 301.06641 C 369.77059 300.9443 375.83548 300.40589 382.84375 299.86914 C 396.89881 298.79268 398.09761 298.49428 399.59766 295.69727 C 400.3651 294.26628 400.45117 292.86861 400.45117 281.8125 C 400.45117 270.75638 400.36511 269.35871 399.59766 267.92773 C 398.09245 265.12109 396.91881 264.83106 382.61328 263.73242 C 374.00527 263.07134 369.43312 262.53903 369.0293 262.15039 C 368.69455 261.82822 368.01615 259.98367 367.52148 258.05273 C 366.17059 252.77943 363.67502 246.56088 360.3457 240.17578 C 358.70363 237.02656 357.35938 234.17822 357.35938 233.8457 C 357.35938 233.51317 361.19356 228.76372 365.87891 223.29102 C 375.0543 212.57378 375.89132 211.18414 374.9375 208.25391 C 374.1919 205.96332 359.00615 190.49851 356.14062 189.11133 C 352.69841 187.44499 352.05532 187.79341 340.60938 197.5293 C 334.94838 202.34453 330.06446 206.28516 329.75586 206.28516 C 329.44726 206.28516 326.60862 204.93527 323.44727 203.28516 C 317.25857 200.0549 310.0369 197.18463 304.65234 195.81445 C 302.5931 195.29045 301.21006 194.68372 301.08203 194.25 C 300.96708 193.86067 300.433 187.80905 299.89453 180.80078 C 298.81466 166.74621 298.51454 165.54731 295.7168 164.04688 C 294.28581 163.27944 292.88815 163.19336 281.83203 163.19336 z M 283.01172 230.00586 C 294.06405 230.23279 305.04385 233.9998 314.22266 241.34375 C 330.35089 254.24794 337.1023 275.01034 331.84961 295.55273 C 330.51119 300.78705 326.03202 309.55604 322.34766 314.15234 C 313.97649 324.59547 302.09068 331.30346 288.55078 333.22852 C 285.58646 333.64994 278.41448 333.79363 276.73633 333.46484 C 276.35405 333.38996 274.47776 333.07435 272.56641 332.76367 C 266.07989 331.70922 258.77774 328.75201 252.87305 324.78711 C 236.71443 313.93697 227.72241 294.03948 230.41602 275.09375 C 232.18593 262.64488 238.62336 250.60114 247.66602 242.81836 C 257.86666 234.03893 270.48575 229.74867 283.01172 230.00586 z M 70.892578 265.64258 L 133.67969 328.42969 L 73.666016 348.71094 L 51.214844 326.26172 L 70.892578 265.64258 z "
-                                        transform="translate(0,652.36216)" id="edit">
-                                        <title id="title4217">edit</title>
-                                    </path>
-                                </g>
-                            </svg>
+                                    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                                    xmlns:svg="http://www.w3.org//svg" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                                    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="33" height="33"
+                                    viewBox="0 0 400 400.00001" id="svg2" version="1.1" inkscape:version="0.91 r13725"
+                                    sodipodi:docname="customize.svg">
+                                    <defs id="defs4" />
+                        
+                        
+                                    <g inkscape:label="Capa 1" inkscape:groupmode="layer" id="layer1"
+                                        transform="translate(0,-652.36216)">
+                                        <path
+                                            style="color:red;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#680a08;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#680a08;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                                            d="M 289.17578 0.73828125 L 54.380859 235.5332 L 1.0996094 399.26172 L 165.19336 344.16992 L 187.53711 321.82617 C 177.68256 319.88348 158.75128 315.90115 158.21875 315.78906 L 157.85938 316.14844 L 84.302734 240.9668 L 289.17578 36.09375 L 363.54492 110.46289 L 316.17773 157.83008 L 320.19531 189.16797 L 398.90039 110.46289 L 289.17578 0.73828125 z M 281.83203 163.19336 C 270.77592 163.19336 269.37826 163.27942 267.94727 164.04688 C 265.14245 165.55111 264.85252 166.72771 263.74609 181.03125 C 263.19412 188.16694 262.55189 194.23765 262.32031 194.52148 C 262.08872 194.8053 260.18213 195.51959 258.08203 196.10742 C 252.04822 197.79633 246.3826 200.07368 240.19727 203.29883 C 237.04805 204.9409 234.21892 206.28516 233.91016 206.28516 C 233.60139 206.28516 229.29567 202.82446 224.34375 198.59375 C 213.22439 189.09388 212.91077 188.85375 211.04883 188.45898 C 208.38004 187.89314 206.15654 189.48233 197.63281 198.05664 C 189.26418 206.47494 187.92021 208.38988 188.49023 211.08203 C 188.87351 212.89217 189.17315 213.28457 198.61133 224.30664 C 202.84304 229.24851 206.30469 233.55227 206.30469 233.87109 C 206.30469 234.18993 204.96238 237.02656 203.32031 240.17578 C 200.09516 246.36111 197.81585 252.02674 196.12695 258.06055 C 195.53912 260.16065 194.8268 262.0692 194.54297 262.30078 C 194.25916 262.53237 188.18842 263.17264 181.05273 263.72461 C 166.74918 264.83104 165.57065 265.1229 164.06641 267.92773 C 163.29898 269.35871 163.21289 270.75638 163.21289 281.8125 C 163.21289 292.86861 163.29896 294.26628 164.06641 295.69727 C 165.56685 298.495 166.76575 298.79318 180.82031 299.87305 C 187.82859 300.41151 193.87887 300.94643 194.26562 301.06055 C 194.70017 301.18876 195.39204 302.81688 196.07617 305.32422 C 197.74204 311.4296 200.00473 317.0885 203.32031 323.44727 C 204.96238 326.59647 206.30469 329.43479 206.30469 329.75391 C 206.30469 330.07307 202.99913 334.19519 198.95898 338.91406 C 187.30414 352.52676 187.35285 352.44496 189.12109 356.09766 C 190.51939 358.98616 205.97014 374.16562 208.27539 374.91602 C 211.2097 375.87112 212.58085 375.0396 223.54688 365.6582 L 233.74219 356.9375 L 239.36914 359.89453 C 246.13777 363.45243 252.99071 366.22091 258.37109 367.57031 C 261.04072 368.24001 262.41868 368.81502 262.57227 369.32422 C 262.69797 369.74082 263.23863 375.81602 263.77539 382.82422 C 264.85185 396.87932 265.15026 398.07803 267.94727 399.57812 C 269.37826 400.34552 270.77592 400.43164 281.83203 400.43164 C 292.88815 400.43164 294.2858 400.34562 295.7168 399.57812 C 298.51381 398.07813 298.81221 396.87932 299.88867 382.82422 C 300.42542 375.81602 300.96578 369.751 301.08789 369.3457 C 301.23507 368.857 302.90699 368.18019 306.05078 367.33789 C 311.91978 365.76539 317.11849 363.65014 323.87891 360.08594 C 326.74416 358.57534 329.36525 357.33984 329.70312 357.33984 C 330.04101 357.33984 334.36838 360.8024 339.32031 365.0332 C 344.27224 369.2638 349.0111 373.2573 349.85156 373.9082 C 352.02278 375.5888 354.76932 375.58298 357.20898 373.89258 C 360.31805 371.73818 373.96964 357.62151 374.75 355.75391 C 376.07812 352.57521 375.58997 351.71735 366.11328 340.59961 C 361.29867 334.95134 357.35938 330.04628 357.35938 329.69922 C 357.35938 329.35217 358.59485 326.72464 360.10547 323.85938 C 363.66968 317.09895 365.78488 311.90025 367.35742 306.03125 C 368.19976 302.88746 368.8766 301.2136 369.36523 301.06641 C 369.77059 300.9443 375.83548 300.40589 382.84375 299.86914 C 396.89881 298.79268 398.09761 298.49428 399.59766 295.69727 C 400.3651 294.26628 400.45117 292.86861 400.45117 281.8125 C 400.45117 270.75638 400.36511 269.35871 399.59766 267.92773 C 398.09245 265.12109 396.91881 264.83106 382.61328 263.73242 C 374.00527 263.07134 369.43312 262.53903 369.0293 262.15039 C 368.69455 261.82822 368.01615 259.98367 367.52148 258.05273 C 366.17059 252.77943 363.67502 246.56088 360.3457 240.17578 C 358.70363 237.02656 357.35938 234.17822 357.35938 233.8457 C 357.35938 233.51317 361.19356 228.76372 365.87891 223.29102 C 375.0543 212.57378 375.89132 211.18414 374.9375 208.25391 C 374.1919 205.96332 359.00615 190.49851 356.14062 189.11133 C 352.69841 187.44499 352.05532 187.79341 340.60938 197.5293 C 334.94838 202.34453 330.06446 206.28516 329.75586 206.28516 C 329.44726 206.28516 326.60862 204.93527 323.44727 203.28516 C 317.25857 200.0549 310.0369 197.18463 304.65234 195.81445 C 302.5931 195.29045 301.21006 194.68372 301.08203 194.25 C 300.96708 193.86067 300.433 187.80905 299.89453 180.80078 C 298.81466 166.74621 298.51454 165.54731 295.7168 164.04688 C 294.28581 163.27944 292.88815 163.19336 281.83203 163.19336 z M 283.01172 230.00586 C 294.06405 230.23279 305.04385 233.9998 314.22266 241.34375 C 330.35089 254.24794 337.1023 275.01034 331.84961 295.55273 C 330.51119 300.78705 326.03202 309.55604 322.34766 314.15234 C 313.97649 324.59547 302.09068 331.30346 288.55078 333.22852 C 285.58646 333.64994 278.41448 333.79363 276.73633 333.46484 C 276.35405 333.38996 274.47776 333.07435 272.56641 332.76367 C 266.07989 331.70922 258.77774 328.75201 252.87305 324.78711 C 236.71443 313.93697 227.72241 294.03948 230.41602 275.09375 C 232.18593 262.64488 238.62336 250.60114 247.66602 242.81836 C 257.86666 234.03893 270.48575 229.74867 283.01172 230.00586 z M 70.892578 265.64258 L 133.67969 328.42969 L 73.666016 348.71094 L 51.214844 326.26172 L 70.892578 265.64258 z "
+                                            transform="translate(0,652.36216)" id="edit">
+                                            <title id="title4217">edit</title>
+                                        </path>
+                                    </g>
+                                </svg>
                             </div>
-                            <h3 class="md:text-lg lg:text-xl font-semibold">Custom Made Furniture </h3>
-                            <p class="text-[15px] md:text-base lg:text-[17px] text-gray-700">We offer fully customized
-                                furniture tailored
-                                to your exact needs—choose the size, color, fabric, wood type, and even the smallest
-                                design details to create a piece that fits your space and style perfectly.
+                            <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">Custom Made Furniture </h3>
+                            <p class="text-sm md:text-base lg:text-[17px] text-gray-700">We offer fully customized furniture
+                                tailored
+                                to your exact needs—choose the size, color, fabric, wood type, and even the smallest design
+                                details to create a piece that fits your space and style perfectly.
                             </p>
                         </div>
-                    </ng-template>
+                    </ng-template>  
                     <ng-template carouselSlide>
-                        <div class="assessment text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
+                        <div   class="assessment text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
                             <div class="icon flex justify-center pb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="#680a08" class="w-7 sm:w-8 lg:w-9">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z">
-                                </path>
-                            </svg>
+                                    stroke="#680a08" class="w-7 sm:w-8 lg:w-9">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z">
+                                    </path>
+                                </svg>
                             </div>
-                            <h3 class="md:text-lg lg:text-xl font-semibold">On-Site Measurement & Assessment
-
+                            <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">On-Site Measurement & Assessment
+                        
                             </h3>
-                            <p class="text-[15px] md:text-base lg:text-[17px] text-gray-700">
-                                We provide a professional site visit to take accurate measurements and assess your
-                                space, making sure every piece we create fits flawlessly.
+                            <p class="text-sm md:text-base lg:text-[17px] text-gray-700">
+                                We provide a professional site visit to take accurate measurements and assess your space, making
+                                sure every piece we create fits flawlessly.
                             </p>
                         </div>
-                    </ng-template>
+                    </ng-template>  
                     <ng-template carouselSlide>
-                        <div class="online-support text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
+                        <div  class="online-support text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
                             <div class="icon flex justify-center pb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="#680a08" class="w-7 sm:w-8 lg:w-9">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="#680a08" class="w-7 sm:w-8 lg:w-9">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0l6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z">
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="md:text-lg lg:text-xl font-semibold">After-Sales Support
-
+                            <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">After-Sales Support
+                        
                             </h3>
-                            <p class="text-[15px] md:text-base lg:text-[17px] text-gray-700">Our service doesn’t stop at
-                                delivery—we offer maintenance, technical support, and warranty coverage to make sure
-                                your furniture stays in perfect condition.
+                            <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Our service doesn’t stop at delivery—we
+                                offer maintenance, technical support, and warranty coverage to make sure your furniture stays in
+                                perfect condition.
                                 support.</p>
                         </div>
-                    </ng-template>
+                    </ng-template>  
                     <ng-template carouselSlide>
-                        <div class="delivery text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
+                        <div   class="delivery text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl" >
                             <div class="icon flex justify-center">
                                 <svg class="w-[43px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 6H3V17.25H3.375H4.5H4.52658C4.70854 18.5221 5.80257 19.5 7.125 19.5C8.44743 19.5 9.54146 18.5221 9.72342 17.25H15.0266C15.2085 18.5221 16.3026 19.5 17.625 19.5C18.9474 19.5 20.0415 18.5221 20.2234 17.25H21.75V12.4393L18.3107 9H16.5V6ZM16.5 10.5V14.5026C16.841 14.3406 17.2224 14.25 17.625 14.25C18.6721 14.25 19.5761 14.8631 19.9974 15.75H20.25V13.0607L17.6893 10.5H16.5ZM15 15.75V9V7.5H4.5V15.75H4.75261C5.17391 14.8631 6.07785 14.25 7.125 14.25C8.17215 14.25 9.07609 14.8631 9.49739 15.75H15ZM17.625 18C17.0037 18 16.5 17.4963 16.5 16.875C16.5 16.2537 17.0037 15.75 17.625 15.75C18.2463 15.75 18.75 16.2537 18.75 16.875C18.75 17.4963 18.2463 18 17.625 18ZM8.25 16.875C8.25 17.4963 7.74632 18 7.125 18C6.50368 18 6 17.4963 6 16.875C6 16.2537 6.50368 15.75 7.125 15.75C7.74632 15.75 8.25 16.2537 8.25 16.875Z" fill="#680a08"/>
                                 </svg>
                             </div>
-                            <h3 class="md:text-lg lg:text-xl font-semibold">Delivery & Shipping (Local & International)
+                            <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">Delivery & Shipping (Local &
+                                International)
                             </h3>
-                            <p class="text-[15px] md:text-base lg:text-[17px] text-gray-700">We handle safe and secure
-                                delivery of your furniture within Egypt and internationally, including professional
-                                packaging and on-site assembly when needed.
-
+                            <p class="text-sm md:text-base lg:text-[17px] text-gray-700">We handle safe and secure delivery of
+                                your furniture within Egypt and internationally, including professional packaging and on-site
+                                assembly when needed.
+                        
                                 support.</p>
                         </div>
-                    </ng-template>
-                </owl-carousel-o>
+                    </ng-template>  
+                    <ng-template carouselSlide>
+                        <div   class="interior text-center bg-[#dcdcdc45] py-10 px-3 sm:px-6 space-y-2 rounded-3xl">
+                            <div class="icon flex justify-center">
+                                <svg class="w-[43px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 6H3V17.25H3.375H4.5H4.52658C4.70854 18.5221 5.80257 19.5 7.125 19.5C8.44743 19.5 9.54146 18.5221 9.72342 17.25H15.0266C15.2085 18.5221 16.3026 19.5 17.625 19.5C18.9474 19.5 20.0415 18.5221 20.2234 17.25H21.75V12.4393L18.3107 9H16.5V6ZM16.5 10.5V14.5026C16.841 14.3406 17.2224 14.25 17.625 14.25C18.6721 14.25 19.5761 14.8631 19.9974 15.75H20.25V13.0607L17.6893 10.5H16.5ZM15 15.75V9V7.5H4.5V15.75H4.75261C5.17391 14.8631 6.07785 14.25 7.125 14.25C8.17215 14.25 9.07609 14.8631 9.49739 15.75H15ZM17.625 18C17.0037 18 16.5 17.4963 16.5 16.875C16.5 16.2537 17.0037 15.75 17.625 15.75C18.2463 15.75 18.75 16.2537 18.75 16.875C18.75 17.4963 18.2463 18 17.625 18ZM8.25 16.875C8.25 17.4963 7.74632 18 7.125 18C6.50368 18 6 17.4963 6 16.875C6 16.2537 6.50368 15.75 7.125 15.75C7.74632 15.75 8.25 16.2537 8.25 16.875Z" fill="#680a08"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-[15px] md:text-lg lg:text-xl font-semibold">Interior Design Consultation
+                            </h3>
+                            <p class="text-sm md:text-base lg:text-[17px] text-gray-700">Our team of design experts is here to help you choose the right styles, colors, and layouts to match your taste and space, ensuring a fully personalized furnishing experience.
+                                .</p>
+                        </div>
+                    </ng-template>  
+                  </owl-carousel-o>
             </div>
         </div>
     </section>
@@ -295,4 +157,6 @@
 
 
 
-  
+
+
+
