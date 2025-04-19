@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="stock">
                                     <span
-                                        class="py-0.5 px-1 lg:px-2 lg:py-1 text-[#20a144] text-sm bg-[#f0fbf3] rounded-md">
+                                        class="py-0.5 px-1 pt-1 sm:pt-0 lg:px-2 lg:py-1 text-[#20a144] text-sm bg-[#f0fbf3] rounded-md">
                                         In Stock
                                     </span>
                                 </div>
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="checkout hidden sm:block">
-                            <button class="w-full py-2 bg-mainColor text-white text-lg font-semibold rounded-lg">
+                            <button class="w-full py-2 bg-mainColor text-white text-lg font-semibold pt-1 sm:pt-0">
                                 <a>
                                     Checkout
                                     <!-- <span class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium muiltr-1n4a93h">
@@ -106,7 +106,7 @@
             @else {
             <div class="go-back text-center space-y-3.5 sm:space-y-5 lg:space-y-7">
                 <p class="sm:text-lg md:text-2xl xl:text-2xl font-semibold">Your cart is empty</p>
-                <button class="bg-mainColor text-white uppercase sm:text-lg py-1.5 px-3.5 sm:py-3 sm:px-6 rounded-xl">
+                <button class="bg-mainColor text-white uppercase sm:text-lg pt-1 sm:pt-0 py-1.5 px-3.5 sm:py-3 sm:px-6 rounded-xl">
                     <a routerLink="/home">Continue Shopping</a>
                 </button>
             </div>
@@ -116,7 +116,7 @@
     
     <div
         class="checkout sm:hidden w-full flex items-center gap-x-4 fixed bottom-0 z-auto bg-[#f9f9f9] px-4 py-4 border-t border-solid border-[hsla(0, 0%, 54%, .1);] shadow-4xl">
-        <button class="w-7/12 py-2 bg-mainColor text-white text-lg font-semibold rounded-lg">
+        <button class="w-7/12 py-2 bg-mainColor text-white text-lg font-semibold pt-1 sm:pt-0">
             <a>
                 Checkout
             </a>
