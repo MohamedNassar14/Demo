@@ -50,6 +50,38 @@
                     </div>
 
 
+                    <div class="address">
+                        <input type="text" formControlName="address"
+                            class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none"
+                            placeholder="Address" [ngClass]="{
+                                'border-[#e60000]': registerForm.get('address')?.errors && registerForm.get('address')?.touched
+                              }" />
+                        @if(registerForm.get('address')?.errors && registerForm.get('address')?.touched) {
+                        <div class="text-[#e60000] mt-2">
+                            @if(registerForm.get('address')?.errors?.['required']) {
+                            <p>Address is required</p>
+                            }
+                        </div>
+                        }
+                    </div>
+
+
+
+                    <div class="mobile">
+                        <input type="number" formControlName="mobile"
+                            class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none"
+                            placeholder="Mobile Number" [ngClass]="{
+                                'border-[#e60000]': registerForm.get('mobile')?.errors && registerForm.get('mobile')?.touched
+                              }" />
+                        @if(registerForm.get('mobile')?.errors && registerForm.get('mobile')?.touched) {
+                        <div class="text-[#e60000] mt-2">
+                            @if(registerForm.get('mobile')?.errors?.['required']) {
+                            <p>Mobile Number is required</p>
+                            }
+                        </div>
+                        }
+                    </div>
+
 
                     <div class="email">
                         <input type="email" formControlName="email"

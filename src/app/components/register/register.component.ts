@@ -24,6 +24,8 @@ export class RegisterComponent implements OnInit {
   registerForm:FormGroup = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    mobile: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   })
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
     this.authService.signUp(this.registerForm.value).subscribe({
       next:(res)=> {
         this.isLoading = false;
-         if(res.message === 'created successfully , please check your email for activation') {
+         if(res.message === "created successfully , please check your phone for activation OTP") {
              this.router.navigate(['/login'])
           }
           else {
