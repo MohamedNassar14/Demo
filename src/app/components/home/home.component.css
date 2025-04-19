@@ -1,0 +1,16 @@
+.slider {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* تحسين مظهر الأسهم */
+button {
+  outline: none;
+  user-select: none;
+}
+
+/* تحسين مظهر الصور */
+img {
+  pointer-events: none;
+}

@@ -23,11 +23,16 @@ module.exports = {
       fadeInRight: {
         '0%': { opacity: '0', transform: 'translateX(50px)' },
         '100%': { opacity: '1', transform: 'translateX(0)' },
-      }
+      },
+      'slide-right': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
     },
     animation: {
       'fade-in-left': 'fadeInLeft 1s ease-out forwards',
       'fade-in-right': 'fadeInRight 1s ease-out forwards',
+      'slide-right': 'slide-right 1s ease-in-out',
     },
     // animation: {
     //   'fade-in': 'fadeIn 0.3s linear forwards',

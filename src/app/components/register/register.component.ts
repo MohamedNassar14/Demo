@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
              this.router.navigate(['/login'])
           }
           else {
-             this.errorMsg = res.message;
+             this.errorMsg = res.data.message;
              console.log( this.errorMsg);
             }
       }

@@ -9,7 +9,7 @@ import { CategoriesComponent } from "../../shared/components/categories/categori
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, CommonModule, ProductComponent, SliderComponent, CategoriesComponent],
+  imports: [CarouselModule, CommonModule, ProductComponent, CategoriesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    this.getAllTrends();
+    this.getAllTrends(); 
     this.startAutoSlide();
   }
 
@@ -150,6 +150,7 @@ ngAfterViewInit(): void {
 
   this.serviceBoxes.forEach(box => observer.observe(box.nativeElement));
 }
+
 
 
 images: string[] = [
