@@ -47,14 +47,9 @@ export class SwaggerService {
           localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
           this.cartNumbers.next(this.productsCart.length);
           this.toast.success(`<div class="flex items-center gap-2 text-green-500">
-            ✔️ <span>Product added to cart </span>
+            ✔️ <span>Product increment by 1 </span>
           </div>`, '',{
                    toastClass: 'toast-success', enableHtml: true});
-          
-          
-          
-          
-
         }
         else
         {

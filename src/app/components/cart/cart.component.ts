@@ -50,7 +50,7 @@ export class CartComponent implements OnInit {
     this.swagger.cartNumbers.next(this.productsCart.length);
     this.getTotalPrice();
     this.toast.success(`<div class="flex items-center gap-2 text-green-500">
-      ✔️ <span>Product added to cart </span>
+      ✔️ <span>Product increment by 1 </span>
     </div>`, '',{
              toastClass: 'toast-success', enableHtml: true});
   }
@@ -72,7 +72,7 @@ export class CartComponent implements OnInit {
       localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
       this.swagger.cartNumbers.next(this.productsCart.length);
       this.toast.success(`<div class="flex items-center gap-2 text-green-500">
-        ✔️ <span>Product added to cart </span>
+        ✔️ <span>Product decrement by 1 </span>
       </div>`, '',{
                toastClass: 'toast-success', enableHtml: true});
     }
@@ -83,7 +83,7 @@ export class CartComponent implements OnInit {
     localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
     this.swagger.cartNumbers.next(this.productsCart.length);
     this.toast.error(`<div class="flex items-center gap-2 text-red-500">
-      ❌ <span>Product removed from cart</span>
+      ❌ <span> Product removed from cart</span>
     </div>`, '',{
          toastClass: 'toast-error', enableHtml: true});
     this.getTotalPrice();
