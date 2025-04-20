@@ -96,8 +96,10 @@
 /* تأكد من إضافة هذا الكود في ملف الـ CSS الخاص بك */
 .btn {
   position: relative;
+  z-index: 10;
+  overflow: hidden;
   color: white;
-  z-index: 10; /* رفع النص فوق الخلفية */
+  pointer-events: auto;
 }
 
 .btn::before {
@@ -107,17 +109,19 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f4f4f4; /* أو أي لون آخر تريده */
+  background-color: #f4f4f4;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.9s ease;
-  z-index: -1; /* التأكد من أن الخلفية تكون تحت النص */
+  z-index: -1;
+  pointer-events: none; /* 👈 ده بيمنعها من اعتراض الضغط */
 }
 
 .btn:hover::before {
   transform: scaleX(1);
   transform-origin: left;
 }
+
 
   
   
