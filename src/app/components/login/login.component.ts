@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit {
     }
     console.log(this.loginForm.value);
     this.authService.signIn(this.loginForm.value).subscribe((res)=> {
-      if(res.user) {
-        localStorage.setItem('token', res.jwt);
+      if(res.data) {
+        localStorage.setItem('token', res.data.jwt);
         this.authService.saveUserData();
         this.router.navigate(['/home']);
       }

@@ -4,6 +4,7 @@
         "name": "Modern",
         "price": 12279,
         "imgUrl": "https://cdn.pixabay.com/photo/2023/10/30/09/59/bed-8352408_1280.jpg",
+        "imgHover":"https://cdn.pixabay.com/photo/2024/05/11/07/22/sofa-8754140_1280.jpg",
         "catName": "bed-rooms"
     },
     {
@@ -11,6 +12,7 @@
         "name": "Recliner Chair",
         "price": 10899,
         "imgUrl": "https://cdn.pixabay.com/photo/2020/09/01/12/19/office-chair-5535081_1280.png",
+        "imgHover": "https://cdn.pixabay.com/photo/2019/11/11/10/16/chair-4617903_1280.jpg",
         "catName": "chairs"
     },
     {
@@ -18,6 +20,7 @@
         "name": "Modern Chair",
         "price": 12279,
         "imgUrl": "https://cdn.pixabay.com/photo/2023/12/16/14/45/ai-generated-8452611_1280.jpg",
+        "imgHover": "https://cdn.pixabay.com/photo/2019/01/29/01/32/chair-3961592_1280.png",
         "catName": "chairs"
     },
     {
@@ -25,6 +28,7 @@
         "name": "Leather sofa",
         "price": 15598,
         "imgUrl": "https://cdn.pixabay.com/photo/2023/10/30/10/08/sofa-8352443_1280.jpg",
+        "imgHover": "https://cdn.pixabay.com/photo/2019/03/21/03/29/chair-4070161_1280.png",
         "catName": "sofas"
     },
     {
@@ -32,6 +36,7 @@
         "name": "Modern bed",
         "price": 12279,
         "imgUrl": "https://cdn.pixabay.com/photo/2024/07/28/15/20/ai-generated-8927816_1280.jpg",
+        "imgHover": "https://cdn.pixabay.com/photo/2021/06/28/17/18/bedroom-6372208_1280.png",
         "catName": "beds"
     },
     {
@@ -39,6 +44,7 @@
         "name": "Leather Chair",
         "price": 15598,
         "imgUrl": "https://cdn.pixabay.com/photo/2019/07/29/04/46/minimal-4369856_1280.jpg",
+        "imgHover":"https://cdn.pixabay.com/photo/2023/12/31/15/42/living-room-8480223_1280.jpg",
         "catName": "chairs"
     }
 ]

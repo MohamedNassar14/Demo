@@ -25,11 +25,11 @@ export class AuthService {
   }
 
   signUp(userDataAccount:object):Observable<any> {
-    return this.httpClient.post(`https://rz037f87hh.execute-api.us-east-1.amazonaws.com/dev/api/signUp`, userDataAccount);
+    return this.httpClient.post(`http://localhost:3000/api/signUp`, userDataAccount);
   }
 
   signIn(userDataLogin:object):Observable<any> {
-    return this.httpClient.post(`https://rz037f87hh.execute-api.us-east-1.amazonaws.com/dev/api/signIn`, userDataLogin);
+    return this.httpClient.post(`http://localhost:3000/api/signIn`, userDataLogin);
   }
 
   signOut() {

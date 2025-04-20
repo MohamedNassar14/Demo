@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { SpinnerComponent } from "../../shared/components/spinner/spinner.component";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -13,11 +14,12 @@ import { SpinnerComponent } from "../../shared/components/spinner/spinner.compon
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authService:AuthService, private router:Router) {}
+  constructor(private authService:AuthService, private router:Router, private toast:ToastrService) {}
 
   spinner:boolean = false;
   showPassword:boolean = false;
   errorMsg:string = '';
+  alertMsg:string = '';
   isOpen:boolean = false;
   isLoading:boolean = false;
   cartNumber:number = 0;
@@ -47,7 +49,11 @@ export class RegisterComponent implements OnInit {
       next:(res)=> {
         this.isLoading = false;
          if(res.message == "created successfully , please check your phone for activation OTP") {
-             this.router.navigate(['/login'])
+             this.router.navigate(['/login']);
+             this.toast.success(`<div class="flex items-center gap-2 text-green-500">
+              ✔️ <span> ${res.message} </span>
+            </div>`, '',{
+                     toastClass: 'toast-success', enableHtml: true});
           }
           else {
              this.errorMsg = res.data.message;

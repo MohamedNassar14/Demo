@@ -3,7 +3,7 @@
 }
 @if(spinner) {
     @if(errorMsg) {
-        <p class="text-red-500">{{errorMsg}}ddddddddddddd</p>
+        <p class="text-red-500">{{errorMsg}}</p>
     }
     <section class="register flex justify-center items-center px-4 py-8">
         <div
@@ -68,7 +68,7 @@
 
 
                     <div class="phone">
-                        <input type="number" formControlName="phone"
+                        <input type="text" formControlName="phone"
                             class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none"
                             placeholder="Phone Number" [ngClass]="{
                                 'border-[#e60000]': registerForm.get('phone')?.errors && registerForm.get('phone')?.touched
