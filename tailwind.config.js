@@ -28,11 +28,16 @@ module.exports = {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(0%)' },
         },
+        rotate360: {
+                '0%': { transform: 'rotate(0deg)' },
+                 '100%': { transform: 'rotate(360deg)' },
+            }
     },
     animation: {
       'fade-in-left': 'fadeInLeft 1s ease-out forwards',
       'fade-in-right': 'fadeInRight 1s ease-out forwards',
       'slide-right': 'slide-right 1s ease-in-out',
+      'rotate-infinite': 'rotate360 2s linear infinite',
     },
     // animation: {
     //   'fade-in': 'fadeIn 0.3s linear forwards',
