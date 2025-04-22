@@ -6,10 +6,11 @@ import { ProductComponent } from '../../shared/components/product/product.compon
 import { CommonModule } from '@angular/common';
 import { SliderComponent } from "../../shared/components/slider/slider.component";
 import { CategoriesComponent } from "../../shared/components/categories/categories.component";
+import { CarouselComponent } from "../carousel/carousel.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, CommonModule, ProductComponent, CategoriesComponent],
+  imports: [CarouselModule, CommonModule, ProductComponent, CategoriesComponent, CarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
