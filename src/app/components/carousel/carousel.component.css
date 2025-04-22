@@ -1,7 +1,16 @@
+.parent {
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+}
 .p-carousel-content {
   position: relative !important;
-  touch-action: pan-y;
-  overscroll-behavior: contain;
+  touch-action: pan-y !important;
+  overscroll-behavior: contain !important;
+}
+.p-carousel-items-content {
+  touch-action: pan-y !important;
+  overscroll-behavior: contain !important;
 }
 .p-carousel-prev-button {
   z-index:30 !important;
