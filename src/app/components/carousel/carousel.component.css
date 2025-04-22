@@ -1,5 +1,7 @@
 .p-carousel-content {
   position: relative !important;
+  touch-action: pan-y;
+  overscroll-behavior: contain;
 }
 .p-carousel-prev-button {
   z-index:30 !important;
