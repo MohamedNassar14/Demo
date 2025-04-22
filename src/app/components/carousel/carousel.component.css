@@ -5,8 +5,8 @@
   z-index:30 !important;
   position: absolute !important;
   background-color: transparent !important;
-  top:50% !important;
-  right:10px !important;
+  top:40% !important;
+  left:15px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -16,8 +16,8 @@
   z-index:30 !important;
   position: absolute !important;
   background-color: transparent !important;
-  top:50% !important;
-  left:10px !important;
+  top:40% !important;
+  right:15px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
