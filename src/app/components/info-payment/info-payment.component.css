@@ -1,8 +1,8 @@
 .image-animate {
     opacity: 0;
-    transform: scale(1.2); /* من قدام لورا */
+    transform: scale(1.1); /* من قدام لورا */
     transition: all 0.8s ease-out;
-    transition-delay: 0.3s; /* هنا التأخير */
+    transition-delay: 0.4s; /* هنا التأخير */
   }
   
   .image-animate.show {
