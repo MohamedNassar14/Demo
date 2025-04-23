@@ -1,11 +1,18 @@
 <main class="space-y-6">
     <app-carousel></app-carousel>
-    <section class="trends">
+    <section class="trends pb-8">
         <div class="trends-body px-4 lg:px-6 xl:px-8">
-            <h2
+            <div class="trends-title flex justify-between items-center">
+                <h2
                 class="text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">
                 New Collections
             </h2>
+            <p class="text-mainColor font-semibold underline text-sm sm:text-base">
+                <a routerLink="/trends">
+                View all products
+                </a>
+            </p>
+            </div>
             <owl-carousel-o [options]="trends">
                 @for(item of allTrends; track item.id) {
                 <ng-container>
@@ -18,14 +25,20 @@
             </owl-carousel-o>
         </div>
     </section>
-<app-categories></app-categories>
-      
-    <section class="items">
+    <app-categories></app-categories>
+    <section class="items pb-8">
         <div class="items-body px-4 lg:px-6 xl:px-8">
-            <h2
+            <div class="trends-title flex justify-between items-center">
+             <h2
                 class="text-xl md:text-[23px] lg:text-[26px] text-center font-bold text-mainColor capitalize py-6 sm:py-7 md:py-9 lg:py-12">
-                Our items
-            </h2>
+               our Items
+             </h2>
+             <p class="text-mainColor font-semibold underline text-sm sm:text-base">
+                <a routerLink="/our-items">
+                 View all products
+                </a>
+             </p>
+            </div>
             <owl-carousel-o [options]="trends">
                 @for(item of allTrends; track item.id) {
                 <ng-container>
@@ -38,6 +51,9 @@
             </owl-carousel-o>
         </div>
     </section>
+    <div class="info-payment">
+        <app-info-payment></app-info-payment>
+    </div>
     <section class="services pb-14">
         <div class="services-body px-4 lg:px-6 xl:px-8">
             <h2

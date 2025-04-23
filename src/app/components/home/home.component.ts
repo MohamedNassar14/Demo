@@ -7,10 +7,12 @@ import { CommonModule } from '@angular/common';
 import { SliderComponent } from "../../shared/components/slider/slider.component";
 import { CategoriesComponent } from "../../shared/components/categories/categories.component";
 import { CarouselComponent } from "../carousel/carousel.component";
+import { RouterLink } from '@angular/router';
+import { InfoPaymentComponent } from "../info-payment/info-payment.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, CommonModule, ProductComponent, CategoriesComponent, CarouselComponent],
+  imports: [CarouselModule, CommonModule, ProductComponent, CategoriesComponent, CarouselComponent, RouterLink, InfoPaymentComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -185,5 +187,8 @@ startAutoSlide() {
 ngOnDestroy(): void {
   clearInterval(this.autoSlideInterval);
 }
+
+
+
 
 }
