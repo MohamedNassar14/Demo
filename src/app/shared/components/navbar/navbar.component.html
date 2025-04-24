@@ -35,12 +35,11 @@
                 </a>
             </h1>
         </div>
-        <div class="links hidden md:block shadow-lg md:pl-6 lg:pl-8 xl:pl-6">
+        <!-- <div class="links hidden md:block shadow-lg md:pl-6 lg:pl-8 xl:pl-6">
             <div class="">
                 <div class="flex justify-between">
                     <div class="flex space-x-3">
     
-                        <!-- Rooms -->
                         <div class="relative" (mouseenter)="activeCategoryId = 1" (mouseleave)="activeCategoryId = 0">
                             <button class="flex items-center md:text-base lg:text-lg text-mainColor hover:text-black transition-colors">
                                 Rooms
@@ -65,7 +64,6 @@
                             </div>
                         </div>
     
-                        <!-- Collections -->
                         <div class="relative" (mouseenter)="activeCategoryId = 2" (mouseleave)="activeCategoryId = 0">
                             <button class="flex items-center md:text-base lg:text-lg text-mainColor hover:text-black transition-colors">
                                 Collections
@@ -93,7 +91,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="search relative w-full hidden md:block">
             <div class="flex w-full flex-col text-black relative">
                 <input type="text" [(ngModel)]="searchQuery" (input)="searchForItems($event)"
@@ -196,10 +194,32 @@
             }
         </div>
     </div>
-
-    <!-- Category Wrapper -->
-
-
+    <!-- القائمة -->
+<div class="nav-container">
+    <ul class="main-nav">
+      <li *ngFor="let item of menu"
+          (mouseenter)="openDropdown(item)"
+          (mouseleave)="scheduleDropdownClose()">
+        {{ item.label }}
+      </li>
+    </ul>
+  </div>
+  
+  <!-- الطبقة (dropdown) -->
+  <div class="dropdown"
+       *ngIf="activeItem"
+       (mouseenter)="cancelDropdownClose()"
+       (mouseleave)="scheduleDropdownClose()">
+    <div class="dropdown-section" *ngFor="let section of activeItem.sections">
+      <h4>{{ section.title }}</h4>
+      <ul>
+        <li *ngFor="let link of section.links" (click)="navigate(link.route)">
+          {{ link.label }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  
     <aside class="fixed top-0 bottom-0 w-full h-full z-50 duration-300 transition-all ease-in-out bg-white"
         [ngClass]="{'right-0': isOpen, 'right-full': !isOpen}">
         <div class="header flex justify-between items-center p-6">

@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit {
   products:Product[] = []
   term:string = '';
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.swagger.userSearch.subscribe((res)=> {
       this.term = res
     })

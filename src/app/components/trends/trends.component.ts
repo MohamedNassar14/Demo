@@ -16,6 +16,7 @@ export class TrendsComponent implements OnInit {
   trends:any[] = [];
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.swagger.getTrends().subscribe((res)=> {
       this.trends = res
     })

@@ -1,9 +1,9 @@
 <section class="py-8">
-    <figure class="images flex justify-center">
+    <figure class="images flex justify-center pb-12">
         <img src="assets/images/wJ799Et16Lh3ibAtamU6AmZxZ1gu4PaY1GGnkdeX.webp" class="w-2/3 rounded-2xl border border-gray-200" />
     </figure>
-    <div class="products  px-4 sm:px-10 py-12">
-        <div class="products-body grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+    <div class="products px-4 sm:px-7 md:px-10 lg:px-12 xl:px-14">
+        <div class="products-body grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-7">
             @for(product of trends; track product.id) {
                 <app-product [product]="product"></app-product>
             }

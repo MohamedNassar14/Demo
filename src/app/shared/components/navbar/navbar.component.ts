@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { SwaggerService } from '../../services/swagger.service';
 import { Product } from '../../models/product';
 import { Category } from '../../models/category';
@@ -20,7 +20,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private swagger:SwaggerService, private cdRef: ChangeDetectorRef, private authService:AuthService) {}
+  constructor(private swagger:SwaggerService, private cdRef: ChangeDetectorRef, private authService:AuthService, private router: Router) {}
 
   activeCategoryId = 0; // Initial category ID (can be null or 0)
   cartNumber:number = 0;
@@ -246,5 +246,90 @@ logOut(){
   this.authService.signOut()
 }
 
+
+activeItem: any = null;
+dropdownCloseTimeout: any;
+
+menu = [
+  {
+    label: 'Furniture',
+    sections: [
+      {
+        title: 'Living Room',
+        links: [
+          { label: 'Sofas & Sectionals', route: '/furniture/sofas' },
+          { label: 'Coffee Tables', route: '/furniture/tables' }
+        ]
+      },
+      {
+        title: 'Dining Room',
+        links: [
+          { label: 'Dining Tables', route: '/dining/tables' },
+          { label: 'Bar Stools', route: '/dining/stools' }
+        ]
+      }
+    ]
+  },
+  {
+    label: 'Electronics',
+    sections: [
+      {
+        title: 'Mobile Phones',
+        links: [
+          { label: 'iPhone', route: '/electronics/iphone' },
+          { label: 'Samsung', route: '/electronics/samsung' }
+        ]
+      },
+      {
+        title: 'Laptops',
+        links: [
+          { label: 'MacBook', route: '/electronics/macbook' },
+          { label: 'Dell', route: '/electronics/dell' }
+        ]
+      }
+    ]
+  },
+  {
+    label: 'Books',
+    sections: [
+      {
+        title: 'Fiction',
+        links: [
+          { label: 'Harry Potter', route: '/books/harry-potter' },
+          { label: 'Lord of the Rings', route: '/books/lotr' }
+        ]
+      },
+      {
+        title: 'Non-Fiction',
+        links: [
+          { label: 'Sapiens', route: '/books/sapiens' },
+          { label: 'Educated', route: '/books/educated' }
+        ]
+      }
+    ]
+  }
+];
+
+openDropdown(item: any) {
+  clearTimeout(this.dropdownCloseTimeout); // نمنع الإغلاق لو حصل hover تاني
+  this.activeItem = item; // تعيين الـ item المختار ليظهر بياناته في الطبقة
+}
+
+scheduleDropdownClose() {
+  this.dropdownCloseTimeout = setTimeout(() => {
+    this.activeItem = null;
+  }, 500); // تأخير 500ms
+}
+
+cancelDropdownClose() {
+  clearTimeout(this.dropdownCloseTimeout); // إلغاء الإغلاق أثناء hover على الطبقة
+}
+
+navigate(route: string) {
+  this.router.navigate([route]);
+  this.activeItem = null; // عند الضغط على الرابط تختفي الطبقة
+}
+
+  
 }
 
