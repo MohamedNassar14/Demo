@@ -1,29 +1,15 @@
-header {
-    position: relative;
-    background-color: white;
-  }
-  
-  .main-nav {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .main-nav li {
-    padding: 10px 20px;
-    cursor: pointer;
-  }
+
   
   .dropdown {
     position: absolute;
+    width: 100%;
     top: 100%; /* اضبطها حسب ارتفاع النافبار */
     left: 0;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 9;
-    padding: 20px;
+    background: #f4f4f4;
+    padding: 25px 30px;
+    z-index: 20;
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 25px;
+    border-top: 1px solid #a6a6a6;
   }
-  

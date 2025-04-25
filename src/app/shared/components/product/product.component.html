@@ -1,5 +1,5 @@
 <a [routerLink]="['/product-details', product.id]">
-    <div class="product opacity-0 scale-95 transition-all duration-500  pb-5  group relative overflow-hidden">
+    <div class="product opacity-0 scale-95 transition-all duration-500  pb-5  group relative overflow-hidden border border-[#e8e8e8] rounded-lg">
       <figure class="product-image overflow-hidden  relative">
         <!-- Default image -->
         <img
@@ -17,14 +17,14 @@
         />
       </figure>
   
-      <div class="product-content pt-3 md:space-y-0.5">
+      <div class="product-content pt-1 md:space-y-1.5 px-2">
         <div class="product-title">
-          <h2 class="text-base sm:text-lg lg:text-xl font-semibold capitalize">
-            {{ product.name }}
+          <h2 class="text-base sm:text-lg lg:text-[17px] sm:leading-6 capitalize">
+             {{product.name}}
           </h2>
         </div>
         <div class="product-price flex justify-between items-center">
-          <p class="text-base sm:text-xl">EGP {{ product.price | number: '1.0-0' }}</p>
+          <p class="text-base sm:text-2xl font-[415]"> <span class="text-[15px]">EGP</span> {{ product.price | number: '1.0-0' }}</p>
           <!-- <p class="text-green-600 pt-1 sm:pt-0 px-1 xl:px-2 text-xs md:text-sm xl:text-sm bg-[#f0fbf3]">In Stock</p> -->
         </div>
       </div>

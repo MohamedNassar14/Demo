@@ -188,7 +188,20 @@ ngOnDestroy(): void {
   clearInterval(this.autoSlideInterval);
 }
 
-
+slides = [
+  {
+    imageUrl: 'assets/images/villa-house-1.webp',
+    alt: 'First slide'
+  },
+  {
+    imageUrl: 'assets/images/villa-house-2.webp',
+    alt: 'Second slide'
+  },
+  {
+    imageUrl: 'assets/images/villa-house-3.webp',
+    alt: 'Third slide'
+  }
+];
 
 
 }

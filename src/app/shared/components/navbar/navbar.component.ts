@@ -249,6 +249,7 @@ logOut(){
 
 activeItem: any = null;
 dropdownCloseTimeout: any;
+allProducts:any[] = [];
 
 menu = [
   {
@@ -313,6 +314,7 @@ menu = [
 openDropdown(item: any) {
   clearTimeout(this.dropdownCloseTimeout); // نمنع الإغلاق لو حصل hover تاني
   this.activeItem = item; // تعيين الـ item المختار ليظهر بياناته في الطبقة
+  this.getAllProducts(this.activeItem);
 }
 
 scheduleDropdownClose() {
@@ -330,6 +332,12 @@ navigate(route: string) {
   this.activeItem = null; // عند الضغط على الرابط تختفي الطبقة
 }
 
+
+getAllProducts(categoryName:string) {
+  this.swagger.getProducts().subscribe((res)=> {
+     this.allProducts = res.filter((product)=> product.catName == categoryName)
+  });
+}
   
 }
 

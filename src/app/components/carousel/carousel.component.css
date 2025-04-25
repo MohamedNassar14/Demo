@@ -1,0 +1,58 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  .slides-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    
+    .slide {
+      min-width: 100%;
+      position: relative;
+      display: none;
+      
+      &.active {
+        display: block;
+      }
+      
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      .slide-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
+      }
+    }
+  }
+  .indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+    
+    button {
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      padding: 0;
+      
+      &.active {
+        background: white;
+      }
+    }
+  }
+}

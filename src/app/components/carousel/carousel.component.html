@@ -1,4 +1,4 @@
-<div class="carousel relative">
+<!-- <div class="carousel relative">
   <owl-carousel-o #owlCar [options]="customOptions">
     <ng-container *ngFor="let slide of images">
       <ng-template carouselSlide>
@@ -29,4 +29,46 @@
 </div>
 
 
+ -->
 
+
+ <div class="carousel">
+  <div class="slides-container">
+    <div *ngFor="let slide of slides; let i = index" 
+         class="slide" 
+         [class.active]="i === currentSlide">
+      <img *ngIf="slide.imageUrl" [src]="slide.imageUrl" [alt]="slide.alt || ''">
+      <div *ngIf="slide.content" class="slide-content">
+        <ng-container *ngTemplateOutlet="slide.content"></ng-container>
+      </div>
+    </div>
+  </div>
+
+  <button
+  (click)="previous()"
+  class="absolute z-10 left-3 sm:left-5 top-1/2 sm:top-1/3 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-[#f4f4f4] text-gray-700 group hover:bg-mainColor transition duration-300 flex items-center justify-center shadow"
+  aria-label="Previous slide"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 md:w-5 md:h-5 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+  </svg>
+</button>
+
+<button
+(click)="next()"
+class="absolute z-10 right-3 sm:right-5 top-1/2 sm:top-1/3 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-[#f4f4f4] text-gray-700 group hover:bg-mainColor transition duration-300 flex items-center justify-center shadow"
+aria-label="Previous slide"
+>
+<svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 md:w-5 md:h-5 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+</svg>
+</button>
+
+  <div class="indicators">
+    <button *ngFor="let slide of slides; let i = index" 
+            (click)="goToSlide(i)"
+            [class.active]="i === currentSlide" class="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px]">
+    </button>
+  </div>
+
+</div>
