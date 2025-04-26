@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
-    margin: 30,
+    margin: 20,
     navSpeed: 600,
     autoplay: true, 
     autoplayTimeout: 3000,  
@@ -88,14 +88,45 @@ export class HomeComponent implements OnInit {
       0: {
         items: 2
       },
-      400: {
+      600: {
         items: 3
       },
       740: {
-        items: 3
+        items: 4
       },
       940: {
+        items: 5
+      },
+      1200: {
+        items: 6
+      }
+    },
+    nav: true
+  }
+  items: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: false,
+    margin: 20,
+    navSpeed: 600,
+    autoplay: true, 
+    autoplayTimeout: 3000,  
+    autoplayHoverPause: true,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 2
+      },
+      600: {
+        items: 3
+      },
+      740: {
         items: 4
+      },
+      940: {
+        items: 5
       },
       1200: {
         items: 5
@@ -132,6 +163,7 @@ onWindowScroll() {
     }
   });
 }
+
 
 
 
@@ -202,6 +234,9 @@ slides = [
     alt: 'Third slide'
   }
 ];
+
+
+
 
 
 }

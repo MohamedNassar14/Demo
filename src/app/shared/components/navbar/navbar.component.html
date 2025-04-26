@@ -195,35 +195,47 @@
         </div>
     </div>
 
- <div class="nav-container hidden md:block">
-    <ul class="main-nav flex flex-wrap space-x-8">
-        @for(room of rooms; track room.id) {
-            <li
-            (mouseenter)="openDropdown(room.name)"
-            (mouseleave)="scheduleDropdownClose()" class="capitalize pt-4 pb-4 lg:text-lg cursor-pointer">
-          {{ room.name | cutTitle}}
+
+
+
+
+  <div class="nav-container hidden md:block">
+    <ul class="main-nav flex flex-wrap justify-center space-x-8">
+      @for(room of rooms; track room.id) {
+        <li
+          (mouseenter)="openDropdown(room.name)"
+          (mouseleave)="scheduleDropdownClose()"
+          class="capitalize pt-4 pb-4 text-lg cursor-pointer">
+          {{ room.name | cutTitle }}
         </li>
-        }
+      }
     </ul>
   </div>
   
-  <div class="dropdown hidden md:flex"
-       *ngIf="activeItem"
-       (mouseenter)="cancelDropdownClose()"
-       (mouseleave)="scheduleDropdownClose()">
-       @for(product of allProducts; track product.id) {
-        <div class="">
-             <figure class="w-[180px] h-[120px]"> 
-                <img [src]="product.imgUrl" class="w-full rounded-2xl"/>
-             </figure>
-             <div class="title text-center text-lg">
-                <h2 class="capitalize">{{product.name}}</h2>
-             </div>
-        </div>
-       }
+  <div
+    class="absolute top-full left-0 w-full bg-white shadow-md border-t border-gray-300 p-5 z-20 flex flex-wrap gap-6"
+    *ngIf="activeItem"
+    (mouseenter)="cancelDropdownClose()"
+    (mouseleave)="scheduleDropdownClose()"
+  >
+    @for(product of allProducts; track product.id) {
+      <div class="flex flex-col items-center w-[140px] transition-transform duration-300 hover:-translate-y-1 cursor-pointer">
+        <figure class="w-[140px] h-[140px] overflow-hidden rounded-xl">
+          <img
+            [src]="product.imgUrl"
+            alt="product image"
+            class="w-full h-full object-cover"
+          />
+        </figure>
+        <h2 class="capitalize text-center mt-2 text-sm font-medium text-gray-700">
+          {{ product.name }}
+        </h2>
+      </div>
+    }
   </div>
   
-    <aside class="fixed top-0 bottom-0 w-full h-full z-50 duration-300 transition-all ease-in-out bg-white"
+  
+    <aside class="fixed top-0 bottom-0 w-full h-full z-50 duration-300 transition-all ease-in-out bg-white overflow-hidden"
         [ngClass]="{'right-0': isOpen, 'right-full': !isOpen}">
         <div class="header flex justify-between items-center p-6">
             <div class="logo">

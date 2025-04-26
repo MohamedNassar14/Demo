@@ -46,5 +46,13 @@
         "imgUrl": "https://cdn.pixabay.com/photo/2019/07/29/04/46/minimal-4369856_1280.jpg",
         "imgHover":"https://cdn.pixabay.com/photo/2023/12/31/15/42/living-room-8480223_1280.jpg",
         "catName": "chairs"
+    },
+    {
+        "id": 3,
+        "name": "Leather Chair",
+        "price": 15598,
+        "imgUrl": "https://cdn.pixabay.com/photo/2019/07/29/04/46/minimal-4369856_1280.jpg",
+        "imgHover":"https://cdn.pixabay.com/photo/2023/12/31/15/42/living-room-8480223_1280.jpg",
+        "catName": "chairs"
     }
 ]

@@ -2,4 +2,24 @@
 .perspective {
     perspective: 1000px;
   }
-  
+  .animate-fade-in-left {
+  opacity: 1 !important;
+  transform: translateX(0);
+  transition: all 0.8s ease-in-out;
+}
+
+.animate-fade-in-right {
+  opacity: 1 !important;
+  transform: translateX(0);
+  transition: all 0.8s ease-in-out;
+}
+
+/* الحركات الابتدائية */
+.text-side,
+.image-side {
+  opacity: 0;
+  transform: translateX(50px);
+}
+.text-side {
+  transform: translateX(-50px);
+}
