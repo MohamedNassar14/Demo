@@ -58,19 +58,18 @@ prevSlide() {
   this.owlCar.prev();
 }
 
+
 @Input() slides: any[] = [];
 @Input() autoSlide = false;
 @Input() slideInterval = 3000; // Default to 3 seconds
 
 currentSlide = 0;
 private intervalId: any;
-imageLoaded: boolean[] = [];
 
 ngOnInit() {
   if (this.autoSlide) {
     this.startAutoSlide();
   }
-  this.imageLoaded = new Array(this.slides.length).fill(false);
 }
 
 ngOnDestroy() {
@@ -106,10 +105,4 @@ resetAutoSlide() {
   }
   this.startAutoSlide();
 }
-
-onImageLoad(index: number) {
-  this.imageLoaded[index] = true;
-}
-
-
 }
