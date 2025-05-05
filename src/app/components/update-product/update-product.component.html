@@ -1,0 +1,155 @@
+<section>
+   <div class="title pb-6">
+      <h2 class="text-xl font-[510] text-gray-600">Update Product</h2>
+   </div>
+   <div class="product-data">
+      <form [formGroup]="updateNewProduct" (ngSubmit)="updateProduct()">
+         <div class="bg-white rounded-2xl shadow-4xl px-6 pb-8">
+            <p class="text-xl font-[510] text-gray-700 py-4">Update Product Information</p>
+            <div class="images-product flex gap-x-14 pb-4">
+               <div
+                  class="main-image w-1/2 h-44 relative border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-600 cursor-pointer overflow-hidden">
+                  <input type="file" formControlName="mainImageUrl" accept="image/*"
+                     class="h-full w-full opacity-0 absolute inset-0 cursor-pointer z-10"
+                     (change)="onMainImageChange($event)" />
+                  <img *ngIf="mainImagePreview" [src]="mainImagePreview" alt="Main Image Preview"
+                     class="absolute top-0 left-0 h-full w-full object-cover z-0 rounded-xl" />
+                  <div class="flex flex-col items-center justify-center pointer-events-none z-0">
+                     <div class="icon mb-3">
+                        <svg width="30px" height="30px" viewBox="0 0 24 24" version="1.1"
+                           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <title>Download</title>
+                           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <g id="Download">
+                                 <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24">
+
+                                 </rect>
+                                 <line x1="12" y1="10" x2="12" y2="19" id="Path" stroke="#db8c1a" stroke-width="2"
+                                    stroke-linecap="round">
+
+                                 </line>
+                                 <path
+                                    d="M15,18 L12.7071,20.2929 C12.3166,20.6834 11.6834,20.6834 11.2929,20.2929 L9,18"
+                                    id="Path" stroke="#db8c1a" stroke-width="2" stroke-linecap="round">
+
+                                 </path>
+                                 <path
+                                    d="M8,15 L6,15 C4.34315,15 3,13.6569 3,12 C3,10.3431 4.34315,9 6,9 C6,5.68629 8.68629,3 12,3 C15.3137,3 18,5.68629 18,9 C19.6569,9 21,10.3431 21,12 C21,13.6569 19.6569,15 18,15 L16,15"
+                                    id="Path" stroke="#db8c1a" stroke-width="2" stroke-linecap="round">
+
+                                 </path>
+                              </g>
+                           </g>
+                        </svg>
+                     </div>
+                     <p class="text-xl font-[540] mb-2 text-gray-900">Click here to browse</p>
+                     <p class="text-gray-400 text-center px-4">530 x 530 recommended, PNG, JPG and GIF files are allowed
+                     </p>
+                  </div>
+               </div>
+               <div
+                  class="brand-image w-1/2 h-44 relative border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-600 cursor-pointer overflow-hidden">
+                  <input type="file" formControlName="brandImageUrl" accept="image/*"
+                     class="h-full w-full opacity-0 absolute inset-0 cursor-pointer z-10"
+                     (change)="onBrandImageChange($event)" />
+                  <img *ngIf="brandImagePreview" [src]="brandImagePreview" alt="Brand Image Preview"
+                     class="absolute top-0 left-0 h-full w-full object-cover z-0 rounded-xl" />
+                  <div class="flex flex-col items-center justify-center pointer-events-none z-0">
+                     <div class="icon mb-3">
+                        <svg width="30px" height="30px" viewBox="0 0 24 24" version="1.1"
+                           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <title>Download</title>
+                           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <g id="Download">
+                                 <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24">
+
+                                 </rect>
+                                 <line x1="12" y1="10" x2="12" y2="19" id="Path" stroke="#db8c1a" stroke-width="2"
+                                    stroke-linecap="round">
+
+                                 </line>
+                                 <path
+                                    d="M15,18 L12.7071,20.2929 C12.3166,20.6834 11.6834,20.6834 11.2929,20.2929 L9,18"
+                                    id="Path" stroke="#db8c1a" stroke-width="2" stroke-linecap="round">
+
+                                 </path>
+                                 <path
+                                    d="M8,15 L6,15 C4.34315,15 3,13.6569 3,12 C3,10.3431 4.34315,9 6,9 C6,5.68629 8.68629,3 12,3 C15.3137,3 18,5.68629 18,9 C19.6569,9 21,10.3431 21,12 C21,13.6569 19.6569,15 18,15 L16,15"
+                                    id="Path" stroke="#db8c1a" stroke-width="2" stroke-linecap="round">
+
+                                 </path>
+                              </g>
+                           </g>
+                        </svg>
+                     </div>
+                     <p class="text-xl font-[540] mb-2 text-gray-900">Click here to browse</p>
+                     <p class="text-gray-400 text-center px-4">530 x 530 recommended, PNG, JPG and GIF files are allowed
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="info grid grid-cols-3 gap-x-8 gap-y-4 mt-4">
+               <div class="name">
+                  <input type="text" formControlName="name" placeholder="Product Name"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="price">
+                  <input type="text" formControlName="price" placeholder="Product Price"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="stockQuantity">
+                  <input type="text" formControlName="stockQuantity" placeholder="Product Stock Quantity"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="brandUrl">
+                  <input type="text" formControlName="brandUrl" placeholder="Brand Url"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="generalNotes">
+                  <input type="text" formControlName="generalNotes" placeholder="General Notes"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="designNotes">
+                  <input type="text" formControlName="designNotes" placeholder="Design Notes"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="businessCode">
+                  <input type="text" formControlName="businessCode" placeholder="Business Code"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="kind">
+                  <input type="text" formControlName="kind" placeholder="Product kind"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="width">
+                  <input type="text" formControlName="sizes_W" placeholder="width"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="height">
+                  <input type="text" formControlName="sizes_H" placeholder="height"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="depth">
+                  <input type="text" formControlName="sizes_L" placeholder="Depth"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="subCategoryId">
+                  <input type="text" formControlName="subCategoryId" placeholder="Sub Category Id"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="rawMaterials">
+                  <input type="text" formControlName="rawMaterials" placeholder="Raw Materials"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+               <div class="lastEdit">
+                  <input type="text" formControlName="lastEdit" placeholder="last Edit"
+                     class="w-full px-3 py-2 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none" />
+               </div>
+            </div>
+            <textarea formControlName="description" placeholder="Description for product"
+               class="w-full px-3 py-2 mt-4 rounded-lg text-textColor border border-gray-300 placeholder:text-gray-400 focus:border-textColor focus:outline-none"></textarea>
+         </div>
+         <button type="submit" class="px-3 py-2 bg-red-700 text-white rounded-xl mt-4"> Update </button>
+      </form>
+   </div>
+</section>
