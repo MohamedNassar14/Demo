@@ -189,7 +189,7 @@ ngAfterViewInit(): void {
 
 
 images: string[] = [
-  'assets/images/slide1.webp',
+  'assets/images/nn.jpg',
   'assets/images/slide2.webp',
   'assets/images/slide3.jpg'
 ];
@@ -222,11 +222,11 @@ ngOnDestroy(): void {
 
 slides = [
   {
-    imageUrl: 'assets/images/villa-house-1.webp',
+    imageUrl: 'assets/images/nn.jpg',
     alt: 'First slide'
   },
   {
-    imageUrl: 'assets/images/villa-house-2.webp',
+    imageUrl: 'assets/images/bb.jpg',
     alt: 'Second slide'
   },
   {

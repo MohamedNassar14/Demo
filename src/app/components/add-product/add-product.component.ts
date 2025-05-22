@@ -115,7 +115,6 @@ onOtherImageSelected(event: any, index: number) {
     
     const formData = new FormData();
 
-    // بيانات عادية
     formData.append('name', this.addNewProduct.get('name')?.value);
     formData.append('price', this.addNewProduct.get('price')?.value);
     formData.append('stockQuantity', this.addNewProduct.get('stockQuantity')?.value);

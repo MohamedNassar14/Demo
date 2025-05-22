@@ -15,11 +15,7 @@ import { CommonModule } from '@angular/common';
 export class CarouselComponent implements OnInit, OnDestroy {
 
 
-  images: string[] = [
-    'assets/images/villa-house-1.webp',
-    'assets/images/villa-house-2.webp',
-    'assets/images/villa-house-3.webp'
-  ];
+
 
   customOptions: OwlOptions = {
     loop: true,
